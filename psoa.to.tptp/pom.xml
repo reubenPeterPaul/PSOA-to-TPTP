@@ -24,6 +24,11 @@
 			<organization>CS6795 Group 2</organization>
 		</developer>
 	</developers>
+	<scm>
+		<connection>scm:svn:http://psoa-to-tptp.googlecode.com/svn/</connection>
+		<developerConnection>scm:svn:https://psoa-to-tptp.googlecode.com/svn/</developerConnection>
+		<url>https://psoa-to-tptp.googlecode.com/svn/</url>
+	</scm>
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
@@ -80,11 +85,25 @@
 	</build>
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.antlr</groupId>
 			<artifactId>antlr-runtime</artifactId>
 			<version>3.4</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>gnu.getopt</groupId>
+			<artifactId>java-getopt</artifactId>
+			<version>1.0.13</version>
+		</dependency>
 	</dependencies>
+	<properties>
+		<main>org.ruleml.Validator</main>
+	</properties>
 </project>

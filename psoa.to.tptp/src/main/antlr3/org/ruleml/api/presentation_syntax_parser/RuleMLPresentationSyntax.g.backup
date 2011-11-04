@@ -1,0 +1,710 @@
+/* This is a grammar file for PSOA RuleML. Use ANTLR 2.7.x to generate 
+ * the parser code.
+ */
+
+
+grammar RuleMLPresentationSyntax;
+
+// options
+// {
+//     //backtrack=true; 
+//     // Potential performance problem! 
+//     // See http://www.antlr.org/wiki/display/ANTLR3/How+to+remove+global+backtracking+from+your+grammar
+// }
+
+@header
+{
+package org.ruleml.api.presentation_syntax_parser;
+
+import org.ruleml.api.*;
+
+import java.util.LinkedList;
+
+}
+
+
+
+top_level_item [AbstractSyntax factory]
+returns [AbstractSyntax.Document result = null]
+    : doc=document[factory]
+        {
+            $result = doc;
+        }
+    | EOF 
+        {
+        }
+    ;
+
+
+base [AbstractSyntax factory]
+returns [AbstractSyntax.Base result]
+    :
+        BASE LPAR iri=IRI_REF RPAR
+        {
+            // later we should check if iri parses as an IRI
+            $result = factory.createBase($iri.getText());           
+        }     
+    ;
+
+
+
+prefixes [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Prefix> result]
+@init{
+    AbstractSyntax.Prefix prefix;
+}
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Prefix>(); }
+    |
+        prefix[factory]
+        prefs=prefixes[factory]
+        {
+            $result = prefs;
+            ((LinkedList<AbstractSyntax.Prefix>)$result).addFirst(prefix);
+        }
+    ;   
+
+
+prefix [AbstractSyntax factory]
+returns [AbstractSyntax.Prefix result]
+    :
+        PREFIX LPAR name=ID iri=IRI_REF RPAR
+        {
+            // later we should check if iri parses as an IRI
+            // and name parses as a prefix
+            AbstractSyntax.Name nameObj= factory.createName($name.getText());
+            $result = factory.createPrefix(nameObj,$iri.getText());           
+        }     
+    ;
+
+
+
+
+imports  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Import> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Import>(); }
+    |
+        imp=importDecl[factory]
+        imps=imports[factory]
+        {
+            $result = imps;
+            ((LinkedList<AbstractSyntax.Import>)$result).addFirst(imp);
+        }
+    ;   
+
+
+
+
+importDecl [AbstractSyntax factory]
+returns [AbstractSyntax.Import result]
+    :
+        IMPORT LPAR iri=IRI_REF (profile=IRI_REF)? RPAR
+            {
+                // later we should check if iri and profile can be parsed as IRIs
+                
+                AbstractSyntax.Profile profileObj =
+                    (profile != null)?
+                    factory.createProfile($profile.getText())
+                    :
+                    null;
+                $result = factory.createImport($iri.getText(),profileObj);           
+            } 
+        
+    ;
+
+
+
+document  [AbstractSyntax factory]
+returns [AbstractSyntax.Document result]
+    : 
+        DOCUMENT 
+        LPAR
+        (bs=base[factory])?
+        prefs=prefixes[factory]
+        imps=imports[factory]
+        (gr=group[factory])?
+        RPAR
+        {
+            $result = 
+            factory.createDocument(bs,
+                                   prefs,
+                                   imps,
+                                   gr);
+        } 
+    ;
+
+
+
+group [AbstractSyntax factory]
+returns [AbstractSyntax.Group result]
+    :
+        GROUP 
+        LPAR 
+        elements=group_elements[factory]
+        RPAR
+        {
+            $result = factory.createGroup(elements);           
+        }
+    ;
+
+
+
+group_elements  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.GroupElement> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.GroupElement>(); }
+    |
+        el=group_element[factory]
+        els=group_elements[factory]
+        {
+            $result = els;
+            ((LinkedList<AbstractSyntax.GroupElement>)$result).addFirst(el);
+        }
+    ;   
+
+
+
+group_element [AbstractSyntax factory]
+returns [AbstractSyntax.GroupElement result]
+    :
+        r=rule[factory]
+        {
+            $result = r;
+        }
+    |
+        g=group[factory]
+        {
+            $result = g;
+        }
+    ;
+
+rule [AbstractSyntax factory]
+returns [AbstractSyntax.Rule result]
+    :
+        FORALL 
+        vs=nonempty_vars[factory]
+        LPAR
+        matrix=clause[factory]
+        RPAR
+        {
+            $result = factory.createRule(vs,matrix);
+        }  
+    |
+        matrix=clause[factory]
+        {
+            $result = factory.createRule(null,matrix);
+        }
+    ;
+
+
+
+
+nonempty_vars  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Var> result]
+    :
+        v=var[factory]
+        vs=vars[factory]
+        {
+            $result = vs;
+            ((LinkedList<AbstractSyntax.Var>)$result).addFirst(v);
+        }
+    ;   
+
+
+vars  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Var> result]
+    :  v=var[factory]
+       vs=vars[factory]
+        {
+            $result = vs;
+            ((LinkedList<AbstractSyntax.Var>)$result).addFirst(v);
+        }
+    | /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Var>(); }
+    ;   
+
+
+var [AbstractSyntax factory]
+returns [AbstractSyntax.Var result]
+    : name=VAR_ID 
+        {
+            if ($name.getText().equals("?"))
+                {
+                    $result = factory.createVar(null);
+                }
+            else 
+                $result = factory.createVar($name.getText());
+        }
+    ;  
+
+
+
+clause [AbstractSyntax factory]
+returns [AbstractSyntax.Clause result]
+    :
+       (implies[factory]) => imp=implies[factory]
+        {
+            $result = factory.createClause(imp);
+        }
+    |
+        at=atomic[factory]
+        {
+            $result = factory.createClause(at);
+        }
+    ;
+
+
+implies [AbstractSyntax factory]
+returns [AbstractSyntax.Implies result] 
+    :
+        hd=head_conjunction[factory]
+        IMPLICATION
+        cond=formula[factory]
+        {
+            $result = factory.createImplies(hd,cond);
+        }
+    ;
+
+
+head_conjunction  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Head> result]
+    :
+        hd=head[factory]
+        {
+            $result = new LinkedList<AbstractSyntax.Head>();
+            ((LinkedList<AbstractSyntax.Head>)$result).addFirst(hd);
+        }
+    |
+        AND
+        LPAR
+        hds=heads[factory]
+        RPAR
+        {
+          $result = hds;
+        }                  
+         
+    ;
+
+
+
+heads  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Head> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Head>(); }
+    |
+        hd=head[factory]
+        hds=heads[factory]
+        {
+            $result = hds;
+            ((LinkedList<AbstractSyntax.Head>)$result).addFirst(hd);
+        }
+    ;   
+
+
+
+head [AbstractSyntax factory]
+returns [AbstractSyntax.Head result]
+    :
+        EXISTS 
+        vs=nonempty_vars[factory]
+        LPAR
+        at=atomic[factory]
+        RPAR
+        {
+            $result = factory.createHead(vs,at);
+        }     
+    |
+        at=atomic[factory]
+        {
+            $result = factory.createHead(null,at);
+        }
+    ;
+
+
+
+atomic [AbstractSyntax factory]
+returns [AbstractSyntax.Atomic result]
+    :
+        (equal[factory]) => eq=equal[factory]
+        {
+          $result = eq;
+        }
+    |
+        (subclass[factory]) => sbc=subclass[factory]
+        {
+            $result = sbc;
+        }
+    |
+        at=atom[factory]
+        {
+            $result = at;
+        }
+    ;
+
+
+atom [AbstractSyntax factory]
+returns [AbstractSyntax.Atom result]
+    :
+        exp=psoa[factory]
+        {
+            $result = factory.createAtom(exp);
+        }
+
+    ;
+
+
+
+
+equal [AbstractSyntax factory]
+returns [AbstractSyntax.Equal result]
+    :
+      lhs = closed_term[factory]
+      EQUAL   
+      rhs = closed_term[factory]
+        {
+            $result = factory.createEqual(lhs,rhs);
+        }  
+    ;  
+
+
+
+
+
+subclass [AbstractSyntax factory]
+returns [AbstractSyntax.Subclass result]
+    :
+      lhs = closed_term[factory]
+      SUBCLASS     
+      rhs = closed_term[factory]
+        {
+            $result = factory.createSubclass(lhs,rhs);
+        }   
+    ;  
+
+
+
+
+
+tuples  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Tuple> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Tuple>(); }
+    |
+        tp=tuple[factory]
+        tps=tuples[factory]
+        {
+            $result = tps;
+            ((LinkedList<AbstractSyntax.Tuple>)$result).addFirst(tp);
+        }
+    ;   
+
+
+
+tuple  [AbstractSyntax factory]
+returns [AbstractSyntax.Tuple result]
+    : 
+        LSQBR 
+        ts=terms[factory]
+        RSQBR
+        {
+            $result = factory.createTuple(ts);
+        }  
+    ;  
+
+
+
+slots  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Slot> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Slot>(); }
+    |
+        sl=slot[factory]
+        sls=slots[factory]
+        {
+            $result = sls;
+            ((LinkedList<AbstractSyntax.Slot>)$result).addFirst(sl);
+        }
+    ;   
+
+
+
+slot [AbstractSyntax factory]
+returns [AbstractSyntax.Slot result]
+    :
+      name = term[factory]
+      SLOT_ARROW     
+      value = term[factory]
+        {
+            $result = factory.createSlot(name,value);
+        }   
+    ;  
+
+
+
+closed_term [AbstractSyntax factory]
+returns [AbstractSyntax.Term result]
+    :
+       c=constant[factory]
+        {
+            $result = c;
+        }
+    |
+        v=var[factory]
+        {
+            $result = v;
+        }
+    |
+        LPAR t=term[factory] RPAR
+        {
+            $result = t;
+        }
+/*
+    |
+        external[factory]
+        {
+          $result = external;
+        }
+*/
+    ;
+
+term [AbstractSyntax factory]
+returns [AbstractSyntax.Term result]
+    :
+        (psoa[factory]) => exp=psoa[factory]
+        {
+            $result = exp;
+        }
+    |
+       ct=closed_term[factory]
+        {
+            $result  = ct;
+        }
+    ;
+
+
+psoa [AbstractSyntax factory]
+returns [AbstractSyntax.Psoa result]
+    :
+        object = closed_term[factory]
+        (INSTANCE classTerm = closed_term[factory])?
+        LPAR
+        tps=tuples[factory]
+        sls=slots[factory]
+        RPAR
+        {
+            $result = factory.createPsoa(object,
+                                        classTerm,
+                                        tps,
+                                        sls);
+        }    
+    ;  
+
+
+constant [AbstractSyntax factory]
+returns [AbstractSyntax.Const result]
+    :
+        lit=const_literal[factory]
+        {
+          $result = lit;
+        }
+    |
+        cs=const_constshort[factory]
+        {
+          $result = cs;
+        }
+    ;
+
+
+
+const_literal [AbstractSyntax factory]
+returns [AbstractSyntax.Const_Literal result]
+    :
+        content=STRING 
+        SYMSPACE_OPER
+        ssp=symspace[factory]
+        {
+            $result = factory.createConst_Literal(content.getText(),
+                                                 ssp);
+        }
+    ;
+    
+const_constshort  [AbstractSyntax factory]
+returns [AbstractSyntax.Const_Constshort result]
+    :
+        name=ID // temporary, has to be refined
+        {
+            $result = factory.createConst_Constshort($name.getText());
+        }
+    ;
+
+
+
+
+terms  [AbstractSyntax factory]
+returns [Iterable<AbstractSyntax.Term> result]
+    : /* empty */
+        { $result =  new LinkedList<AbstractSyntax.Term>(); }
+    |
+        t=term[factory]
+        ts=terms[factory]
+        {
+            $result = ts;
+            ((LinkedList<AbstractSyntax.Term>)$result).addFirst(t);
+        }
+    ;   
+
+
+symspace [AbstractSyntax factory]
+returns [AbstractSyntax.Symspace result]
+   : iri=IRI_REF
+        {
+            $result = factory.createSymspace($iri.getText());
+        }
+    | curie=ID
+        {
+            $result = factory.createSymspace($curie.getText());
+        } 
+    ;
+ 
+ 
+
+
+formula [AbstractSyntax factory]
+returns [AbstractSyntax.Formula result]
+    : ID { $result = null;  }
+    ;
+        
+//--------------------- LEXER: -----------------------
+            
+
+
+
+
+//   Comments and whitespace:
+
+
+
+WHITESPACE  :  (' '|'\t''\n'|'\r')+ {skip();} ;
+
+MULTI_LINE_COMMENT :  '<!--' (options {greedy=false;} : .* ) '-->' {$channel=HIDDEN; } ;
+
+
+// Keywords:
+
+
+DOCUMENT : 'Document' ; 
+
+BASE : 'Base' ; 
+
+IMPORT : 'Import' ; 
+
+PREFIX : 'Prefix' ; 
+
+GROUP : 'Group' ; 
+
+FORALL : 'Forall' ; 
+
+EXISTS : 'Exists' ; 
+
+AND : 'And' ; 
+
+
+
+//   Identifiers:
+
+IRI_REF : '<' IRI_START_CHAR (IRI_CHAR)+ '>' ;
+
+
+ID : ID_START_CHAR (ID_CHAR)* ; 
+
+VAR_ID : '?' (ID_CHAR)* ; 
+
+//   Constants:
+
+STRING : '"' (options {greedy=false;} : ~('"' | '\\' | EOL) | ECHAR)* '"';
+
+
+//   Operators:
+IMPLICATION : ':-';
+EQUAL : '=';
+SUBCLASS : '##';
+INSTANCE : '#';
+SLOT_ARROW : '->';
+SYMSPACE_OPER : '^^';
+
+
+//   Punctuation:
+LPAR : '(' ;
+RPAR : ')' ;
+LESS : '<' ;
+GREATER : '>' ;
+LSQBR : '[' ;
+RSQBR : ']' ;
+//QUESTION_MARK : '?' ;
+
+
+
+
+
+//  Basics
+
+fragment ALPHA : 'a'..'z' | 'A'..'Z' ;
+
+fragment DIGIT : '0'..'9' ;
+
+
+fragment IRI_CHAR : ALPHA | DIGIT | '+' | '-' | '.' | '@' | ':' | '_' | '~' | '%' | '!' |  '$' | '&' | '\'' | '(' | ')' | '*' | ',' | ';' | '=' | '?' | '#' | '/';
+// Currently, these are only URI characters. The set has to be extended
+// to include all IRI characters.
+
+
+fragment IRI_START_CHAR : ALPHA ;
+
+
+fragment ID_CHAR
+    : ALPHA
+    | '\u00C0'..'\u00D6'
+    | '\u00D8'..'\u00F6'
+    | '\u00F8'..'\u02FF'
+    | '\u0370'..'\u037D'
+    | '\u037F'..'\u1FFF'
+    | '\u200C'..'\u200D'
+    | '\u2070'..'\u218F'
+    | '\u2C00'..'\u2FEF'
+    | '\u3001'..'\uD7FF'
+    | '\uF900'..'\uFDCF'
+    | '\uFDF0'..'\uFFFD'
+    | DIGIT
+    | '_'
+    | '-'
+    | '\u00B7'           // as in the SPARQL 1.1 grammar
+    | '\u203F'..'\u2040' // as in the SPARQL 1.1 grammar
+    | ':'
+    | '.' 
+    ;
+
+
+
+fragment ID_START_CHAR 
+    : ALPHA
+    | '\u00C0'..'\u00D6'
+    | '\u00D8'..'\u00F6'
+    | '\u00F8'..'\u02FF'
+    | '\u0370'..'\u037D'
+    | '\u037F'..'\u1FFF'
+    | '\u200C'..'\u200D'
+    | '\u2070'..'\u218F'
+    | '\u2C00'..'\u2FEF'
+    | '\u3001'..'\uD7FF'
+    | '\uF900'..'\uFDCF'
+    | '\uFDF0'..'\uFFFD'
+    | DIGIT
+    | '_'
+    ;
+
+fragment ECHAR : '\\' ('t' | 'b' | 'n' | 'r' | 'f' | '\\' | '"' | '\'');
+
+fragment EOL : '\n' | '\r';
+
+
