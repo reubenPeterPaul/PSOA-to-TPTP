@@ -1,149 +1,136 @@
-
 package org.ruleml;
 
-
-import java.io.*;
-
-import java.util.*;
-
+import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
-import gnu.getopt.Getopt;    
 
-import org.ruleml.api.presentation_syntax_parser.*;
-import org.ruleml.api.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
 
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
-
+import org.antlr.runtime.ANTLRReaderStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.ruleml.api.AbstractSyntax;
+import org.ruleml.api.DefaultAbstractSyntax;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationASTGrammar;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxLexer;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxParser;
 
 /** Command line utility to validate the syntax of PSOA RuleML files. */
 public class Validator {
 
+	public static void main(String[] args) {
+		boolean importClosure = false;
+		String[] ruleBaseFileNames = null;
 
-    public static void main(String[] args) 
-    {
-	boolean importClosure = false;
-	String[] ruleBaseFileNames = null;
+		LongOpt[] longOpts = new LongOpt[256];
 
-	
-	LongOpt[] longOpts = new LongOpt[256];
-	
-	// Reserved short option names: i ?
-    	longOpts[0] = new LongOpt("help", LongOpt.NO_ARGUMENT, null, '?');
-	longOpts[1] = new LongOpt("import_closure", LongOpt.NO_ARGUMENT, null, 'i');
+		// Reserved short option names: i ?
+		longOpts[0] = new LongOpt("help", LongOpt.NO_ARGUMENT, null, '?');
+		longOpts[1] = new LongOpt("import_closure", LongOpt.NO_ARGUMENT, null,
+				'i');
 
-	Getopt optionsParse = new Getopt("", args, "?i", longOpts);
-	
-	for (int opt = optionsParse.getopt();
-	     opt != -1;
-	     opt = optionsParse.getopt())
-	    {
-		switch (opt)
-		    {
-		    case '?': 
+		Getopt optionsParse = new Getopt("", args, "?i", longOpts);
+
+		for (int opt = optionsParse.getopt(); opt != -1; opt = optionsParse
+				.getopt()) {
+			switch (opt) {
+			case '?':
+				printUsage();
+				System.exit(1);
+
+			case 'i':
+				importClosure = true;
+				break;
+
+			default:
+				assert false;
+
+			}
+			; // switch (opt)
+
+		}
+		; // for (int nextOpt = optionsParse.getopt();
+
+		int optInd = optionsParse.getOptind();
+
+		if (args.length > optInd) {
+			ruleBaseFileNames = new String[args.length - optInd];
+			for (int i = optInd; i < args.length; ++i)
+				ruleBaseFileNames[i - optInd] = args[i];
+		} else {
+			System.out.println("No rule base file specified.");
 			printUsage();
 			System.exit(1);
+		}
+		;
 
-		    case 'i':
-			importClosure = true;
-			break;
+		try {
+			DefaultAbstractSyntax absSynFactory = new DefaultAbstractSyntax();
 
-		    default:
-			assert false;
+			for (int i = 0; i < ruleBaseFileNames.length; ++i) {
+				System.err.println("\n\n% Processing rule base "
+						+ ruleBaseFileNames[i]);
+				File ruleBaseFile = new File(ruleBaseFileNames[i]);
 
-		    }; // switch (opt)
+				Reader reader = new FileReader(ruleBaseFile);
 
+				ANTLRReaderStream stream = new ANTLRReaderStream(reader);
 
-	    }; // for (int nextOpt = optionsParse.getopt();
-	
-	int optInd = optionsParse.getOptind();
+				RuleMLPresentationSyntaxLexer lexer = new RuleMLPresentationSyntaxLexer(
+						stream);
 
-	if (args.length > optInd)
-	    {
-		ruleBaseFileNames = new String[args.length - optInd];
-		for (int i = optInd; i < args.length; ++i)
-		    ruleBaseFileNames[i - optInd] = args[i];
-	    }
-	else
-	    {
-		System.out.println("No rule base file specified.");
-		printUsage();
-		System.exit(1);
-	    };
-	
-	try 
-	    {	
-		DefaultAbstractSyntax absSynFactory = 
-		    new DefaultAbstractSyntax();
+				CommonTokenStream tokenStream = new CommonTokenStream(lexer);
 
-	       
-		for (int i = 0; i < ruleBaseFileNames.length; ++i)
-		    {
-			System.err.println("\n\n% Processing rule base " + ruleBaseFileNames[i]);
-			File ruleBaseFile = new File(ruleBaseFileNames[i]);
-			
-			Reader reader = new FileReader(ruleBaseFile);
+				RuleMLPresentationSyntaxParser parser = new RuleMLPresentationSyntaxParser(
+						tokenStream);
 
-			ANTLRReaderStream stream = 
-			    new ANTLRReaderStream(reader);
+				// AbstractSyntax.Document doc =
+				// parser.parse(ruleBaseFile,absSynFactory);
 
-			RuleMLPresentationSyntaxLexer lexer = 
-			    new RuleMLPresentationSyntaxLexer(stream);
+				RuleMLPresentationSyntaxParser.top_level_item_return kb = parser
+						.top_level_item();
 
-			CommonTokenStream tokenStream = 
-			    new CommonTokenStream(lexer);
+				reader.close();
 
-			RuleMLPresentationSyntaxParser parser = 
-			    new RuleMLPresentationSyntaxParser(tokenStream);
+				CommonTree ast = (CommonTree) kb.getTree();
 
-// 			AbstractSyntax.Document doc = 
-// 			    parser.parse(ruleBaseFile,absSynFactory);
-			
-			 RuleMLPresentationSyntaxParser.top_level_item_return kb = 
-			    parser.top_level_item();
+				RuleMLPresentationASTGrammar treeParser = new RuleMLPresentationASTGrammar(
+						new CommonTreeNodeStream(ast));
 
-			reader.close();
-			
-			CommonTree ast = (CommonTree)kb.getTree();
+				AbstractSyntax.Document doc = treeParser
+						.document(absSynFactory);
 
-			RuleMLPresentationASTGrammar treeParser = 
-			    new RuleMLPresentationASTGrammar(new CommonTreeNodeStream(ast));
-			
-			AbstractSyntax.Document doc = 
-			    treeParser.document(absSynFactory);
+				System.out.println("AST: " + ast);
+				for (Object child : ast.getChildren())
+					System.out.println("CHILD: " + child);
 
-			System.out.println("AST: " + ast);
-			for (Object child : ast.getChildren())
-			    System.out.println("CHILD: " + child);
-			
-			//System.out.println(doc.toStringInPresSyntax("   "));
-			
+				// System.out.println(doc.toStringInPresSyntax("   "));
 
-			System.err.println("% End of rule base " + ruleBaseFileNames[i]);
+				System.err
+						.println("% End of rule base " + ruleBaseFileNames[i]);
 
-		    }; // for (int i = 0; i < ruleBaseFileNames.length; ++i)
+			}
+			; // for (int i = 0; i < ruleBaseFileNames.length; ++i)
 
-	    }
-	catch (Exception ex)
-	    {
-		System.out.println("Error: " + ex);
-		ex.printStackTrace();
-		System.exit(1);
-	    };
+		} catch (Exception ex) {
+			System.out.println("Error: " + ex);
+			ex.printStackTrace();
+			System.exit(1);
+		}
+		;
 
+	} // main(String[] args)
 
+	private static void printUsage() {
 
-    } // main(String[] args)
-
-
-    private static void printUsage() {
-
-	System.out.println("Usage: org.ruleml.Validator [OPTIONS] <rule base file>+");
-	System.out.println("Options:");
-	System.out.println("\t--help -? \n\t\t Print this message.");
-	System.out.println("\t--import_closure -i \n\t\tProcess the whole import closures of the rule bases.");
-    } // printUsage() 
-
-
+		System.out
+				.println("Usage: org.ruleml.Validator [OPTIONS] <rule base file>+");
+		System.out.println("Options:");
+		System.out.println("\t--help -? \n\t\t Print this message.");
+		System.out
+				.println("\t--import_closure -i \n\t\tProcess the whole import closures of the rule bases.");
+	} // printUsage()
 
 } // class Validator
