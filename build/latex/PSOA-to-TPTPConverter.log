@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.5)  7 NOV 2011 11:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.5)  7 NOV 2011 11:59
 entering extended mode
  %&-line parsing enabled.
 **PSOA-to-TPTPConverter.tex
@@ -875,38 +875,37 @@ s been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.112 \tableofcontents
-                       [2] [1
-
-] [2
-
-]
+                       [2]
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 119.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 117.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 158.
-[3]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 246.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 156.
+[1
+
+
+]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 244.
  (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [4] [5] [6
+) [2] [3] [4
 
 ]
 Chapter 2.
-[7] [8
+[5] [6
 
 ]
-Underfull \hbox (badness 8056) in paragraph at lines 268--270
+Underfull \hbox (badness 8056) in paragraph at lines 266--268
 []\T1/ptm/m/n/10 Boley H., POSL: An In-te-grated Positional-Slotted Lan-guage f
 or Se-man-tic Web Knowl-edge,
  []
 
-(./PSOA-to-TPTPConverter.ind) [9
+(./PSOA-to-TPTPConverter.ind) [7
 
 ] (./PSOA-to-TPTPConverter.aux) ) 
 Here is how much of TeX's memory you used:
- 7951 strings out of 493848
- 107613 string characters out of 1152823
+ 7949 strings out of 493848
+ 107601 string characters out of 1152823
  191687 words of memory out of 3000000
  10986 multiletter control sequences out of 15000+50000
  65181 words of font info for 74 fonts, out of 3000000 for 9000
@@ -918,9 +917,9 @@ e/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/f
 onts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PSOA-to-TPTPConverter.pdf (13 pages, 99791 bytes).
+Output written on PSOA-to-TPTPConverter.pdf (11 pages, 97304 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
+ 170 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

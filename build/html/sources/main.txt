@@ -6,8 +6,6 @@
 Welcome to PSOA-to-TPTP Converter's documentation!
 ==================================================
 
-Contents:
-
 .. toctree::
   :maxdepth: 0
 
