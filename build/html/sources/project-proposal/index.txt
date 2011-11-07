@@ -3,10 +3,10 @@ Proposal for PSOA-to-TPTP Converter
 
 Introduction
 -----------------
-Rule Language is a main typr of formal languages for knowledge representation in
-semntic web technologies.  PSOA-RuleML [PSOA11]_ is a rule language which
-generalizes POSL [BoleyPSOA]_, F-Logic and W3C's RIF-BLD languages
-[BoleyKifera]_, [BoleyKiferb]_.  IN PSOA-RuleML, the positional-slotted,
+Rule Language is a main type of formal languages for knowledge representation in
+semntic web technologies.  PSOA-RuleML [Bol11a]_ is a rule language which
+generalizes POSL [Bol04]_, F-Logic and W3C's RIF-BLD languages
+[BoKi10a]_, [BoKi10b]_.  IN PSOA-RuleML, the positional-slotted,
 object-applicative (PSOA) term is introduced as a generalization of the frame
 term and the class membership term in RIF-BLD, as well as the positional-slotted
 term in POSL language.  The planned two-part implementation of PSOA-RuleML is
@@ -23,7 +23,7 @@ of the project is as follows:
 
   1. Develop a converter to translate PSOA-RuleML rule language documents into TPTP
   format documents.  The input of the converter is a document conforming to
-  PSOA-RuleML presentation syntax shown in [BoleyRif]_.  The output of the
+  PSOA-RuleML presentation syntax shown in [Bol11a]_.  The output of the
   converter is a TPTP-FOF format document.
 
   2. Create some test examples in PSOA-RuleML syntax and their corresponding TPTP
@@ -48,7 +48,7 @@ more less known Parsing Expression Grammar [#f4]_.
 Compiler-compilers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-According to [WpCC]_, a **compiler-compiler** or **compiler generator** is a
+According to [Wp11]_, a **compiler-compiler** or **compiler generator** is a
 tool that creates a parser (and lexer), an interpreter/compiler from som form of
 formal description of a language and machine.  The most prevalent form of
 compiler-compiler is a **parser-generator** whose input is a grammar (like those
@@ -56,7 +56,7 @@ mentioned above) of a programming language and whose output is a collection of
 source code for a parser (and lexer) often used as an initial (partial) set of components
 for a compiler.
 
-[WpCC]_ also mentions an open problem, that is the "holy grail" of
+[Wp11]_ also mentions an open problem, that is the "holy grail" of
 compiler-compilers such that a formal grammar along with a target platforms
 instruction set may be given as inputs and the result would be a *full* set of
 compiler components capable of producing executable bytecode for machines
@@ -72,7 +72,7 @@ represents the syntactic structure of the *input* according to some formally
 specified grammar.  In a parse tree, the leaves are labeled by *terminals* of the
 grammar while the internal nodes are labeled as *non-terminals* of the grammar.
 
-According to [AntlrGuide]_ and [WpCC]_ typical parser generators associate
+According to [Par07]_ and [Wp11]_ typical parser generators associate
 pieces of executable code (written in a particular target language, e.g. Java, Python,
 Ruby, etc.).  These pieces of code referred to as **actions** or **semantic
 action routines** are executed when a particular rule of the grammar is applied
@@ -92,7 +92,13 @@ Tools
 RuleML API
 ~~~~~~~~~~~~~~~
 
-.. todo:: Discuss with Alex and Sadnan the purpose of this API.
+The primary purpose of the PSOA RuleML API is to provide abstract syntax 
+classes convenient for manipulating language constructs. Any Java sofware 
+using or processing PSOA RuleML will be able to benefit from this functionality.
+The API will also provide two native parsers into the abstract syntax: 
+a presentation syntax parser to support simple text editor-based authoring, 
+and a parser for the XML serialisation, intended to support rule interchange.
+[Ria11]_
 
 ANTLR and AntlrWorks
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -132,16 +138,17 @@ PSOA-RuleML to another language such as TPTP-FOF.
 
 .. [#f4] http://en.wikipedia.org/wiki/Parsing_expression_grammar
 
-.. [BoleyRif] H. Boley, A RIF-Style Semantics for RuleML-Integrated Positional-Slotted, Object-Applicative Rules, RuleML Europe 2011, 194-211
+.. [Bol11a] Boley H., A RIF-Style Semantics for RuleML-Integrated Positional-Slotted, Object-Applicative Rules, RuleML Europe 2011, 194-211
 
-.. [BoleyPSOA] H. Boley, POSL: An Integrated Positional-Slotted Language for Semantic Web Knowledge, http://ruleml.org/submission/ruleml-shortation.html
+.. [Bol04] Boley H., POSL: An Integrated Positional-Slotted Language for Semantic Web Knowledge, http://ruleml.org/submission/ruleml-shortation.html
 
-.. [BoleyKifera] H. Boley and M. Kifer, A Guide to the Basic Logic Dialect for Rule Interchange on the Web. IEEE Transactions on Knowledge and Data Engineering, 22(11):1593-1608
+.. [BoKi10a] Boley H., M. Kifer, A Guide to the Basic Logic Dialect for Rule Interchange on the Web. IEEE Transactions on Knowledge and Data Engineering, 22(11):1593-1608
 
-.. [BoleyKiferb] H. Boley and M. Kifer, RIF Basic Logic Dialect, http://www.w3.org/TR/rif-bld/
+.. [BoKi10b] Boley H., M. Kifer, RIF Basic Logic Dialect, http://www.w3.org/TR/rif-bld/
 
-.. [WpCC] Compiler-Compiler, Wikipedia: The Free Encylopedia, http://en.wikipedia.org/wiki/Parser_generator
+.. [Wp11] Compiler-Compiler, Wikipedia: The Free Encylopedia, http://en.wikipedia.org/wiki/Parser_generator
 
-.. [AntlrGuide] Terrence Parr, The Definitive ANTLR Reference: Building Domain
+.. [Par07] Parr T., The Definitive ANTLR Reference: Building Domain
   Specific Languages, 2007, Pragmatic Programmer, USA.
 
+.. [Ria11] Skype conversation with Alex Riazanov

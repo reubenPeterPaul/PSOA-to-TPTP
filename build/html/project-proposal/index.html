@@ -48,10 +48,10 @@
 <h1>Proposal for PSOA-to-TPTP Converter<a class="headerlink" href="#proposal-for-psoa-to-tptp-converter" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Rule Language is a main typr of formal languages for knowledge representation in
-semntic web technologies.  PSOA-RuleML [PSOA11] is a rule language which
-generalizes POSL <a class="reference internal" href="#boleypsoa">[BoleyPSOA]</a>, F-Logic and W3C&#8217;s RIF-BLD languages
-<a class="reference internal" href="#boleykifera">[BoleyKifera]</a>, <a class="reference internal" href="#boleykiferb">[BoleyKiferb]</a>.  IN PSOA-RuleML, the positional-slotted,
+<p>Rule Language is a main type of formal languages for knowledge representation in
+semntic web technologies.  PSOA-RuleML <a class="reference internal" href="#bol11a">[Bol11a]</a> is a rule language which
+generalizes POSL <a class="reference internal" href="#bol04">[Bol04]</a>, F-Logic and W3C&#8217;s RIF-BLD languages
+<a class="reference internal" href="#boki10a">[BoKi10a]</a>, <a class="reference internal" href="#boki10b">[BoKi10b]</a>.  IN PSOA-RuleML, the positional-slotted,
 object-applicative (PSOA) term is introduced as a generalization of the frame
 term and the class membership term in RIF-BLD, as well as the positional-slotted
 term in POSL language.  The planned two-part implementation of PSOA-RuleML is
@@ -66,7 +66,7 @@ of the project is as follows:</p>
 <blockquote>
 <div><p>1. Develop a converter to translate PSOA-RuleML rule language documents into TPTP
 format documents.  The input of the converter is a document conforming to
-PSOA-RuleML presentation syntax shown in <a class="reference internal" href="#boleyrif">[BoleyRif]</a>.  The output of the
+PSOA-RuleML presentation syntax shown in <a class="reference internal" href="#bol11a">[Bol11a]</a>.  The output of the
 converter is a TPTP-FOF format document.</p>
 <p>2. Create some test examples in PSOA-RuleML syntax and their corresponding TPTP
 format documents for testing the converter.  These examples can be further
@@ -86,14 +86,14 @@ more less known Parsing Expression Grammar <a class="footnote-reference" href="#
 </div>
 <div class="section" id="compiler-compilers">
 <h3>Compiler-compilers<a class="headerlink" href="#compiler-compilers" title="Permalink to this headline">¶</a></h3>
-<p>According to <a class="reference internal" href="#wpcc">[WpCC]</a>, a <strong>compiler-compiler</strong> or <strong>compiler generator</strong> is a
+<p>According to <a class="reference internal" href="#wp11">[Wp11]</a>, a <strong>compiler-compiler</strong> or <strong>compiler generator</strong> is a
 tool that creates a parser (and lexer), an interpreter/compiler from som form of
 formal description of a language and machine.  The most prevalent form of
 compiler-compiler is a <strong>parser-generator</strong> whose input is a grammar (like those
 mentioned above) of a programming language and whose output is a collection of
 source code for a parser (and lexer) often used as an initial (partial) set of components
 for a compiler.</p>
-<p><a class="reference internal" href="#wpcc">[WpCC]</a> also mentions an open problem, that is the &#8220;holy grail&#8221; of
+<p><a class="reference internal" href="#wp11">[Wp11]</a> also mentions an open problem, that is the &#8220;holy grail&#8221; of
 compiler-compilers such that a formal grammar along with a target platforms
 instruction set may be given as inputs and the result would be a <em>full</em> set of
 compiler components capable of producing executable bytecode for machines
@@ -107,7 +107,7 @@ implementing the above instruction set.</p>
 represents the syntactic structure of the <em>input</em> according to some formally
 specified grammar.  In a parse tree, the leaves are labeled by <em>terminals</em> of the
 grammar while the internal nodes are labeled as <em>non-terminals</em> of the grammar.</p>
-<p>According to <a class="reference internal" href="#antlrguide">[AntlrGuide]</a> and <a class="reference internal" href="#wpcc">[WpCC]</a> typical parser generators associate
+<p>According to <a class="reference internal" href="#par07">[Par07]</a> and <a class="reference internal" href="#wp11">[Wp11]</a> typical parser generators associate
 pieces of executable code (written in a particular target language, e.g. Java, Python,
 Ruby, etc.).  These pieces of code referred to as <strong>actions</strong> or <strong>semantic
 action routines</strong> are executed when a particular rule of the grammar is applied
@@ -125,6 +125,13 @@ be used to yield <em>executable</em> <strong>TPTP-FOF</strong> strings.</p>
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ruleml-api">
 <h3>RuleML API<a class="headerlink" href="#ruleml-api" title="Permalink to this headline">¶</a></h3>
+<p>The primary purpose of the PSOA RuleML API is to provide abstract syntax
+classes convenient for manipulating language constructs. Any Java sofware
+using or processing PSOA RuleML will be able to benefit from this functionality.
+The API will also provide two native parsers into the abstract syntax:
+a presentation syntax parser to support simple text editor-based authoring,
+and a parser for the XML serialisation, intended to support rule interchange.
+<a class="reference internal" href="#ria11">[Ria11]</a></p>
 </div>
 <div class="section" id="antlr-and-antlrworks">
 <h3>ANTLR and AntlrWorks<a class="headerlink" href="#antlr-and-antlrworks" title="Permalink to this headline">¶</a></h3>
@@ -173,53 +180,47 @@ PSOA-RuleML to another language such as TPTP-FOF.</p>
 <tr><td class="label"><a class="fn-backref" href="#id9">[4]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Parsing_expression_grammar">http://en.wikipedia.org/wiki/Parsing_expression_grammar</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="boleyrif" rules="none">
+<table class="docutils citation" frame="void" id="bol11a" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[BoleyRif]</a></td><td><ol class="first last upperalpha simple" start="8">
-<li>Boley, A RIF-Style Semantics for RuleML-Integrated Positional-Slotted, Object-Applicative Rules, RuleML Europe 2011, 194-211</li>
-</ol>
-</td></tr>
+<tr><td class="label">[Bol11a]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> Boley H., A RIF-Style Semantics for RuleML-Integrated Positional-Slotted, Object-Applicative Rules, RuleML Europe 2011, 194-211</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="boleypsoa" rules="none">
+<table class="docutils citation" frame="void" id="bol04" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[BoleyPSOA]</a></td><td><ol class="first last upperalpha simple" start="8">
-<li>Boley, POSL: An Integrated Positional-Slotted Language for Semantic Web Knowledge, <a class="reference external" href="http://ruleml.org/submission/ruleml-shortation.html">http://ruleml.org/submission/ruleml-shortation.html</a></li>
-</ol>
-</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id2">[Bol04]</a></td><td>Boley H., POSL: An Integrated Positional-Slotted Language for Semantic Web Knowledge, <a class="reference external" href="http://ruleml.org/submission/ruleml-shortation.html">http://ruleml.org/submission/ruleml-shortation.html</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="boleykifera" rules="none">
+<table class="docutils citation" frame="void" id="boki10a" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[BoleyKifera]</a></td><td><ol class="first last upperalpha simple" start="8">
-<li>Boley and M. Kifer, A Guide to the Basic Logic Dialect for Rule Interchange on the Web. IEEE Transactions on Knowledge and Data Engineering, 22(11):1593-1608</li>
-</ol>
-</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[BoKi10a]</a></td><td>Boley H., M. Kifer, A Guide to the Basic Logic Dialect for Rule Interchange on the Web. IEEE Transactions on Knowledge and Data Engineering, 22(11):1593-1608</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="boleykiferb" rules="none">
+<table class="docutils citation" frame="void" id="boki10b" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[BoleyKiferb]</a></td><td><ol class="first last upperalpha simple" start="8">
-<li>Boley and M. Kifer, RIF Basic Logic Dialect, <a class="reference external" href="http://www.w3.org/TR/rif-bld/">http://www.w3.org/TR/rif-bld/</a></li>
-</ol>
-</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[BoKi10b]</a></td><td>Boley H., M. Kifer, RIF Basic Logic Dialect, <a class="reference external" href="http://www.w3.org/TR/rif-bld/">http://www.w3.org/TR/rif-bld/</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="wpcc" rules="none">
+<table class="docutils citation" frame="void" id="wp11" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[WpCC]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id13">3</a>)</em> Compiler-Compiler, Wikipedia: The Free Encylopedia, <a class="reference external" href="http://en.wikipedia.org/wiki/Parser_generator">http://en.wikipedia.org/wiki/Parser_generator</a></td></tr>
+<tr><td class="label">[Wp11]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>, <a class="fn-backref" href="#id13">3</a>)</em> Compiler-Compiler, Wikipedia: The Free Encylopedia, <a class="reference external" href="http://en.wikipedia.org/wiki/Parser_generator">http://en.wikipedia.org/wiki/Parser_generator</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="antlrguide" rules="none">
+<table class="docutils citation" frame="void" id="par07" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[AntlrGuide]</a></td><td>Terrence Parr, The Definitive ANTLR Reference: Building Domain
+<tr><td class="label"><a class="fn-backref" href="#id12">[Par07]</a></td><td>Parr T., The Definitive ANTLR Reference: Building Domain
 Specific Languages, 2007, Pragmatic Programmer, USA.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="ria11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[Ria11]</a></td><td>Skype conversation with Alex Riazanov</td></tr>
 </tbody>
 </table>
 </div>

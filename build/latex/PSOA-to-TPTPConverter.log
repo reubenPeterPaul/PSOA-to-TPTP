@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.5)  7 NOV 2011 11:32
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.10.5)  7 NOV 2011 11:55
 entering extended mode
  %&-line parsing enabled.
 **PSOA-to-TPTPConverter.tex
@@ -886,32 +886,37 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 158.
 [3]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 238.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 246.
  (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [4] [5] [6
 
 ]
+Underfull \hbox (badness 8056) in paragraph at lines 265--267
+[]\T1/ptm/m/n/10 Boley H., POSL: An In-te-grated Positional-Slotted Lan-guage f
+or Se-man-tic Web Knowl-edge,
+ []
+
 (./PSOA-to-TPTPConverter.ind) [7
 
 ] (./PSOA-to-TPTPConverter.aux) ) 
 Here is how much of TeX's memory you used:
- 7947 strings out of 493848
- 107624 string characters out of 1152823
- 191717 words of memory out of 3000000
- 10983 multiletter control sequences out of 15000+50000
+ 7946 strings out of 493848
+ 107569 string characters out of 1152823
+ 191686 words of memory out of 3000000
+ 10984 multiletter control sequences out of 15000+50000
  65181 words of font info for 74 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 45i,12n,45p,290b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,45p,290b,381s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base
 /8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/f
 onts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PSOA-to-TPTPConverter.pdf (11 pages, 96144 bytes).
+Output written on PSOA-to-TPTPConverter.pdf (11 pages, 97074 bytes).
 PDF statistics:
  165 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
+ 43 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
