@@ -12,3 +12,5 @@ Contents:
   :maxdepth: 0
 
   project-proposal/index
+
+`Project Proposal <build/latex/PSOA-to-TPTPConverter.pdf>`_
