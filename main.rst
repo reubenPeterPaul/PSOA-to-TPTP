@@ -13,4 +13,7 @@ Contents:
 
   project-proposal/index
 
-`Project Proposal <../latex/PSOA-to-TPTPConverter.pdf>`_
+Files
+----------
+
+`Project Document <../latex/PSOA-to-TPTPConverter.pdf>`_
