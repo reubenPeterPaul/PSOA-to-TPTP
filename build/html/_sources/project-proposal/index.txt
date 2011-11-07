@@ -1,3 +1,6 @@
+Proposal for PSOA-to-TPTP Converter
+==================================================
+
 Introduction
 -----------------
 Rule Language is a main typr of formal languages for knowledge representation in
