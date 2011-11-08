@@ -104,6 +104,6 @@
 		</dependency>
 	</dependencies>
 	<properties>
-		<main>org.ruleml.Validator</main>
+		<main>org.cs6795.group2.tryme.Test</main>
 	</properties>
 </project>
