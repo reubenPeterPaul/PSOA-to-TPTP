@@ -1,0 +1,31 @@
+#surefire
+#Sat Nov 12 14:16:07 GMT-04:00 2011
+testClassesDirectory=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/target/test-classes
+classPathUrl.4=/Users/peterpaulr/.m2/repository/org/antlr/stringtemplate/3.2.1/stringtemplate-3.2.1.jar
+classPathUrl.3=/Users/peterpaulr/.m2/repository/org/antlr/antlr-runtime/3.4/antlr-runtime-3.4.jar
+classPathUrl.2=/Users/peterpaulr/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+useManifestOnlyJar=true
+classPathUrl.1=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/target/classes
+reportsDirectory=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/target/surefire-reports
+classPathUrl.0=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/target/test-classes
+dirscanner.0=directoryScannerOptions
+providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
+testSuiteDefinitionTestSourceDirectory=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/src/test/java
+surefireClassPathUrl.1=/Users/peterpaulr/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.1/surefire-api-2.7.1.jar
+surefireClassPathUrl.0=/Users/peterpaulr/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.7.1/surefire-junit3-2.7.1.jar
+report.2=org.apache.maven.surefire.report.XMLReporter
+useSystemClassLoader=true
+report.1=org.apache.maven.surefire.report.BriefFileReporter
+report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
+excludes0=**/*$*
+isTrimStackTrace=true
+dirscanner.0.params=/Users/peterpaulr/2011/CS6795-Project/ruleml-api/target/test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+includes2=**/*TestCase.java
+enableAssertions=true
+includes1=**/*Test.java
+failIfNoTests=false
+dirscanner.0.types=java.io.File|java.util.ArrayList|java.util.ArrayList
+includes0=**/Test*.java
+childDelegation=false
+classPathUrl.6=/Users/peterpaulr/.m2/repository/gnu/getopt/java-getopt/1.0.13/java-getopt-1.0.13.jar
+classPathUrl.5=/Users/peterpaulr/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar
