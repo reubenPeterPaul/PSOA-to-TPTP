@@ -1,4 +1,4 @@
-// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2011-11-12 14:16:03
+// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2011-11-14 16:49:54
 
 package org.ruleml.api.presentation_syntax_parser;
 
@@ -506,7 +506,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: IMPORT, kb, profile
+            // elements: kb, profile, IMPORT
             // token labels: kb, profile
             // rule labels: retval
             // token list labels: 
@@ -747,7 +747,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: importDecl, group, DOCUMENT, prefix, base
+            // elements: base, importDecl, group, prefix, DOCUMENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1278,7 +1278,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: VAR_ID, clause, FORALL
+                    // elements: clause, VAR_ID, FORALL
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1652,7 +1652,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_formula.add(formula38.getTree());
 
             // AST REWRITE
-            // elements: IMPLICATION, formula, head_conjunction
+            // elements: IMPLICATION, head_conjunction, formula
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2556,7 +2556,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_closed_term.add(rhs.getTree());
 
             // AST REWRITE
-            // elements: rhs, EQUAL, lhs
+            // elements: EQUAL, rhs, lhs
             // token labels: 
             // rule labels: retval, rhs, lhs
             // token list labels: 
@@ -2665,7 +2665,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_closed_term.add(sup.getTree());
 
             // AST REWRITE
-            // elements: sub, SUBCLASS, sup
+            // elements: SUBCLASS, sub, sup
             // token labels: 
             // rule labels: retval, sub, sup
             // token list labels: 
@@ -3550,7 +3550,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: slot, tuple, kl, obj
+            // elements: tuple, kl, slot, obj
             // token labels: 
             // rule labels: retval, obj, kl
             // token list labels: 
