@@ -76,9 +76,47 @@ returns [AbstractSyntax.GroupElement result]
 
 rule  [AbstractSyntax factory]
 returns [AbstractSyntax.Rule result]
-    : FORALL
+    : ^(FORALL ^(VAR_LIST VAR_ID+) clause[factory])
         {
             System.out.println("RRRRRRRRRRRRRR");
             $result = null;
         }
+    ;
+
+clause [AbstractSyntax factory]
+  returns [AbstractSyntax.Construct result]
+    : 
+      ^(IMPLICATION ^(AND head[factory]) ID) { $result = $head.result; }
+    |
+      atomic[factory] { $result = $atomic.result; }
+    ;
+    
+head [AbstractSyntax factory]
+  returns [AbstractSyntax.Construct result]
+    :
+      ^(EXISTS ^(VAR_LIST VAR_ID+) atomic[factory]) 
+      {
+        $result = $atomic.result;
+      }
+    | 
+      atomic[factory] 
+      {
+        $result = $atomic.result;
+      }
+    ;
+
+atomic [AbstractSyntax factory]
+  returns [AbstractSyntax.Atomic result]
+    :
+      equal[factory] 
+      {
+        $result = $equal.result;
+      }
+      /*| subclass[factory] | atom[factory]*/ 
+    ;      
+    
+equal [AbstractSyntax factory]
+  returns [AbstractSyntax.Equal result]
+    :
+      ^(EQUAL ID ID) { $result = null; }
     ;

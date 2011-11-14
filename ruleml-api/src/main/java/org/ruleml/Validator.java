@@ -112,6 +112,8 @@ public class Validator {
 			AbstractSyntax.Document doc = 
 			    treeParser.document(absSynFactory);
 
+			System.out.println(ast.toStringTree());
+			
 			System.out.println("AST: " + ast);
 			for (Object child : ast.getChildren())
 			    System.out.println("CHILD: " + child);

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g 2011-11-12 14:16:04
+// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g 2011-11-14 12:49:57
 
 package org.ruleml.api.presentation_syntax_parser;
 
@@ -556,16 +556,65 @@ public class RuleMLPresentationASTGrammar extends TreeParser {
 
 
     // $ANTLR start "rule"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:77:1: rule[AbstractSyntax factory] returns [AbstractSyntax.Rule result] : FORALL ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:77:1: rule[AbstractSyntax factory] returns [AbstractSyntax.Rule result] : ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause[factory] ) ;
     public final AbstractSyntax.Rule rule(AbstractSyntax factory) throws RecognitionException {
         AbstractSyntax.Rule result = null;
 
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:5: ( FORALL )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:7: FORALL
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:5: ( ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause[factory] ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:7: ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause[factory] )
             {
-            match(input,FORALL,FOLLOW_FORALL_in_rule340); 
+            match(input,FORALL,FOLLOW_FORALL_in_rule341); 
+
+            match(input, Token.DOWN, null); 
+            match(input,VAR_LIST,FOLLOW_VAR_LIST_in_rule344); 
+
+            match(input, Token.DOWN, null); 
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:27: ( VAR_ID )+
+            int cnt8=0;
+            loop8:
+            do {
+                int alt8=2;
+                switch ( input.LA(1) ) {
+                case VAR_ID:
+                    {
+                    alt8=1;
+                    }
+                    break;
+
+                }
+
+                switch (alt8) {
+            	case 1 :
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:79:27: VAR_ID
+            	    {
+            	    match(input,VAR_ID,FOLLOW_VAR_ID_in_rule346); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt8 >= 1 ) break loop8;
+                        EarlyExitException eee =
+                            new EarlyExitException(8, input);
+                        throw eee;
+                }
+                cnt8++;
+            } while (true);
+
+
+            match(input, Token.UP, null); 
+
+
+            pushFollow(FOLLOW_clause_in_rule350);
+            clause(factory);
+
+            state._fsp--;
+
+
+            match(input, Token.UP, null); 
+
 
 
                         System.out.println("RRRRRRRRRRRRRR");
@@ -586,6 +635,302 @@ public class RuleMLPresentationASTGrammar extends TreeParser {
         return result;
     }
     // $ANTLR end "rule"
+
+
+
+    // $ANTLR start "clause"
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:86:1: clause[AbstractSyntax factory] returns [AbstractSyntax.Construct result] : ( ^( IMPLICATION ^( AND head[factory] ) ID ) | atomic[factory] );
+    public final AbstractSyntax.Construct clause(AbstractSyntax factory) throws RecognitionException {
+        AbstractSyntax.Construct result = null;
+
+
+        AbstractSyntax.Construct head3 =null;
+
+        AbstractSyntax.Atomic atomic4 =null;
+
+
+        try {
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:88:5: ( ^( IMPLICATION ^( AND head[factory] ) ID ) | atomic[factory] )
+            int alt9=2;
+            switch ( input.LA(1) ) {
+            case IMPLICATION:
+                {
+                alt9=1;
+                }
+                break;
+            case EQUAL:
+                {
+                alt9=2;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt9) {
+                case 1 :
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:89:7: ^( IMPLICATION ^( AND head[factory] ) ID )
+                    {
+                    match(input,IMPLICATION,FOLLOW_IMPLICATION_in_clause395); 
+
+                    match(input, Token.DOWN, null); 
+                    match(input,AND,FOLLOW_AND_in_clause398); 
+
+                    match(input, Token.DOWN, null); 
+                    pushFollow(FOLLOW_head_in_clause400);
+                    head3=head(factory);
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+
+
+                    match(input,ID,FOLLOW_ID_in_clause404); 
+
+                    match(input, Token.UP, null); 
+
+
+                     result = head3; 
+
+                    }
+                    break;
+                case 2 :
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:91:7: atomic[factory]
+                    {
+                    pushFollow(FOLLOW_atomic_in_clause421);
+                    atomic4=atomic(factory);
+
+                    state._fsp--;
+
+
+                     result = atomic4; 
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return result;
+    }
+    // $ANTLR end "clause"
+
+
+
+    // $ANTLR start "head"
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:94:1: head[AbstractSyntax factory] returns [AbstractSyntax.Construct result] : ( ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) atomic[factory] ) | atomic[factory] );
+    public final AbstractSyntax.Construct head(AbstractSyntax factory) throws RecognitionException {
+        AbstractSyntax.Construct result = null;
+
+
+        AbstractSyntax.Atomic atomic5 =null;
+
+        AbstractSyntax.Atomic atomic6 =null;
+
+
+        try {
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:96:5: ( ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) atomic[factory] ) | atomic[factory] )
+            int alt11=2;
+            switch ( input.LA(1) ) {
+            case EXISTS:
+                {
+                alt11=1;
+                }
+                break;
+            case EQUAL:
+                {
+                alt11=2;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 11, 0, input);
+
+                throw nvae;
+
+            }
+
+            switch (alt11) {
+                case 1 :
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:97:7: ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) atomic[factory] )
+                    {
+                    match(input,EXISTS,FOLLOW_EXISTS_in_head460); 
+
+                    match(input, Token.DOWN, null); 
+                    match(input,VAR_LIST,FOLLOW_VAR_LIST_in_head463); 
+
+                    match(input, Token.DOWN, null); 
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:97:27: ( VAR_ID )+
+                    int cnt10=0;
+                    loop10:
+                    do {
+                        int alt10=2;
+                        switch ( input.LA(1) ) {
+                        case VAR_ID:
+                            {
+                            alt10=1;
+                            }
+                            break;
+
+                        }
+
+                        switch (alt10) {
+                    	case 1 :
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:97:27: VAR_ID
+                    	    {
+                    	    match(input,VAR_ID,FOLLOW_VAR_ID_in_head465); 
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt10 >= 1 ) break loop10;
+                                EarlyExitException eee =
+                                    new EarlyExitException(10, input);
+                                throw eee;
+                        }
+                        cnt10++;
+                    } while (true);
+
+
+                    match(input, Token.UP, null); 
+
+
+                    pushFollow(FOLLOW_atomic_in_head469);
+                    atomic5=atomic(factory);
+
+                    state._fsp--;
+
+
+                    match(input, Token.UP, null); 
+
+
+
+                            result = atomic5;
+                          
+
+                    }
+                    break;
+                case 2 :
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:102:7: atomic[factory]
+                    {
+                    pushFollow(FOLLOW_atomic_in_head495);
+                    atomic6=atomic(factory);
+
+                    state._fsp--;
+
+
+
+                            result = atomic6;
+                          
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return result;
+    }
+    // $ANTLR end "head"
+
+
+
+    // $ANTLR start "atomic"
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:108:1: atomic[AbstractSyntax factory] returns [AbstractSyntax.Atomic result] : equal[factory] ;
+    public final AbstractSyntax.Atomic atomic(AbstractSyntax factory) throws RecognitionException {
+        AbstractSyntax.Atomic result = null;
+
+
+        AbstractSyntax.Equal equal7 =null;
+
+
+        try {
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:110:5: ( equal[factory] )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:111:7: equal[factory]
+            {
+            pushFollow(FOLLOW_equal_in_atomic536);
+            equal7=equal(factory);
+
+            state._fsp--;
+
+
+
+                    result = equal7;
+                  
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return result;
+    }
+    // $ANTLR end "atomic"
+
+
+
+    // $ANTLR start "equal"
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:118:1: equal[AbstractSyntax factory] returns [AbstractSyntax.Equal result] : ^( EQUAL ID ID ) ;
+    public final AbstractSyntax.Equal equal(AbstractSyntax factory) throws RecognitionException {
+        AbstractSyntax.Equal result = null;
+
+
+        try {
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:120:5: ( ^( EQUAL ID ID ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationASTGrammar.g:121:7: ^( EQUAL ID ID )
+            {
+            match(input,EQUAL,FOLLOW_EQUAL_in_equal597); 
+
+            match(input, Token.DOWN, null); 
+            match(input,ID,FOLLOW_ID_in_equal599); 
+
+            match(input,ID,FOLLOW_ID_in_equal601); 
+
+            match(input, Token.UP, null); 
+
+
+             result = null; 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return result;
+    }
+    // $ANTLR end "equal"
 
     // Delegated rules
 
@@ -612,6 +957,23 @@ public class RuleMLPresentationASTGrammar extends TreeParser {
     public static final BitSet FOLLOW_group_element_in_group246 = new BitSet(new long[]{0x000000000000A008L});
     public static final BitSet FOLLOW_rule_in_group_element293 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_group_in_group_element312 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FORALL_in_rule340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FORALL_in_rule341 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_VAR_LIST_in_rule344 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_VAR_ID_in_rule346 = new BitSet(new long[]{0x0000400000000008L});
+    public static final BitSet FOLLOW_clause_in_rule350 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_IMPLICATION_in_clause395 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_AND_in_clause398 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_head_in_clause400 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_ID_in_clause404 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_atomic_in_clause421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXISTS_in_head460 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_VAR_LIST_in_head463 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_VAR_ID_in_head465 = new BitSet(new long[]{0x0000400000000008L});
+    public static final BitSet FOLLOW_atomic_in_head469 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_atomic_in_head495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_equal_in_atomic536 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EQUAL_in_equal597 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_ID_in_equal599 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_ID_in_equal601 = new BitSet(new long[]{0x0000000000000008L});
 
 }
