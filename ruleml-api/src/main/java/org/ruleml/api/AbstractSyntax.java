@@ -1,6 +1,5 @@
 package org.ruleml.api;
 
-import java.util.*;
 
 /** Instances of this interface are factories for abstract syntax objects;
  *  the nested interfaces represent various abstract syntax constructs.

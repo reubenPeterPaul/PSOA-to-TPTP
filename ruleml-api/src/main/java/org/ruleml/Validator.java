@@ -2,18 +2,22 @@
 package org.ruleml;
 
 
-import java.io.*;
-
-import java.util.*;
-
+import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
-import gnu.getopt.Getopt;    
 
-import org.ruleml.api.presentation_syntax_parser.*;
-import org.ruleml.api.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.Reader;
 
-import org.antlr.runtime.*;
-import org.antlr.runtime.tree.*;
+import org.antlr.runtime.ANTLRReaderStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.ruleml.api.AbstractSyntax;
+import org.ruleml.api.DefaultAbstractSyntax;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationASTGrammar;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxLexer;
+import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxParser;
 
 
 /** Command line utility to validate the syntax of PSOA RuleML files. */
