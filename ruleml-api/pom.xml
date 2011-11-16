@@ -102,6 +102,11 @@
 			<artifactId>java-getopt</artifactId>
 			<version>1.0.13</version>
 		</dependency>
+		<dependency>
+			<groupId>logic.is.power</groupId>
+			<artifactId>tptp-parser</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 	<properties>
 		<main>org.ruleml.Validator</main>
