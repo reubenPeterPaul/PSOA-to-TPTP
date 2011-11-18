@@ -9,7 +9,7 @@ Document (
 			married(Joe Sue)
 			kid(Sue Pete)
 		)
-		
+
 		<!-- Objectified version -->
 		Group (
 			Forall ?Hu ?Wi ?Ch ?2 ?3 ?4 (
