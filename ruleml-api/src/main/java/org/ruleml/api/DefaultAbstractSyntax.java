@@ -649,7 +649,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Formula_And asAndFormula() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -756,7 +756,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Formula_Or asOrFormula() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 	}
@@ -825,7 +825,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Formula_Exists asExistsFormula() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -892,7 +892,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Formula_External asExternalFormula() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -934,7 +934,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Atom asAtom() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1040,7 +1040,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Equal asEqual() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1142,7 +1142,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Subclass asSubclass() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1269,7 +1269,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Expr asExpr() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1449,7 +1449,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Const_Literal asConstLiteral() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1521,7 +1521,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Const_Constshort asConstshort() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
@@ -1602,7 +1602,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Var asVar() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 	} // class Var
@@ -1699,7 +1699,7 @@ public class DefaultAbstractSyntax implements AbstractSyntax {
 		@Override
 		public AbstractSyntax.Expr asExpr() {
 			// TODO Auto-generated method stub
-			return null;
+			return this;
 		}
 
 		@Override
