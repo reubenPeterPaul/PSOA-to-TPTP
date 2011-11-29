@@ -1,8 +1,8 @@
 fof(rule1,axiom,
 		![Hu,Wi,Ch,O,Var1,Var2] :
 		(
-			'http://example.com/eg#family'(O) & slot(O, 'http://example.com/eg#husb', Hu) &
-			slot(O, 'http://example.com/eg#wife', Wi) & slot(O, 'http://example.com/eg#child', Ch) <= 
+			('http://example.com/eg#family'(O) & slot(O, 'http://example.com/eg#husb', Hu) &
+			slot(O, 'http://example.com/eg#wife', Wi) & slot(O, 'http://example.com/eg#child', Ch)) <= 
 			(
 				'http://example.com/eg#family'(O) &
 				slot(O, 'http://example.com/eg#husb', Hu) &
@@ -28,7 +28,7 @@ fof(fact2,hypothesis,
 		)
 	).
 
-fof(conj1,conj,
+fof(conj1,conjecture,
 		?[Var4] :
 		(
 			'http://example.com/eg#family'(Var4) & slot(Var4, 'http://example.com/eg#child', 'http://example.com/eg#pete')
