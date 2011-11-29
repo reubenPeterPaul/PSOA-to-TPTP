@@ -7,8 +7,8 @@ fof(rule1,axiom,
 	
 fof(fact1,hypothesis,
 		male('john') & tuple('john', 30, 'married') & slot('john', 'job', 'doctor')
-	)
+	).
 
 fof(conj1,conj,
 		person('john') & tuple('john', 30, 'married')
-	)
+	).
