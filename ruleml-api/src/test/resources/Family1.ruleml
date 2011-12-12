@@ -3,22 +3,22 @@ Document (
 		<!-- Deobjectified version -->
 		Group (
 			Forall ?Hu ?Wi ?Ch (
-				family(husb->?Hu wife->?Wi child->?Ch):-
-					And(married(?Hu ?Wi) Or(kid(?Hu ?Ch) kid(?Wi ?Ch)))
+				_family(_husb->?Hu _wife->?Wi _child->?Ch):-
+					And(_married(?Hu ?Wi) Or(_kid(?Hu ?Ch) _kid(?Wi ?Ch)))
 			)
-			married(Joe Sue)
-			kid(Sue Pete)
+			_married(_Joe _Sue)
+			_kid(_Sue _Pete)
 		)
 
 		<!-- Objectified version -->
 		Group (
-			Forall ?Hu ?Wi ?Ch ?2 ?3 ?4 (
-			Exists ?1 (
-				?1#family(husb->?Hu wife->?Wi child->?Ch)) :-
-						And(?2#married(?Hu ?Wi)	Or(?3#kid(?Hu ?Ch) ?4#kid(?Wi ?Ch)))
+			Forall ?Hu ?Wi ?Ch ?o2 ?o3 ?o4 (
+				Exists ?o1 (
+					?o1#_family(_husb->?Hu _wife->?Wi _child->?Ch)) :-
+						And(?o2#_married(?Hu ?Wi) Or(?o3#_kid(?Hu ?Ch) ?o4#_kid(?Wi ?Ch)))
 			)
-			_1#married(Joe Sue)
-			_2#kid(Sue Pete)
+			_inst1#_married(_Joe _Sue)
+			_inst2#_kid(_Sue _Pete)
 		)
 	)
 )

@@ -15,7 +15,7 @@ Document
 		<!-- This rule inroduces function modf:Medical_record_by_number as generating 
 		 instances of the class haio:Medical_record.
 		-->
-		Forall ?N (External(modf:Medical_record_by_number(?N))#haio:Medical_record())
+		Forall ?N (External(modf:Medical_record_by_number(?N))#haio:Medical_record)
 
 		<!-- This rule populates haio:has_record from the DW table dwt:Npatient
 		 by creating URIs for instances of haio:Patient and 
