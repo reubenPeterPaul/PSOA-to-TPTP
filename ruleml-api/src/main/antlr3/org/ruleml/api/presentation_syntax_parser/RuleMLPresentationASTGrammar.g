@@ -1,122 +1,153 @@
-
-
 tree grammar RuleMLPresentationASTGrammar;
 
 options 
 {
-   ASTLabelType = CommonTree;
-   tokenVocab = RuleMLPresentationSyntax;
+	ASTLabelType = CommonTree;
+	tokenVocab = RuleMLPresentationSyntax;
+	k = 1;
 } 
-
 
 @header
 {
-package org.ruleml.api.presentation_syntax_parser;
-
-import org.ruleml.api.*;
-
+	package org.ruleml.api.presentation_syntax_parser;
+	import org.ruleml.api.*;
+	import psoa.ruleml.*;
+    import psoa.ruleml.AbstractSyntax.*;
 }
 
-document [AbstractSyntax factory]
-returns [AbstractSyntax.Document result] 
-    : ^(DOCUMENT base[factory]? ^(PREFIXES prefix[factory]*) ^(IMPORTS importDecl[factory]*) group[factory]?)
+@members
+{
+    private AbstractSyntax factory = new DefaultAbstractSyntax();
+}
+
+document returns [Document result]
+@init 
+{
+    List<Prefix> prefixes = new ArrayList<Prefix>();
+    List<Import> imports = new ArrayList<Import>();
+}
+    : ^(DOCUMENT b=base?
+        (prf=prefix { prefixes.add(prf); } )*
+        (imp=importDecl { imports.add(imp); } )*
+        g=group?)
         {
-            System.out.println("AAAAAAAAAAGGGGGAAA");
-            $result = null;
+            $result = factory.createDocument(b, prefixes, imports, g);
         }
     ;
 
-base [AbstractSyntax factory]
-returns [AbstractSyntax.Base result] 
-    : ^(BASE IRI_REF)
-        {
-            System.out.println("UUUUUUUUUUUUUUUUU");
-            $result = null;
-        }
+base returns [Base result]
+    :   ^(BASE IRI_REF)
+		{
+		    $result = factory.createBase($IRI_REF.text);
+		}
     ;
 
-prefix [AbstractSyntax factory]
-returns [AbstractSyntax.Prefix result] 
-    : ^(PREFIX ID IRI_REF)
-        {
-            System.out.println("eeeeeeeeeeeeee");
-            $result = null;
-        }
+prefix returns [Prefix result] 
+    :   ^(PREFIX ID IRI_REF)
+		{
+		    System.out.println("prefix");
+		    $result = null;
+		}
     ;
 
-
-
-importDecl [AbstractSyntax factory]
-returns [AbstractSyntax.Import result] 
-    : ^(IMPORT IRI_REF IRI_REF?)
-        {
-            System.out.println("ttttttttttttttttt");
-            $result = null;
-        }
+importDecl returns [Import result] 
+    :   ^(IMPORT IRI_REF IRI_REF?)
+		{
+		    System.out.println("import");
+		    $result = null;
+		}
     ;
 
-group  [AbstractSyntax factory]
-returns [AbstractSyntax.Group result] 
-    : ^(GROUP ^(GROUP_ELEM_LIST group_element[factory]*))
-        {
-            System.out.println("zzzzzzzzzzzzzzzz");
-            $result = null;
-        }
+group returns [Group result]
+    :   ^(GROUP group_element*)
+		{
+		    System.out.println("group");
+		    $result = null;
+		}
     ;
 
-
-group_element  [AbstractSyntax factory]
-returns [AbstractSyntax.GroupElement result]
-    :
-        rule[factory] { $result = $rule.result; }
-    |
-        group[factory] { $result = $group.result; }
+group_element returns [GroupElement result]
+    :   rule { $result = $rule.result; }
+    |   group { $result = $group.result; }
     ;
 
 
-rule  [AbstractSyntax factory]
-returns [AbstractSyntax.Rule result]
-    : ^(FORALL ^(VAR_LIST VAR_ID+) clause[factory])
-        {
-            System.out.println("RRRRRRRRRRRRRR");
-            $result = null;
-        }
+rule returns [Rule result]
+    :   ^(FORALL ^(VAR_LIST VAR_ID+) clause)
+		{
+		    System.out.println("rule");
+		    $result = null;
+		}
+	|   clause
     ;
 
-clause [AbstractSyntax factory]
-  returns [AbstractSyntax.Construct result]
-    : 
-      ^(IMPLICATION ^(AND head[factory]) ID) { $result = $head.result; }
-    |
-      atomic[factory] { $result = $atomic.result; }
+clause returns [Clause result]
+    :   ^(IMPLICATION head formula)
+    |   atomic
     ;
     
-head [AbstractSyntax factory]
-  returns [AbstractSyntax.Construct result]
-    :
-      ^(EXISTS ^(VAR_LIST VAR_ID+) atomic[factory]) 
-      {
-        $result = $atomic.result;
-      }
-    | 
-      atomic[factory] 
-      {
-        $result = $atomic.result;
-      }
+head returns [Head result]
+    :   atomic
+    |   ^(EXISTS ^(VAR_LIST VAR_ID+) atomic)
     ;
 
-atomic [AbstractSyntax factory]
-  returns [AbstractSyntax.Atomic result]
-    :
-      equal[factory] 
-      {
-        $result = $equal.result;
-      }
-      /*| subclass[factory] | atom[factory]*/ 
-    ;      
+formula returns [Formula result]
+    :   ^(AND formula+)
+    |   ^(OR formula+)
+    |   ^(EXISTS ^(VAR_LIST VAR_ID+) formula)
+    |   atomic
+    |   external
+    ;
+
+atomic returns [Atomic result]
+    :   atom { $result = $atom.result; }
+    |   equal { $result = $equal.result; }
+    |   subclass { $result = $subclass.result; }
+    ;
+
+atom returns [Atom result]
+    :   psoa
+    ;
+
+equal returns [Equal result]
+    :   ^(EQUAL term term) { $result = null; }
+    ;
+
+subclass returns [Subclass result]
+    :   ^(SUBCLASS term term)
+    ;
     
-equal [AbstractSyntax factory]
-  returns [AbstractSyntax.Equal result]
-    :
-      ^(EQUAL ID ID) { $result = null; }
+term returns [Term result]
+    :   constant
+    |   VAR_ID 
+    |   psoa { $result = $psoa.result; }
+    |   external
+    ;
+
+external returns [Psoa result]
+    :   ^(EXTERNAL psoa)
+    ;
+    
+psoa returns [Psoa result]
+    :   ^(PSOA term? ^(INSTANCE term) tuple* slot*)
+    ;
+
+tuple returns [Tuple result]
+    :   ^(TUPLE term+)
+    ;
+    
+slot returns [Slot result]
+    :   ^(SLOT term term)
+    ;
+
+constant returns [Const result]
+    :   ^(LITERAL IRI)
+    |   ^(SHORTCONST constshort)
+    ;
+    
+constshort returns [Const_Constshort result]
+    :   IRI
+    |   LITERAL
+    |   NUMBER
+    |   LOCAL
     ;
