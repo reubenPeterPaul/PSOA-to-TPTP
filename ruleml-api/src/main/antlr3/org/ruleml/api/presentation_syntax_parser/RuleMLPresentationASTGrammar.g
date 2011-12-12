@@ -11,8 +11,7 @@ options
 {
 	package org.ruleml.api.presentation_syntax_parser;
 	import org.ruleml.api.*;
-	import psoa.ruleml.*;
-    import psoa.ruleml.AbstractSyntax.*;
+    import org.ruleml.api.AbstractSyntax.*;
 }
 
 @members

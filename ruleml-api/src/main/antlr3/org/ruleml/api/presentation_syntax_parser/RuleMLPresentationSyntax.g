@@ -30,14 +30,14 @@ tokens
 @header
 {
 	package org.ruleml.api.presentation_syntax_parser;
-	import psoa.ruleml.*;
-	import psoa.ruleml.AbstractSyntax.*;
+    import org.ruleml.api.*;
+    import org.ruleml.api.AbstractSyntax.*;
 }
 
 @lexer::header {
     package org.ruleml.api.presentation_syntax_parser;
-    import psoa.ruleml.*;
-    import psoa.ruleml.AbstractSyntax.*;
+    import org.ruleml.api.*;
+    import org.ruleml.api.AbstractSyntax.*;
 }
 
 @lexer::members {
