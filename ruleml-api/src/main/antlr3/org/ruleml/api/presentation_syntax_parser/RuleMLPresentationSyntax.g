@@ -9,121 +9,135 @@ options
     output = AST;
     k = 1;
     ASTLabelType = CommonTree;
-    //backtrack=true;
+    // backtrack=true;
     // Potential performance problem! 
     // See http://www.antlr.org/wiki/display/ANTLR3/How+to+remove+global+backtracking+from+your+grammar
 }
 
 tokens 
 {
-    PREFIXES;
-    IMPORTS;
-    GROUP_ELEM_LIST;
     VAR_LIST;
+    PSOA;
     TUPLE;
     SLOT;
-    VAR;
     LITERAL;
-    PSOA;
-    TUPLES;
-    SLOTS;
+    SHORTCONST;
+    IRI;  
+    NUMBER;
+    LOCAL;
 }
 
 @header
 {
 	package org.ruleml.api.presentation_syntax_parser;
-	import org.ruleml.api.*;
+	import psoa.ruleml.*;
+	import psoa.ruleml.AbstractSyntax.*;
 }
 
 @lexer::header {
     package org.ruleml.api.presentation_syntax_parser;
+    import psoa.ruleml.*;
+    import psoa.ruleml.AbstractSyntax.*;
+}
+
+@lexer::members {
+    private DefaultAbstractSyntax factory = new DefaultAbstractSyntax();
 }
 
 @members
 {
-    private DefaultAbstractSyntax syntax = new DefaultAbstractSyntax();
+    private DefaultAbstractSyntax factory = new DefaultAbstractSyntax();
+    
+    private CommonTree getTupleTree(List list_terms)
+    {
+        CommonTree root = (CommonTree)adaptor.nil();
+        for (int i = 0; i < list_terms.size() - 1; i++)
+            adaptor.addChild(root, list_terms.get(i));
+        return root;
+    }
+    
+    private String getStrValue(String str)
+    {
+        return str.substring(1, str.length() - 1);
+    }
 }
 
 top_level_item : document? EOF;
 
 document
     :   DOCUMENT LPAR base? prefix* importDecl* group? RPAR
-        -> ^(DOCUMENT base? ^(PREFIXES prefix*) ^(IMPORTS importDecl*) group?)
-        /*{
-            
-        }*/
+        -> ^(DOCUMENT base? prefix* importDecl* group?)
     ;
 
-base returns [AbstractSyntax.Base _base]
-    :   BASE LPAR IRI_REF RPAR
-        {
-             $base._base = syntax.createBase($IRI_REF.text);
-        }
+base
+    :   BASE LPAR IRI_REF RPAR -> ^(BASE IRI_REF)
     ;
 
-prefix returns [AbstractSyntax.Prefix _prefix]
-    :   PREFIX LPAR ID IRI_REF RPAR
-        {
-           AbstractSyntax.Name name = syntax.createName($ID.text);
-           $prefix._prefix = syntax.createPrefix(name, $IRI_REF.text);
-        }
+prefix
+    :   PREFIX LPAR ID IRI_REF RPAR -> ^(PREFIX ID IRI_REF)
     ;
 
-importDecl 
-    :   IMPORT LPAR kb=IRI_REF (profile=IRI_REF)? RPAR
-        -> ^(IMPORT $kb $profile?)
+importDecl
+    :   IMPORT LPAR kb=IRI_REF (pf=IRI_REF)? RPAR -> ^(IMPORT $kb $pf?)
     ;
 
-group//returns [AbstractSyntax.Group group]
-    :
-        GROUP LPAR group_element* RPAR
-        -> ^(GROUP ^(GROUP_ELEM_LIST group_element*))
-        /*{
-            
-        }*/
+group
+    :   GROUP LPAR group_element* RPAR -> ^(GROUP group_element*)
     ;
 
 group_element
-    :   rule //{ return $result; }
-    |   group //{ return $result; }
+    :   rule
+    |   group
     ;
 
-rule //returns AbstractSyntax.Rule
+rule
     :   FORALL VAR_ID+ LPAR clause RPAR
         -> ^(FORALL ^(VAR_LIST VAR_ID+) clause)
-        /*{
-          
-        }*/
-    |   clause //{  }
+    |   clause
     ;
 
 clause
-    :   f1=formula (IMPLICATION f2=formula)?
+@init { boolean isRule = false; }
+@after
+    {
+        if (isRule)
+        {
+            if (!$f1.isValidHead)
+                throw new RuntimeException("Unacceptable head formula:" + $f1.text);
+        }
+        else if (!$f1.isAtomic)
+        {
+            throw new RuntimeException("Unacceptable clause:" + $clause.text);
+        }
+    }
+    :   f1=formula ( IMPLICATION f2=formula { isRule = true; } )?
+    -> {isRule}? ^(IMPLICATION $f1 $f2)
+    ->           $f1
     ;
 
-formula
-    :   AND LPAR formula* RPAR
-    |   OR LPAR formula* RPAR
-    |   EXISTS VAR_ID+ LPAR formula* RPAR
-    |   atomic
+formula returns [boolean isValidHead, boolean isAtomic]
+@init { $isValidHead = true; $isAtomic = false; }
+    :   AND LPAR (f=formula { if(!$f.isValidHead) $isValidHead = false; } )+ RPAR -> ^(AND formula*)
+    |   OR LPAR formula+ RPAR { $isValidHead = false; } -> ^(OR formula*)
+    |   EXISTS VAR_ID+ LPAR f=formula RPAR { $isValidHead = $f.isAtomic; }
+        -> ^(EXISTS ^(VAR_LIST VAR_ID+) $f)
+    |   atomic { $isAtomic = true; } -> atomic
+    |   (external_term { $isValidHead = false; } -> external_term)
+        (psoa_rest { $isAtomic = true; } -> ^(PSOA $formula psoa_rest))?
     ;
     
 atomic
-    :   term atom_rest?
-    ;
-
-atom_rest
-    :   '=' term
-    |   '##' term
+@after
+{
+    if ($tree.getChildCount() == 1 && $non_ex_term.isSimple)
+        throw new RuntimeException("Simple term cannot be an atomic formula:" + $non_ex_term.text);
+}
+    :   non_ex_term=internal_term ((EQUAL | SUBCLASS)^ term)?
     ;
 
 term
-    :   non_psoa_term psoa_rest*
-    ;
-
-non_psoa_term
-    :   simple_term
-    |   external_term
+    :   internal_term -> internal_term
+    |   external_term -> external_term
     ;
 
 simple_term
@@ -132,46 +146,70 @@ simple_term
     ;
 
 external_term
-    :   EXTERNAL LPAR term RPAR
+    :   EXTERNAL LPAR simple_term LPAR term* RPAR RPAR
+    -> ^(EXTERNAL ^(PSOA ^(INSTANCE simple_term) ^(TUPLE term*)))
     ;
 
-psoa
-    :   non_psoa_term psoa_rest+
+internal_term returns [boolean isSimple]
+@init { $isSimple = true; }
+    :   (simple_term -> simple_term)
+        (LPAR tuples_and_slots? RPAR { $isSimple = false; }
+         -> ^(PSOA ^(INSTANCE $internal_term) tuples_and_slots?))?
+        (psoa_rest { $isSimple = false; } -> ^(PSOA $internal_term psoa_rest))*
     ;
 
 psoa_rest
-    :   (INSTANCE non_psoa_term)? LPAR (tuples_and_slots?) RPAR
-//    :   INSTANCE term LPAR (tuple* slot*) RPAR
+    :   INSTANCE simple_term (LPAR tuples_and_slots? RPAR)?
+    -> ^(INSTANCE simple_term) tuples_and_slots?
     ;
 
 tuples_and_slots
-    :   tuple+ slot*
-    |   term+ (SLOT_ARROW term slot*)? // Syntactic sugar for psoa terms which has only one tuple
+    :   tuple+ slot* -> tuple+ slot*
+    |   terms+=term+ { boolean hasSlot = false; }
+        (SLOT_ARROW first_slot_value=term { hasSlot = true; } slot* )? // Syntactic sugar for psoa terms which has only one tuple
+    -> {!hasSlot}? ^(TUPLE $terms) // single tuple
+    -> {$terms.size() == 1}?
+        ^(SLOT {$terms.get(0)} $first_slot_value) slot* // slot only
+    ->  ^(TUPLE {getTupleTree($terms)}) ^(SLOT {$terms.get($terms.size() - 1)} $first_slot_value) slot* // tuples and slots
     ;
 
 tuple
-    :   LSQBR term* RSQBR
-//        -> ^(TUPLE term*)
-    ;  
+    :   LSQBR term+ RSQBR -> ^(TUPLE term+)
+    ;
 
 slot
     :
-        name=term SLOT_ARROW value=term
-//        -> ^(SLOT $name $value)
+        name=term SLOT_ARROW value=term -> ^(SLOT $name $value)
     ;
 
 /*
 **  The rule of constant strings can be rewrited to
 **  Const ::= '"' UNICODESTRING '"' (^^ SYMSPACE))? | '"' UNICODESTRING '"@' langtag)? | CURIE | NumericLiteral | '_' NCName | IRI_REF
-**  Symbol STRING_CONSTANT is introduced to capture the first branch.
+**  Symbol const_string is introduced to capture the first branch.
 */
+
 constant
-    :   STRING_CONSTANT
-    |   CURIE
-    |   ID    // Number, _NCNAME
-    |   IRI_REF
+    :   const_string -> const_string
+    |   CURIE   -> ^(SHORTCONST IRI[$CURIE.text]) 
+    |   NUMBER  -> ^(SHORTCONST NUMBER[$NUMBER.text])
+    |   ID /* _NCNAME */ {
+            if (!$ID.text.startsWith("_"))
+                throw new RuntimeException("Incorrect constant format:" + $ID.text);
+        }
+        -> ^(SHORTCONST LOCAL[$ID.text.substring(1)])
+    |   IRI_REF -> ^(SHORTCONST IRI[$IRI_REF.text])
     ;
 
+
+//  Complete and abbreviated string constant
+const_string
+@init { boolean isAbbrivated = true; } 
+    : STRING ((SYMSPACE_OPER symspace=(IRI_REF | CURIE) { isAbbrivated = false; } ) | '@')?    
+    -> {isAbbrivated}? ^(SHORTCONST LITERAL[getStrValue($STRING.text)])
+    -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text]
+    //|   STRING '@' ID /* langtag */ -> ^(SHORTCONST LITERAL[$STRING.text])
+    ;
+    
 /*
 clause
     :  (implies) => implies -> implies
@@ -300,19 +338,14 @@ OR : 'Or' ;
 EXTERNAL : 'External';
 
 //  Constants:
-//  Complete and abbreviated string constant
-STRING_CONSTANT
-    : STRING (SYMSPACE_OPER (IRI_REF | CURIE))?
-    ;
-    
+NUMBER: DIGIT+ ('.' DIGIT*)?;
 CURIE : ID? ':' ID?;
-fragment STRING : '"' (options {greedy=false;} : ~('"' | '\\' | EOL) | ECHAR)* '"';
+
+STRING: '"' (~('"' | '\\' | EOL) | ECHAR)* '"';
 
 //  Identifiers:
 IRI_REF : '<' IRI_START_CHAR (IRI_CHAR)+ '>' ;
-VAR_ID : '?' ID? ;
-//  In the slots a hyphen may appear directly after a term, so we should not allow hyphen to be the end of a term
-//  ID : ID_START_CHAR ((ID_CHAR | '-')* ID_CHAR)? ;
+VAR_ID : '?' ID_CHAR*;
 ID : ID_START_CHAR ID_CHAR* ;
 
 //   Operators:
@@ -340,8 +373,10 @@ fragment IRI_CHAR : ALPHA | DIGIT | '+' | '-' | '.' | '@' | ':' | '_' | '~' | '%
 // to include all IRI characters.
 fragment IRI_START_CHAR : ALPHA ;
 
+//  In the slots a hyphen may appear directly after a term, so we disallow it to be an ID_CHAR 
 fragment ID_CHAR
     : ID_START_CHAR
+    | DIGIT
     | '\u00B7'           // as in the SPARQL 1.1 grammar
     | '\u203F'..'\u2040' // as in the SPARQL 1.1 grammar
   //| '-'
@@ -362,7 +397,6 @@ fragment ID_START_CHAR
     | '\u3001'..'\uD7FF'
     | '\uF900'..'\uFDCF'
     | '\uFDF0'..'\uFFFD'
-    | DIGIT
     | '_'
     ;
 
