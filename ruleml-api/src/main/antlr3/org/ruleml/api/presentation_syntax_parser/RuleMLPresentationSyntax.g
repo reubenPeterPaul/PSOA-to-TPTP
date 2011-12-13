@@ -48,10 +48,10 @@ tokens
 {
     private DefaultAbstractSyntax factory = new DefaultAbstractSyntax();
     
-    private CommonTree getTupleTree(List list_terms)
+    private CommonTree getTupleTree(List list_terms, int length)
     {
         CommonTree root = (CommonTree)adaptor.nil();
-        for (int i = 0; i < list_terms.size() - 1; i++)
+        for (int i = 0; i < length; i++)
             adaptor.addChild(root, list_terms.get(i));
         return root;
     }
@@ -167,10 +167,10 @@ tuples_and_slots
     :   tuple+ slot* -> tuple+ slot*
     |   terms+=term+ { boolean hasSlot = false; }
         (SLOT_ARROW first_slot_value=term { hasSlot = true; } slot* )? // Syntactic sugar for psoa terms which has only one tuple
-    -> {!hasSlot}? ^(TUPLE $terms) // single tuple
+    -> {!hasSlot}? ^(TUPLE {getTupleTree($terms, $terms.size()) } ) // single tuple
     -> {$terms.size() == 1}?
         ^(SLOT {$terms.get(0)} $first_slot_value) slot* // slot only
-    ->  ^(TUPLE {getTupleTree($terms)}) ^(SLOT {$terms.get($terms.size() - 1)} $first_slot_value) slot* // tuples and slots
+    ->  ^(TUPLE {getTupleTree($terms, $terms.size() - 1)}) ^(SLOT {$terms.get($terms.size() - 1)} $first_slot_value) slot* // tuples and slots
     ;
 
 tuple

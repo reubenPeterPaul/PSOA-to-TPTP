@@ -16,7 +16,12 @@ options
 
 @members
 {
-    private AbstractSyntax factory = new DefaultAbstractSyntax();
+    private AbstractSyntax factory;
+    
+    public RuleMLPresentationASTGrammar(TreeNodeStream input, AbstractSyntax factory) {
+        this(input, new RecognizerSharedState());
+        this.factory = factory;
+    }
 }
 
 document returns [Document result]

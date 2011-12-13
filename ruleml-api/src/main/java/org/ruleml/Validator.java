@@ -13,8 +13,8 @@ import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
-import org.ruleml.api.AbstractSyntax;
 import org.ruleml.api.DefaultAbstractSyntax;
+import org.ruleml.api.presentation_syntax_parser.BasicRuleMLPresentationASTGrammar;
 import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationASTGrammar;
 import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxLexer;
 import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxParser;
@@ -111,11 +111,16 @@ public class Validator {
 			CommonTree ast = (CommonTree)kb.getTree();
 
 			RuleMLPresentationASTGrammar treeParser = 
-			    new RuleMLPresentationASTGrammar(new CommonTreeNodeStream(ast));
+			    new RuleMLPresentationASTGrammar(new CommonTreeNodeStream(ast), absSynFactory);
 			
-			AbstractSyntax.Document doc = 
-			    treeParser.document(absSynFactory);
+			BasicRuleMLPresentationASTGrammar treeParser2 =
+					new BasicRuleMLPresentationASTGrammar(new CommonTreeNodeStream(ast));
+			
+			/*AbstractSyntax.Document doc = 
+			    treeParser.document(absSynFactory);*/
 
+			treeParser2.document();
+			
 			System.out.println(ast.toStringTree());
 			
 			System.out.println("AST: " + ast);

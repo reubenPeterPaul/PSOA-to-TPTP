@@ -1,4 +1,4 @@
-tree grammar RuleMLPresentationASTGrammar;
+tree grammar BasicRuleMLPresentationASTGrammar;
 
 options 
 {
@@ -10,8 +10,14 @@ options
 @header
 {
 	package org.ruleml.api.presentation_syntax_parser;
+	
+	import static cs6795.group2.PSOATranslatorUtil.*;
 }
 
+@members
+{
+
+}
 document
     : ^(DOCUMENT base? prefix* importDecl* group?)
     ;
@@ -78,10 +84,10 @@ subclass
     :   ^(SUBCLASS term term)
     ;
     
-term
-    :   constant
-    |   VAR_ID
-    |   psoa
+term returns [String result]
+    :   c=constant {$result = c; }  
+    |   VAR_ID {$result = $VAR_ID.text; }
+    |   p=psoa {$result = p;}
     |   external
     ;
 
@@ -89,26 +95,44 @@ external
     :   ^(EXTERNAL psoa)
     ;
     
-psoa
-    :   ^(PSOA term? ^(INSTANCE term) tuple* slot*)
+psoa returns [String result]
+@init {
+  List<String> tuples = list();
+  List<String> slots = list();
+}
+    :   ^(PSOA oid=term? ^(INSTANCE type=term) (t=tuple {tuples.add(t); })* (s=slot {slots.add(s); })*) {
+      $result = psoaTerm(oid, type, tuples, slots);
+      System.out.println($result);
+    }
     ;
 
-tuple
-    :   ^(TUPLE term+)
+tuple returns [String result]
+@init {
+  StringBuilder b = builder();
+}
+    :   ^(TUPLE (t=term { collectTerm(b, t); })+) {
+      $result = b.toString(); 
+    }
     ;
     
-slot
-    :   ^(SLOT term term)
+slot returns [String result]
+@init {
+  StringBuilder b = builder();
+}
+    :   ^(SLOT s=term t=term) {
+      collectTerms(b, s, t);
+      $result = b.toString(); 
+    }
     ;
 
-constant
+constant returns [String result]
     :   ^(LITERAL IRI)
-    |   ^(SHORTCONST constshort)
+    |   ^(SHORTCONST c=constshort) {$result = c; }
     ;
     
-constshort
+constshort returns [String result]
     :   IRI
     |   LITERAL
     |   NUMBER
-    |   LOCAL
+    |   LOCAL {$result = $LOCAL.text;}
     ;
