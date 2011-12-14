@@ -10,14 +10,31 @@ options
 @header
 {
 	package org.ruleml.api.presentation_syntax_parser;
-	
+
 	import static cs6795.group2.PSOATranslatorUtil.*;
+    import java.io.*;
 }
 
 @members
 {
-
+    private PrintStream m_outStream;
+    
+    public void setOutStream(OutputStream out)
+    {
+        m_outStream = new PrintStream(out);
+    }
+    
+    private void writeln(StringBuilder b)
+    {
+        m_outStream.println(b);
+    }
+    
+    private void writeln()
+    {
+        m_outStream.println();
+    }
 }
+
 document
     : ^(DOCUMENT base? prefix* importDecl* group?)
     ;
@@ -26,11 +43,11 @@ base
     :   ^(BASE IRI_REF)
     ;
 
-prefix 
+prefix
     :   ^(PREFIX ID IRI_REF)
     ;
 
-importDecl 
+importDecl
     :   ^(IMPORT IRI_REF IRI_REF?)
     ;
 
@@ -44,36 +61,44 @@ group_element
     ;
 
 rule
-    :   ^(FORALL ^(VAR_LIST VAR_ID+) clause)
-	|   clause
+    :   ^(FORALL ^(VAR_LIST VAR_ID+) clause) {  }
+	|   c=clause { writeln(foffactStr(c)); }
     ;
 
-clause
-    :   ^(IMPLICATION head formula)
-    |   atomic
+clause returns [StringBuilder result]
+    :   ^(IMPLICATION h=head f=formula) { ruleStr(h, f); }
+    |   atomicFormula = atomic { $result = atomicFormula; }
     ;
     
-head
-    :   atomic
-    |   ^(EXISTS ^(VAR_LIST VAR_ID+) atomic)
+head returns [StringBuilder result]
+@init {
+    StringBuilder b = builder();
+}
+    :   atomicHead=atomic { $result = atomicHead; }
+    |   ^(EXISTS
+          ^(VAR_LIST (VAR_ID { collectTerm(b, getVarName($VAR_ID.text)); })+)
+          f=atomic)
+	    {
+	        $result = existStr(b, f);
+	    }
     ;
 
-formula
+formula returns [StringBuilder result]
     :   ^(AND formula+)
     |   ^(OR formula+)
     |   ^(EXISTS ^(VAR_LIST VAR_ID+) formula)
-    |   atomic
+    |   f=atomic { $result = f; }
     |   external
     ;
 
-atomic
-    :   atom
+atomic returns [StringBuilder result]
+    :   at=atom { $result = at; }
     |   equal
     |   subclass
     ;
 
-atom
-    :   psoa
+atom returns [StringBuilder result]
+    :   p=psoa { $result = p; }
     ;
 
 equal
@@ -85,9 +110,9 @@ subclass
     ;
     
 term returns [String result]
-    :   c=constant {$result = c; }  
-    |   VAR_ID {$result = $VAR_ID.text; }
-    |   p=psoa {$result = p;}
+    :   c=constant { $result = c; }
+    |   VAR_ID { $result = getVarName($VAR_ID.text); }
+    |   p=psoa
     |   external
     ;
 
@@ -95,20 +120,20 @@ external
     :   ^(EXTERNAL psoa)
     ;
     
-psoa returns [String result]
+psoa returns [StringBuilder result]
 @init {
-  List<String> tuples = list();
-  List<String> slots = list();
+	List<String> tuples = list();
+	List<String> slots = list();
 }
-    :   ^(PSOA oid=term? ^(INSTANCE type=term) (t=tuple {tuples.add(t); })* (s=slot {slots.add(s); })*) {
-      $result = psoaTerm(oid, type, tuples, slots);
-      System.out.println($result);
+    :   ^(PSOA oid=term? ^(INSTANCE type=term) (t=tuple {tuples.add(t); })* (s=slot {slots.add(s); })*)
+    {
+		$result = psoaStr(oid, type, tuples, slots);
     }
     ;
 
 tuple returns [String result]
 @init {
-  StringBuilder b = builder();
+    StringBuilder b = builder();
 }
     :   ^(TUPLE (t=term { collectTerm(b, t); })+) {
       $result = b.toString(); 
@@ -127,12 +152,12 @@ slot returns [String result]
 
 constant returns [String result]
     :   ^(LITERAL IRI)
-    |   ^(SHORTCONST c=constshort) {$result = c; }
+    |   ^(SHORTCONST c=constshort) { $result = c; }
     ;
     
 constshort returns [String result]
     :   IRI
     |   LITERAL
-    |   NUMBER
-    |   LOCAL {$result = $LOCAL.text;}
+    |   NUMBER { $result = $NUMBER.text; }
+    |   LOCAL { $result = getConstName($LOCAL.text); }
     ;
