@@ -1,5 +1,5 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Proposal for PSOA-to-TPTP Converter}{1}{chapter.1}
+\contentsline {chapter}{\numberline {1}Proposal for PSOA2TPTP Tranlator}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Objectives}{1}{section.1.2}
 \contentsline {section}{\numberline {1.3}Methodology}{1}{section.1.3}

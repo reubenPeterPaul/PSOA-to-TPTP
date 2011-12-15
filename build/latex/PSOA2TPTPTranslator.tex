@@ -114,19 +114,19 @@
 
 
 
-\chapter{Proposal for PSOA-to-TPTP Converter}
-\label{project-proposal/index:proposal-for-psoa-to-tptp-converter}\label{project-proposal/index:welcome-to-psoa2tptp-tranlator-s-documentation}\label{project-proposal/index::doc}
+\chapter{Proposal for PSOA2TPTP Tranlator}
+\label{project-proposal/index:welcome-to-psoa2tptp-tranlator-s-documentation}\label{project-proposal/index::doc}\label{project-proposal/index:proposal-for-psoa2tptp-tranlator}
 
 \section{Introduction}
 \label{project-proposal/index:introduction}
 Rule Language is a main type of formal languages for knowledge representation in
-semntic web technologies.  PSOA-RuleML {\hyperref[project-proposal/index:bol11a]{{[}Bol11a{]}}} is a rule language which
+semntic web technologies.  PSOA RuleML {\hyperref[project-proposal/index:bol11a]{{[}Bol11a{]}}} is a rule language which
 generalizes POSL {\hyperref[project-proposal/index:bol04]{{[}Bol04{]}}}, F-Logic and W3C's RIF-BLD languages
-{\hyperref[project-proposal/index:boki10a]{{[}BoKi10a{]}}}, {\hyperref[project-proposal/index:boki10b]{{[}BoKi10b{]}}}.  IN PSOA-RuleML, the positional-slotted,
+{\hyperref[project-proposal/index:boki10a]{{[}BoKi10a{]}}}, {\hyperref[project-proposal/index:boki10b]{{[}BoKi10b{]}}}.  IN PSOA RuleML, the positional-slotted,
 object-applicative (PSOA) term is introduced as a generalization of the frame
 term and the class membership term in RIF-BLD, as well as the positional-slotted
-term in POSL language.  The planned two-part implementation of PSOA-RuleML is
-(1) convert PSOA-RuleML's syntax into TPTP format, and (2) reads and executes
+term in POSL language.  The planned two-part implementation of PSOA RuleML is
+(1) convert PSOA RuleML's syntax into TPTP format, and (2) reads and executes
 the TPTP with Vampire theorem prover \footnote{
 \href{http://www.voronkov.com/vampire.cgi}{http://www.voronkov.com/vampire.cgi}
 }.  In this project, we are going to
@@ -135,17 +135,17 @@ implement part (1) of the overarching project.
 
 \section{Objectives}
 \label{project-proposal/index:objectives}
-This project is an important part of PSOA-RuleML implementation.  The objectives
+This project is an important part of PSOA RuleML implementation.  The objectives
 of the project is as follows:
 \begin{quote}
 
-1. Develop a converter to translate PSOA-RuleML rule language documents into TPTP
-format documents.  The input of the converter is a document conforming to
-PSOA-RuleML presentation syntax shown in {\hyperref[project-proposal/index:bol11a]{{[}Bol11a{]}}}.  The output of the
-converter is a TPTP-FOF format document.
+1. Develop a translator to translate PSOA RuleML rule language documents into TPTP
+format documents.  The input of the translator is a document conforming to
+PSOA RuleML presentation syntax shown in {\hyperref[project-proposal/index:bol11a]{{[}Bol11a{]}}}.  The output of the
+translator is a TPTP-FOF format document.
 
-2. Create some test examples in PSOA-RuleML syntax and their corresponding TPTP
-format documents for testing the converter.  These examples can be further
+2. Create some test examples in PSOA RuleML syntax and their corresponding TPTP
+format documents for testing the translator.  These examples can be further
 extended to a complete PSOA test suite in the future.
 \end{quote}
 
@@ -155,8 +155,8 @@ extended to a complete PSOA test suite in the future.
 
 \subsection{Grammar Specification}
 \label{project-proposal/index:grammar-specification}
-In order to develop a converter from PSOA-RuleML rule language into TPTP via
-\emph{translation} (or transformation).  A \emph{program} specified in PSOA-RuleML must be
+In order to develop a translator from PSOA RuleML rule language into TPTP via
+\emph{translation} (or transformation).  A \emph{program} specified in PSOA RuleML must be
 recognized and parsed into a representation that lends itself to such a
 \emph{transformation}.  This generally requires the use of a grammar specification
 via specialized notation: Backus-Naur Form \footnote{
@@ -251,7 +251,7 @@ description language, a tree is written like this:
 
 This notation may also be used to recognize \emph{subtrees}, introducing a higher
 level of abstraction, more suitable for mananging complexities of translating a
-PSOA-RuleML to another language such as TPTP-FOF.
+PSOA RuleML to another language such as TPTP-FOF.
 
 
 \chapter{Overview}

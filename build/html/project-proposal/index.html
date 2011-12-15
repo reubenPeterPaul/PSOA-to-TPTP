@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Proposal for PSOA-to-TPTP Converter &mdash; PSOA2TPTP Translator v1.0.0 documentation</title>
+    <title>Proposal for PSOA2TPTP Tranlator &mdash; PSOA2TPTP Translator v1.0.0 documentation</title>
     <link rel="stylesheet" href="../static/default.css" type="text/css" />
     <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -44,32 +44,32 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="proposal-for-psoa-to-tptp-converter">
-<h1>Proposal for PSOA-to-TPTP Converter<a class="headerlink" href="#proposal-for-psoa-to-tptp-converter" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="proposal-for-psoa2tptp-tranlator">
+<h1>Proposal for PSOA2TPTP Tranlator<a class="headerlink" href="#proposal-for-psoa2tptp-tranlator" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Rule Language is a main type of formal languages for knowledge representation in
-semntic web technologies.  PSOA-RuleML <a class="reference internal" href="#bol11a">[Bol11a]</a> is a rule language which
+semntic web technologies.  PSOA RuleML <a class="reference internal" href="#bol11a">[Bol11a]</a> is a rule language which
 generalizes POSL <a class="reference internal" href="#bol04">[Bol04]</a>, F-Logic and W3C&#8217;s RIF-BLD languages
-<a class="reference internal" href="#boki10a">[BoKi10a]</a>, <a class="reference internal" href="#boki10b">[BoKi10b]</a>.  IN PSOA-RuleML, the positional-slotted,
+<a class="reference internal" href="#boki10a">[BoKi10a]</a>, <a class="reference internal" href="#boki10b">[BoKi10b]</a>.  IN PSOA RuleML, the positional-slotted,
 object-applicative (PSOA) term is introduced as a generalization of the frame
 term and the class membership term in RIF-BLD, as well as the positional-slotted
-term in POSL language.  The planned two-part implementation of PSOA-RuleML is
-(1) convert PSOA-RuleML&#8217;s syntax into TPTP format, and (2) reads and executes
+term in POSL language.  The planned two-part implementation of PSOA RuleML is
+(1) convert PSOA RuleML&#8217;s syntax into TPTP format, and (2) reads and executes
 the TPTP with Vampire theorem prover <a class="footnote-reference" href="#f1" id="id5">[1]</a>.  In this project, we are going to
 implement part (1) of the overarching project.</p>
 </div>
 <div class="section" id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
-<p>This project is an important part of PSOA-RuleML implementation.  The objectives
+<p>This project is an important part of PSOA RuleML implementation.  The objectives
 of the project is as follows:</p>
 <blockquote>
-<div><p>1. Develop a converter to translate PSOA-RuleML rule language documents into TPTP
-format documents.  The input of the converter is a document conforming to
-PSOA-RuleML presentation syntax shown in <a class="reference internal" href="#bol11a">[Bol11a]</a>.  The output of the
-converter is a TPTP-FOF format document.</p>
-<p>2. Create some test examples in PSOA-RuleML syntax and their corresponding TPTP
-format documents for testing the converter.  These examples can be further
+<div><p>1. Develop a translator to translate PSOA RuleML rule language documents into TPTP
+format documents.  The input of the translator is a document conforming to
+PSOA RuleML presentation syntax shown in <a class="reference internal" href="#bol11a">[Bol11a]</a>.  The output of the
+translator is a TPTP-FOF format document.</p>
+<p>2. Create some test examples in PSOA RuleML syntax and their corresponding TPTP
+format documents for testing the translator.  These examples can be further
 extended to a complete PSOA test suite in the future.</p>
 </div></blockquote>
 </div>
@@ -77,8 +77,8 @@ extended to a complete PSOA test suite in the future.</p>
 <h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="grammar-specification">
 <h3>Grammar Specification<a class="headerlink" href="#grammar-specification" title="Permalink to this headline">¶</a></h3>
-<p>In order to develop a converter from PSOA-RuleML rule language into TPTP via
-<em>translation</em> (or transformation).  A <em>program</em> specified in PSOA-RuleML must be
+<p>In order to develop a translator from PSOA RuleML rule language into TPTP via
+<em>translation</em> (or transformation).  A <em>program</em> specified in PSOA RuleML must be
 recognized and parsed into a representation that lends itself to such a
 <em>transformation</em>.  This generally requires the use of a grammar specification
 via specialized notation: Backus-Naur Form <a class="footnote-reference" href="#f2" id="id7">[2]</a>, Extended Backus-Naur Form <a class="footnote-reference" href="#f3" id="id8">[3]</a> or
@@ -155,7 +155,7 @@ description language, a tree is written like this:</p>
 </div>
 <p>This notation may also be used to recognize <em>subtrees</em>, introducing a higher
 level of abstraction, more suitable for mananging complexities of translating a
-PSOA-RuleML to another language such as TPTP-FOF.</p>
+PSOA RuleML to another language such as TPTP-FOF.</p>
 <table class="docutils footnote" frame="void" id="f1" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -235,7 +235,7 @@ Specific Languages, 2007, Pragmatic Programmer, USA.</td></tr>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../main.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Proposal for PSOA-to-TPTP Converter</a><ul>
+<li><a class="reference internal" href="#">Proposal for PSOA2TPTP Tranlator</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#objectives">Objectives</a></li>
 <li><a class="reference internal" href="#methodology">Methodology</a><ul>
