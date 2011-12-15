@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PSOA2TPTP Tranlator's documentation!
+Welcome to PSOA2TPTP Translator's documentation!
 ==================================================
 
 .. toctree::

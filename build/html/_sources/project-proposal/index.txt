@@ -1,4 +1,4 @@
-Proposal for PSOA2TPTP Tranlator
+Proposal for PSOA2TPTP Translator
 ==================================================
 
 Introduction
