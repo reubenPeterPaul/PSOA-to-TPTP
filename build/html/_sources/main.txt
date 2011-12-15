@@ -19,5 +19,5 @@ Knowledge representation is a major phase in semantic web applications, and rule
 Files
 ----------
 
-* `Project Document <../latex/PSOA2TPTPTranslator.pdf>`_
+* `Project Proposal Document <../latex/PSOA2TPTPTranslator.pdf>`_
 * `Project Demo <http://dl.dropbox.com/u/46951970/Demo.zip>`_
