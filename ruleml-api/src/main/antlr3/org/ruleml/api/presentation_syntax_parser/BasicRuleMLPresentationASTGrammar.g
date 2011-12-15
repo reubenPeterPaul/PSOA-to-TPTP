@@ -17,7 +17,7 @@ options
 
 @members
 {
-    private PrintStream m_outStream;
+    private PrintStream m_outStream = System.out;
     
     public void setOutStream(OutputStream out)
     {
@@ -56,13 +56,17 @@ group
     ;
 
 group_element
-    :   rule
+    :   r=rule { writeln(fofFactSentence(r)); }
     |   group
     ;
 
-rule
+queries
+    :   (r=rule { writeln(fofConjSentence(r)); } )+
+    ;
+
+rule returns [StringBuilder result]
     :   ^(FORALL ^(VAR_LIST VAR_ID+) clause) {  }
-	|   c=clause { writeln(foffactStr(c)); }
+	|   c=clause { $result = c; }
     ;
 
 clause returns [StringBuilder result]

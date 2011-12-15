@@ -6,11 +6,16 @@ import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.Reader;
 
+import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.ParserRuleReturnScope;
+import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.ruleml.api.DefaultAbstractSyntax;
@@ -23,17 +28,15 @@ import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxParser;
 /** Command line utility to validate the syntax of PSOA RuleML files. */
 public class Validator {
 
-
     public static void main(String[] args) 
     {
 	boolean importClosure = false;
 	String[] ruleBaseFileNames = null;
 
-	
 	LongOpt[] longOpts = new LongOpt[256];
 	
 	// Reserved short option names: i ?
-    	longOpts[0] = new LongOpt("help", LongOpt.NO_ARGUMENT, null, '?');
+	longOpts[0] = new LongOpt("help", LongOpt.NO_ARGUMENT, null, '?');
 	longOpts[1] = new LongOpt("import_closure", LongOpt.NO_ARGUMENT, null, 'i');
 
 	Getopt optionsParse = new Getopt("", args, "?i", longOpts);
@@ -146,6 +149,29 @@ public class Validator {
 
     } // main(String[] args)
 
+
+	
+	public static BasicRuleMLPresentationASTGrammar
+		createBasicTreeParser(String filepath, boolean isQuery) throws RecognitionException, IOException
+	{
+		ANTLRInputStream fileInput = new ANTLRInputStream(new FileInputStream(filepath));
+		RuleMLPresentationSyntaxLexer lexer = new RuleMLPresentationSyntaxLexer(fileInput);
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
+		RuleMLPresentationSyntaxParser parser = new RuleMLPresentationSyntaxParser(tokens);
+		ParserRuleReturnScope r;
+		
+		if (isQuery)
+			r = parser.queries();
+		else
+			r = parser.top_level_item();
+		
+		System.out.println("Finished parsing " + filepath);
+		
+		CommonTree t = (CommonTree) r.getTree(); // get tree from parser
+		// Create a tree node stream from resulting tree
+		CommonTreeNodeStream nodes = new CommonTreeNodeStream(t);
+		return new BasicRuleMLPresentationASTGrammar(nodes);
+	}
 
     private static void printUsage() {
 

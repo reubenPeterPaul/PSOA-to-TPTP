@@ -14,6 +14,7 @@ public class PSOATranslatorUtil {
 	public static final String SlotTerm = "Sloterm";
 	public static final String Hypothesis = "hypothesis";
 	public static final String Axiom = "axiom";
+	public static final String Conjecture = "conjecture";
 	public static final String FOF = "fof";
 
 	public static boolean isNull(Object o) 
@@ -114,14 +115,18 @@ public class PSOATranslatorUtil {
 		}
 	}
 	
-	public static StringBuilder foffactStr(StringBuilder b) {
+	public static StringBuilder fofFactSentence(StringBuilder b) {
 		return fofSentence(builder(randomFactId()).append(Comma + Hypothesis + Comma).append(b));
 	}
 	
-	public static StringBuilder fofruleStr(StringBuilder b) {
+	public static StringBuilder fofRuleSentence(StringBuilder b) {
 		return fofSentence(builder(randomRuleId()).append(Comma + Axiom + Comma).append(b));
 	}
 
+	public static StringBuilder fofConjSentence(StringBuilder b) {
+		return fofSentence(builder(randomConjectureId()).append(Comma + Conjecture + Comma).append(b));
+	}
+	
 	public static StringBuilder ruleStr(StringBuilder head, StringBuilder body) {
 		return parenthesize(head).append(ImpliedBy).append(parenthesize(body));
 	}
@@ -134,6 +139,10 @@ public class PSOATranslatorUtil {
 	public static int ruleCounter = 1;
 	public static String randomRuleId() {
 		return "rule" + ruleCounter++;
+	}
+	
+	public static String randomConjectureId() {
+		return "conj" + ruleCounter++;
 	}
 	
 	public static StringBuilder builder() { return builder(""); }

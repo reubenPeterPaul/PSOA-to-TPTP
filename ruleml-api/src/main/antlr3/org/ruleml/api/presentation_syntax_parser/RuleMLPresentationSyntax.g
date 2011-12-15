@@ -64,6 +64,9 @@ tokens
 
 top_level_item : document? EOF;
 
+queries
+    :   rule+;
+
 document
     :   DOCUMENT LPAR base? prefix* importDecl* group? RPAR
         -> ^(DOCUMENT base? prefix* importDecl* group?)
