@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'main'
 
 # General information about the project.
-project = u'PSOA-to-TPTP Converter'
+project = u'PSOA2TPTP Translator'
 copyright = u'2011, Reuben Peter-Paul, Gen Zou'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PSOA-to-TPTPConverterdoc'
+htmlhelp_basename = 'PSOA2TPTPTranslatordoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -178,7 +178,7 @@ htmlhelp_basename = 'PSOA-to-TPTPConverterdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('main', 'PSOA-to-TPTPConverter.tex', u'PSOA-to-TPTP Converter Documentation',
+  ('main', 'PSOA2TPTPTranslator.tex', u'PSOA-to-TPTP Converter Documentation',
    u'Reuben Peter-Paul, Gen Zou', 'manual'),
 ]
 

@@ -12,7 +12,7 @@
 
 
 \title{PSOA-to-TPTP Converter Documentation}
-\date{December 14, 2011}
+\date{December 15, 2011}
 \release{1.0.0}
 \author{Reuben Peter-Paul, Gen Zou}
 \newcommand{\sphinxlogo}{}
@@ -115,7 +115,7 @@
 
 
 \chapter{Proposal for PSOA-to-TPTP Converter}
-\label{project-proposal/index::doc}\label{project-proposal/index:welcome-to-psoa-to-tptp-converter-s-documentation}\label{project-proposal/index:proposal-for-psoa-to-tptp-converter}
+\label{project-proposal/index:proposal-for-psoa-to-tptp-converter}\label{project-proposal/index:welcome-to-psoa2tptp-tranlator-s-documentation}\label{project-proposal/index::doc}
 
 \section{Introduction}
 \label{project-proposal/index:introduction}
@@ -256,12 +256,13 @@ PSOA-RuleML to another language such as TPTP-FOF.
 
 \chapter{Overview}
 \label{main:overview}
-Knowledge representation is a major phase in semantic web applications, and rule language is a main type of formal languages for knowledge representation. PSOA-RuleML is an lately developed rule language which combines the ideas of relational(logic-based) and object-oriented(frame-based) modeling. In order to support reasoning on PSOA-RuleML, we are implementing a converter to transform PSOA-RuleML documents into TPTP format, which is a widely used format for theorem provers. With this converter, reasoning in PSOA-RuleML will be available using Vampire prover. In the implementation, we use Antlr3.0 parser generator to create a parser to transform PSOA-RuleML documents into an abstract syntax tree. The PSOA syntax tree is then converted into TPTP-FOF syntax by the converter. Finally, TPTP-format documents are generated using existing TPTP parser library.
+Knowledge representation is a major phase in semantic web applications, and rule language is a main type of formal languages for knowledge representation. PSOA RuleML is an lately developed rule language which combines the ideas of relational(logic-based) and object-oriented(frame-based) modeling. In order to support reasoning on PSOA RuleML, we are implementing a converter to transform PSOA RuleML documents into TPTP format, which is a widely used format for theorem provers. With this converter, reasoning in PSOA RuleML will be available using Vampire prover. In the implementation, we use Antlr3.0 parser generator to create a parser to transform PSOA RuleML documents into an abstract syntax tree. The PSOA syntax tree is then converted into TPTP-FOF syntax by the converter. Finally, TPTP-format documents are generated using existing TPTP parser library.
 
 
 \chapter{Files}
 \label{main:files}
 Project Document
+\href{http://dl.dropbox.com/u/46951970/Demo.zip}{Project Demo}
 
 \begin{thebibliography}{BoKi10a}
 \bibitem[Bol11a]{Bol11a}{\phantomsection\label{project-proposal/index:bol11a} 
