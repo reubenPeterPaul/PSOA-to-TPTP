@@ -9,9 +9,9 @@ public class PSOATranslatorUtil {
 	public static final String Comma = ", ";
 	public static final String Amp = " & ";
 	public static final String ImpliedBy = " <= ";
-	public static final String Member = "Member";
-	public static final String TupTerm = "Tupterm";
-	public static final String SlotTerm = "Sloterm";
+	public static final String Member = "member";
+	public static final String TupTerm = "tupterm";
+	public static final String SlotTerm = "sloterm";
 	public static final String Hypothesis = "hypothesis";
 	public static final String Axiom = "axiom";
 	public static final String Conjecture = "conjecture";
