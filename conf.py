@@ -178,7 +178,7 @@ htmlhelp_basename = 'PSOA2TPTPTranslatordoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('main', 'PSOA2TPTPTranslator.tex', u'PSOA-to-TPTP Converter Documentation',
+  ('main', 'PSOA2TPTPTranslator.tex', u'PSOA2TPTP Translator Proposal Documentation',
    u'Reuben Peter-Paul, Gen Zou', 'manual'),
 ]
 
