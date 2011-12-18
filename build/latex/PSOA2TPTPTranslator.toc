@@ -1,0 +1,15 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Proposal for PSOA2TPTP Translator}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Objectives}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Methodology}{1}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Grammar Specification}{1}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Compiler-compilers}{2}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Abstract Syntax Trees}{2}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Tools}{2}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}RuleML API}{2}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}ANTLR and AntlrWorks}{2}{subsection.1.4.2}
+\contentsline {subsection}{\numberline {1.4.3}ANTLR Tree Description Language}{2}{subsection.1.4.3}
+\contentsline {chapter}{\numberline {2}Overview}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}Files}{7}{chapter.3}
+\contentsline {chapter}{Bibliography}{9}{chapter*.4}
