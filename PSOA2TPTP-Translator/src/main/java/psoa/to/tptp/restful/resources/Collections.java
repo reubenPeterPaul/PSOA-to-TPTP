@@ -35,4 +35,8 @@ enum Collections {
 			return null;
 		}
 	}
+	
+	protected static <K,V> V get(Map<K,V> m, K k) {
+		return m.get(k);
+	}
 }

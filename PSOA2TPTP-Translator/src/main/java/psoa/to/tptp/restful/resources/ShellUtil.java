@@ -45,11 +45,11 @@ enum ShellUtil {
 		return e;
 	}
 	
-	protected static void execute(CommandLine cl, DefaultExecuteResultHandler h, OutputStream out) throws ExecuteException, IOException {
+	protected static int execute(CommandLine cl, OutputStream out) throws ExecuteException, IOException {
 		Executor e = executor(watchdog());
-		PumpStreamHandler psh = new PumpStreamHandler(out);
+		PumpStreamHandler psh = new PumpStreamHandler(out,out);
 		e.setStreamHandler(psh);
-		e.execute(cl, h);
+		return e.execute(cl);
 	}
 	
 	protected static CommandLine cl(String s) {
@@ -62,6 +62,10 @@ enum ShellUtil {
 	
 	protected static String padl(String s) {
 		return " "+s;
+	}
+	
+	protected static String quote(String s) {
+		return "\""+s+"\"";
 	}
 	
 	protected static String parenthesize(String s) {

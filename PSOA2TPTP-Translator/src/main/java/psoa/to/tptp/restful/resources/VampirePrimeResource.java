@@ -2,7 +2,9 @@ package psoa.to.tptp.restful.resources;
 
 import java.io.IOException;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
@@ -16,12 +18,13 @@ import static psoa.to.tptp.restful.resources.Util.*;
 public class VampirePrimeResource {
 	@Context UriInfo info;
 	
-	@Path("/{rulebase}")
-	@GET
-	public String getVampirePrimeResults(@PathParam("rulebase") String rulebase) {
-		
+	@POST
+	public String getVampirePrimeResults(
+		@FormParam("document") StringBuffer document,
+		@FormParam("query") String query
+	) {
 		try {
-			return vkernel(params(info), rulebase, query(info));
+			return vkernel(params(info), document.toString(), query);
 		} catch (ExecuteException e) {
 			e.printStackTrace();
 			return "fail";

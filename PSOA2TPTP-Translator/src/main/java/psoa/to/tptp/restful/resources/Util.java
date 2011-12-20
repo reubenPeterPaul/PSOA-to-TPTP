@@ -38,15 +38,13 @@ enum Util {
 	protected static String vkernel(Map<String,String> params, String rulebase, String query) throws ExecuteException, IOException, InterruptedException {
 		CommandLine cl = cl(VKERNEL);
 		cl.addArgument(redirectTPTP(rulebase+query));
-		DefaultExecuteResultHandler handler = resultHandler();
 		OutputStream out = out();
-		execute(cl,handler, out);
-		handler.waitFor();
+		execute(cl, out);
 		return out.toString();
 	}
 
 	private static String redirectTPTP(String tptp) {
-		return padl(rredirect(parenthesize(echo(tptp))));
+		return padl(rredirect(parenthesize(echo(quote(tptp)))));
 	}
 	
 	protected static String decode(String s){
@@ -84,25 +82,30 @@ enum Util {
 	
 	
 	protected static void convertDocument(String doc, OutputStream out) throws RecognitionException, IOException {
-		BasicRuleMLPresentationASTGrammar treeParser = treeParser(doc);
+		BasicRuleMLPresentationASTGrammar treeParser = documentTreeParser(doc);
 		
 		treeParser.setOutStream(out);
 		treeParser.document();
 	}
 	
 	protected static void convertQuery(String doc, OutputStream out) throws RecognitionException, IOException {
-		BasicRuleMLPresentationASTGrammar treeParser = treeParser(doc);
+		BasicRuleMLPresentationASTGrammar treeParser = queryTreeParser(doc);
 		
 		treeParser.setOutStream(out);
 		treeParser.queries();
 	}
 	
-	protected static BasicRuleMLPresentationASTGrammar treeParser(String doc) throws IOException, RecognitionException {
+	protected static BasicRuleMLPresentationASTGrammar documentTreeParser(String doc) throws IOException, RecognitionException {
 		
 		ANTLRInputStream in = in(byteStream(bytes(doc)));
 		CommonTokenStream tokens = tokens(lexer(in));
-		return new BasicRuleMLPresentationASTGrammar(treeNodes(tokens));
-		
+		return new BasicRuleMLPresentationASTGrammar(documentTreeNodes(tokens));
+	}
+
+	protected static BasicRuleMLPresentationASTGrammar queryTreeParser(String query) throws RecognitionException, IOException {
+		ANTLRInputStream in = in(byteStream(bytes(query)));
+		CommonTokenStream tokens = tokens(lexer(in));
+		return new BasicRuleMLPresentationASTGrammar(queryTreeNodes(tokens));
 	}
 	
 	protected static InputStream byteStream(byte[] bytes) {
@@ -126,7 +129,13 @@ enum Util {
 	}
 	
 	@SuppressWarnings("unchecked")
-	protected static CommonTreeNodeStream treeNodes(CommonTokenStream tokens) throws RecognitionException {
+	protected static CommonTreeNodeStream documentTreeNodes(CommonTokenStream tokens) throws RecognitionException {
+		ParserRuleReturnScope r = top(parser(tokens));
+		return new CommonTreeNodeStream(r.getTree());
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected static CommonTreeNodeStream queryTreeNodes(CommonTokenStream tokens) throws RecognitionException {
 		ParserRuleReturnScope r = queries(parser(tokens));
 		return new CommonTreeNodeStream(r.getTree());
 	}

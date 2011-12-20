@@ -1,16 +1,16 @@
 #surefire
-#Sun Dec 18 23:52:44 GMT-04:00 2011
-testClassesDirectory=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/target/test-classes
+#Mon Dec 19 14:47:23 GMT-04:00 2011
+testClassesDirectory=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/target/test-classes
 classPathUrl.4=/Users/peterpaulr/.m2/repository/ruleml-api/ruleml-api/0.0.1-SNAPSHOT/ruleml-api-0.0.1-SNAPSHOT.jar
 classPathUrl.3=/Users/peterpaulr/.m2/repository/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar
 classPathUrl.2=/Users/peterpaulr/.m2/repository/org/apache/commons/commons-exec/1.1/commons-exec-1.1.jar
 useManifestOnlyJar=true
-classPathUrl.1=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/target/classes
-reportsDirectory=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/target/surefire-reports
-classPathUrl.0=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/target/test-classes
+classPathUrl.1=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/target/classes
+reportsDirectory=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/target/surefire-reports
+classPathUrl.0=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/target/test-classes
 dirscanner.0=directoryScannerOptions
 providerConfiguration=org.apache.maven.surefire.junit.JUnit3Provider
-testSuiteDefinitionTestSourceDirectory=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/src/test/java
+testSuiteDefinitionTestSourceDirectory=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/src/test/java
 surefireClassPathUrl.1=/Users/peterpaulr/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.1/surefire-api-2.7.1.jar
 surefireClassPathUrl.0=/Users/peterpaulr/.m2/repository/org/apache/maven/surefire/surefire-junit3/2.7.1/surefire-junit3-2.7.1.jar
 report.2=org.apache.maven.surefire.report.XMLReporter
@@ -19,7 +19,7 @@ report.1=org.apache.maven.surefire.report.BriefFileReporter
 report.0=org.apache.maven.surefire.report.ForkingConsoleReporter
 excludes0=**/*$*
 isTrimStackTrace=true
-dirscanner.0.params=/Users/peterpaulr/2011/Workspace/PSOA2TPTP-Translator/target/test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
+dirscanner.0.params=/Users/peterpaulr/blogs/PSOA-to-TPTP/PSOA2TPTP-Translator/target/test-classes|[**/Test*.java, **/*Test.java, **/*TestCase.java]|[**/*$*]
 includes2=**/*TestCase.java
 enableAssertions=true
 includes1=**/*Test.java
