@@ -28,4 +28,4 @@ Files
 
 .. note::
 
-        Online Demo is temporarily offline.
+        Online Demo is online, but only works in Google Chrome browsers.
