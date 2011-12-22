@@ -22,10 +22,11 @@ Knowledge representation is at the foundation of Semantic Web applications, usin
 Files
 ----------
 
-* `Project Proposal Document <../latex/PSOA2TPTPTranslator.pdf>`_
-* `Project Demo Source <http://dl.dropbox.com/u/46951970/Demo.zip>`_
-* `Project Online Demo <http://138.119.12.33:8082/psoa2tptp-trans/index.html>`_
-
 .. note::
 
         Online Demo is online, but only works in Google Chrome browsers.
+
+* `Project Proposal Document <../latex/PSOA2TPTPTranslator.pdf>`_
+* `Project Demo Source <http://dl.dropbox.com/u/46951970/Demo.zip>`_
+* `Project Online Demo <http://138.119.12.33:8082/psoa2tptp-trans/index.html>`_
+* `Project Report <http://dl.dropbox.com/u/46951970/GenReubenCS6795Report.pdf>`_
