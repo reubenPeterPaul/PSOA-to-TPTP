@@ -1,3 +1,0 @@
-chmod ugo+rx -R *
-sudo ./links # puts soft links to vkernel and vkernelwrapper binaries in /usr/local/bin
-./demo

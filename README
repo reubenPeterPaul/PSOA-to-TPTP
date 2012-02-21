@@ -1,0 +1,16 @@
+1. Download jboss AS 7.0.2.Final
+
+    curl http://download.jboss.org/jbossas/7.0/jboss-as-7.0.2.Final/jboss-as-web-7.0.2.Final.zip -o jboss-as-7.0.2.Final.zip
+
+2. Unzip jboss-as-7.0.2.Final.zip somewhere in you home directory (this is for demo purposes only and using your home directory eases the burden of unix permissions).
+
+    unzip jboss-as-7.0.2.Final.zip -d <jboss_as_home>
+
+3. Run demo
+
+    bin/demo <jboss_as_home>
+
+4. Change port number of jboss AS 7
+
+    vim <jboss_as_home>/standalone/configuration/standalone.xml
+    # on line 259, change socket binding named http to 808x

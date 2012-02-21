@@ -1,3 +1,0 @@
-#! /bin/bash
-
-./jboss-as-web-7.0.2.Final/bin/standalone.sh
