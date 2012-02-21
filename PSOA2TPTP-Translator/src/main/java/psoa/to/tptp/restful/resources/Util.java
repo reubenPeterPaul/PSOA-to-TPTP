@@ -1,6 +1,13 @@
 package psoa.to.tptp.restful.resources;
 
-import static psoa.to.tptp.restful.resources.Collections.*;
+import static java.util.Arrays.asList;
+import static psoa.to.tptp.restful.resources.Collections.first;
+import static psoa.to.tptp.restful.resources.Collections.map;
+import static psoa.to.tptp.restful.resources.ShellUtil.echo;
+import static psoa.to.tptp.restful.resources.ShellUtil.padl;
+import static psoa.to.tptp.restful.resources.ShellUtil.parenthesize;
+import static psoa.to.tptp.restful.resources.ShellUtil.quote;
+import static psoa.to.tptp.restful.resources.ShellUtil.rredirect;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -23,27 +30,27 @@ import org.antlr.runtime.Lexer;
 import org.antlr.runtime.ParserRuleReturnScope;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
-import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecuteResultHandler;
-import org.apache.commons.exec.ExecuteException;
 import org.apache.log4j.Logger;
 import org.ruleml.api.presentation_syntax_parser.BasicRuleMLPresentationASTGrammar;
 import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxLexer;
 import org.ruleml.api.presentation_syntax_parser.RuleMLPresentationSyntaxParser;
-import static psoa.to.tptp.restful.resources.ShellUtil.*;
 
-enum Util {
+public enum Util {
 ;
 
-	protected static String vkernel(Map<String,String> params, String rulebase, String query) throws ExecuteException, IOException, InterruptedException {
-		CommandLine cl = cl(VKERNEL);
-		cl.addArgument(redirectTPTP(rulebase+query));
-		OutputStream out = out();
-		execute(cl, out);
-		return out.toString();
+	public static List<String> deserialize(String output) {
+		return asList(output.split("\n"));
 	}
 
-	private static String redirectTPTP(String tptp) {
+	public static String serialize(List<String> sentences) {
+		String str = "";
+		for (String s : sentences) {
+			str += s + "\n";
+		}
+		return str;
+	}
+
+	public static String redirectTPTP(String tptp) {
 		return padl(rredirect(parenthesize(echo(quote(tptp)))));
 	}
 	
@@ -156,7 +163,7 @@ enum Util {
 		return parser.top_level_item();
 	}
 	
-	protected static OutputStream out() {
+	public static OutputStream out() {
 		return new ByteArrayOutputStream();
 	}
 }

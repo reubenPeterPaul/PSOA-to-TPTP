@@ -16,6 +16,10 @@ enum Collections {
 		return new ArrayList<T>();
 	}
 	
+	protected static <T> List<T> list(Collection<T> c) {
+		return new ArrayList<T>(c);
+	}
+	
 	protected static <T> Set<T> set() {
 		return new HashSet<T>();
 	}

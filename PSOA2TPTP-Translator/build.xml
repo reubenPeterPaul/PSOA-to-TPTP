@@ -1,0 +1,51 @@
+<project name="PSOA2TPTP-Translator" default="start">
+	<property name="resources.dir" value="src/main/resources"/>
+	<property name="host.dir" value="host"/>
+	
+	<property name="server.mode" value="standalone"/>
+	<property name="jboss.zip" value="${resources.dir}/jboss-as-web-7.0.2.Final.zip"/>
+	<property name="jboss.dir" value="${host.dir}/jboss-as-web-7.0.2.Final"/>
+	<property name="jboss.deploy.dir" value="${jboss.dir}/${server.mode}/deployments"/>
+	<property name="target.dir" value="target"/>
+	<property name="war" value="${target.dir}/psoa2tptp-trans.war"/> 
+ 	<property name="vkernel.file" value="${resources.dir}/vkernel"/>
+	<property name="vkernelwrapper.file" value="${resources.dir}/vkernelwrapper"/>
+	<property name="demo.file" value="${resources.dir}/demo"/>
+	<property name="links.file" value="${resources.dir}/links"/>
+	<property name="readme.file" value="${resources.dir}/README"/>
+	<property name="export.dir" value="export"/>
+	<property name="demo.zip" value="${export.dir}/demo.zip"/>
+	
+	
+	<target name="export-demo" depends="copy">
+		<mkdir dir="${export.dir}"/>
+		<zip basedir="${host.dir}" destfile="${demo.zip}" />
+	</target>
+	
+	<target name="start" depends="copy">
+		<exec executable="/bin/bash" dir="${jboss.dir}/bin">
+			<arg value="standalone.sh"/>
+		</exec>
+	</target>
+
+	<target name="clean">
+		<delete dir="${host.dir}"/>
+		<delete dir="${export.dir}"/>
+	</target>
+	
+	<target name="copy" depends="clean">
+		<mkdir dir="${host.dir}"/>
+		<unzip src="${jboss.zip}" dest="${host.dir}" />
+		<copy file="${war}" todir="${jboss.deploy.dir}"/>
+		<copy file="${vkernel.file}" todir="${host.dir}"/>
+		<copy file="${vkernelwrapper.file}" todir="${host.dir}"/>
+		<copy file="${demo.file}" todir="${host.dir}"/>
+		<copy file="${links.file}" todir="${host.dir}"/>
+		<copy file="${readme.file}" todir="${host.dir}"/>
+		<chmod perm="ugo+rx">
+			<fileset dir="${host.dir}"/>
+		</chmod>
+	</target>
+
+</project>
+

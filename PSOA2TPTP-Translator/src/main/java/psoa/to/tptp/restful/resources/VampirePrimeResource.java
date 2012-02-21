@@ -1,39 +1,48 @@
 package psoa.to.tptp.restful.resources;
 
-import java.io.IOException;
+import static psoa.to.tptp.restful.resources.ShellUtil.VKERNELWRAPPER;
+import static psoa.to.tptp.restful.resources.ShellUtil.cl;
+import static psoa.to.tptp.restful.resources.ShellUtil.execute;
+import static psoa.to.tptp.restful.resources.ShellUtil.quote;
+import static psoa.to.tptp.restful.resources.Util.out;
+import static psoa.to.tptp.restful.resources.Util.serialize;
 
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Encoded;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.ExecuteException;
 
-import static psoa.to.tptp.restful.resources.Util.*;
+import psoa.to.tptp.restful.models.TptpDocument;
 
 @Path("/execute")
 public class VampirePrimeResource {
 	@Context UriInfo info;
 	
 	@POST
-	public String getVampirePrimeResults(
-		@FormParam("document") StringBuffer document,
-		@FormParam("query") String query
-	) {
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_PLAIN)
+	@Encoded
+	public String getVampirePrimeResults(TptpDocument doc) {
+		CommandLine cl = cl(VKERNELWRAPPER);
+		cl.addArgument(serialize(doc.getSentences()));
+		OutputStream out = out();
 		try {
-			return vkernel(params(info), document.toString(), query);
+			execute(cl, out);
 		} catch (ExecuteException e) {
 			e.printStackTrace();
-			return "fail";
 		} catch (IOException e) {
 			e.printStackTrace();
-			return "fail";
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			return "fail";
 		}
+		return out.toString();
 	}	
 }

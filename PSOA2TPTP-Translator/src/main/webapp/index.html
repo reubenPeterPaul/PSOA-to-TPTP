@@ -46,7 +46,8 @@ var slash = function(s) {
 var append = function(s1,s2) {
 	return s1 + s2;
 }
-const WS = append(Host,append(slash(App),slash("ws")));
+//const WS = append(Host,append(slash(App),slash("ws")));
+const WS = "ws";
 
 var service = function(service) {
 	return append(WS,slash(service));
@@ -76,16 +77,32 @@ var qs = function(url, params) {
 	return query;
 }
 
-var translateDoc = function(psoa,handler) {
+var translateDoc = function(psoa,query,handler) {
 	$.ajax({
 		type:"POST",
-		url:append(service(Translate),slash(Doc)),
-		data:param(Doc,psoa),
+		url:service(Translate),
+		data:JSON.stringify(translateRequest(psoa,query)),
+		contentType:"application/json; charset=utf-8",
 		success:function(data) {
-			$("#tptpOutput").text(data);
+			$("#tptpOutput").text(printTranslation(data));
 			handler(data);
 		}
 	});
+}
+
+var printTranslation = function(data) {
+	var str = "";
+	var sentences = data.sentences;
+	for (i in sentences) {
+		str += append(sentences[i],"\n");
+	}
+	return str;
+}
+
+var translateRequest = function(psoa,query) {
+	return (query)
+		?{document: psoa, query: query}
+		:{document:psoa, query:""};
 }
 
 var translateQuery = function(q,handler) {
@@ -98,22 +115,19 @@ var translateQuery = function(q,handler) {
 		}
 	});
 }
+
 var executeQuery = function(doc, q) {
-	translateDoc(doc,function(premises) {
-		translateQuery(q,function(conjecture) {
-			$.ajax({
-				type:"POST",
-				url:service(Execute),
-				data:append(
-					param(Doc,encode(premises)),
-					amp(param(Query,encode(conjecture)))
-				),
-				success:function(result) {
-					$("#vampireOutput").text(result);
-				}
-			});
+	translateDoc(doc, q, function(sentences) {
+		$.ajax({
+			type:"POST",
+			contentType:"application/json; charset=utf-8",
+			url:service(Execute),
+			data:JSON.stringify(sentences),
+			success:function(result) {
+				$("#vampireOutput").text(result);
+			}
 		});
-	});
+	})
 }
 
 var psoaDoc = function() {
@@ -128,7 +142,7 @@ $(document).ready(function() {
 	$("#psoaDoc").val(DefaultPSOADoc)
 	$("#psoaQuery").val(DefaultPSOAQuery);
 	$('#psoa2tptp').click(function() {
-		translateDoc(encode(psoaDoc()),nullf);
+		translateDoc(encode(psoaDoc()),encode(psoaQuery()),nullf);
 	});
 	$("#resetBtn").click(function() {
 		$("#psoaDoc").val("");

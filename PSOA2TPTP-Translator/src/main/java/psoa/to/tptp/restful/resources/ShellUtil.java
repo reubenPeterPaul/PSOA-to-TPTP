@@ -11,64 +11,65 @@ import org.apache.commons.exec.ExecuteWatchdog;
 import org.apache.commons.exec.Executor;
 import org.apache.commons.exec.PumpStreamHandler;
 
-enum ShellUtil {
+public enum ShellUtil {
 	;
-	protected static final String VKERNEL = "vkernel";
-	protected static final String ECHO = "echo";	
-	protected static final String RREDIRECT = "<";
-	protected static final String LPAREN = "(";
-	protected static final String RPAREN = ")";
+	public static final String VKERNEL = "vkernel";
+	public static final String VKERNELWRAPPER = "vkernelwrapper";
+	public static final String ECHO = "echo";	
+	public static final String RREDIRECT = "<";
+	public static final String LPAREN = "(";
+	public static final String RPAREN = ")";
 	
-	protected static String rredirect(String s) {
+	public static String rredirect(String s) {
 		return RREDIRECT+s;
 	}
 	
-	protected static String subshell(String s) {
+	public static String subshell(String s) {
 		return wrap(s,"(",")");
 	}
 	
-	protected static String wrap(String s, String head, String tail) {
+	public static String wrap(String s, String head, String tail) {
 		return head+s+tail;
 	}
 	
-	protected static DefaultExecuteResultHandler resultHandler() {
+	public static DefaultExecuteResultHandler resultHandler() {
 		return new DefaultExecuteResultHandler();
 	}
 	
-	protected static ExecuteWatchdog watchdog() {
+	public static ExecuteWatchdog watchdog() {
 		return new ExecuteWatchdog(60*1000);
 	}
 	
-	protected static Executor executor(ExecuteWatchdog dog) {
+	public static Executor executor(ExecuteWatchdog dog) {
 		Executor e = new DefaultExecutor();
 		e.setWatchdog(dog);
 		return e;
 	}
 	
-	protected static int execute(CommandLine cl, OutputStream out) throws ExecuteException, IOException {
+	public static int execute(CommandLine cl, OutputStream out) throws ExecuteException, IOException {
 		Executor e = executor(watchdog());
 		PumpStreamHandler psh = new PumpStreamHandler(out,out);
 		e.setStreamHandler(psh);
 		return e.execute(cl);
 	}
 	
-	protected static CommandLine cl(String s) {
+	public static CommandLine cl(String s) {
 		return new CommandLine(s);
 	}
 
-	protected static String echo(String s) {
+	public static String echo(String s) {
 		return ECHO+padl(s);
 	}
 	
-	protected static String padl(String s) {
+	public static String padl(String s) {
 		return " "+s;
 	}
 	
-	protected static String quote(String s) {
+	public static String quote(String s) {
 		return "\""+s+"\"";
 	}
 	
-	protected static String parenthesize(String s) {
+	public static String parenthesize(String s) {
 		return LPAREN+s+RPAREN;
 	}
 }
