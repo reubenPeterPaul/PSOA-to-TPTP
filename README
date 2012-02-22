@@ -15,8 +15,13 @@ Prerequisites: Maven 2
     vim <jboss_as_home>/standalone/configuration/standalone.xml
     # on line 259, change socket binding named http to 808x
 
-4. Run demo
+4. Run demo server
 
     mvn clean install
     bin/demo <jboss_as_home>
 
+5. Launch demo client
+
+    google-chrome localhost:808x/psoa2tptp-trans
+    # or
+    firefox localhost:8082/psoa2tptp-trans
