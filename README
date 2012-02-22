@@ -22,6 +22,7 @@ Prerequisites: Maven 2
 
 5. Launch demo client
 
+    # See step 3 for port number if changed, else use port 8080 below (x = 0)
     google-chrome localhost:808x/psoa2tptp-trans
     # or
-    firefox localhost:8082/psoa2tptp-trans
+    firefox localhost:808x/psoa2tptp-trans
