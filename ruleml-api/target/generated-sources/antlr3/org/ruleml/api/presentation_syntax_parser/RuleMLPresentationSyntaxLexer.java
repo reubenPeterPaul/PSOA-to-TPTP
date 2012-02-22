@@ -1,4 +1,4 @@
-// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2012-02-21 17:29:58
+// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2012-02-22 15:04:12
 
     package org.ruleml.api.presentation_syntax_parser;
     import org.ruleml.api.*;
@@ -61,7 +61,6 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     public static final int VAR_LIST=48;
     public static final int WHITESPACE=49;
 
-        private DefaultAbstractSyntax factory = new DefaultAbstractSyntax();
 
 
     // delegates
@@ -84,8 +83,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:11:7: ( '@' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:11:9: '@'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:10:7: ( '@' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:10:9: '@'
             {
             match('@'); 
 
@@ -105,10 +104,10 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:218:13: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:218:16: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:216:13: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:216:16: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:218:16: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:216:16: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt1=0;
             loop1:
             do {
@@ -170,17 +169,17 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = MULTI_LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:20: ( '<!--' ( options {greedy=false; } : ( . )* ) '-->' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:23: '<!--' ( options {greedy=false; } : ( . )* ) '-->'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:20: ( '<!--' ( options {greedy=false; } : ( . )* ) '-->' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:23: '<!--' ( options {greedy=false; } : ( . )* ) '-->'
             {
             match("<!--"); 
 
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:30: ( options {greedy=false; } : ( . )* )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:57: ( . )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:30: ( options {greedy=false; } : ( . )* )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:57: ( . )*
             {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:57: ( . )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:57: ( . )*
             loop2:
             do {
                 int alt2=2;
@@ -214,7 +213,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:219:57: .
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:217:57: .
             	    {
             	    matchAny(); 
 
@@ -252,8 +251,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = DOCUMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:222:10: ( 'Document' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:222:12: 'Document'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:220:10: ( 'Document' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:220:12: 'Document'
             {
             match("Document"); 
 
@@ -275,8 +274,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = BASE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:223:6: ( 'Base' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:223:8: 'Base'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:221:6: ( 'Base' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:221:8: 'Base'
             {
             match("Base"); 
 
@@ -298,8 +297,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = IMPORT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:224:8: ( 'Import' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:224:10: 'Import'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:222:8: ( 'Import' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:222:10: 'Import'
             {
             match("Import"); 
 
@@ -321,8 +320,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = PREFIX;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:225:8: ( 'Prefix' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:225:10: 'Prefix'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:223:8: ( 'Prefix' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:223:10: 'Prefix'
             {
             match("Prefix"); 
 
@@ -344,8 +343,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = GROUP;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:226:7: ( 'Group' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:226:9: 'Group'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:224:7: ( 'Group' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:224:9: 'Group'
             {
             match("Group"); 
 
@@ -367,8 +366,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = FORALL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:227:8: ( 'Forall' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:227:10: 'Forall'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:225:8: ( 'Forall' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:225:10: 'Forall'
             {
             match("Forall"); 
 
@@ -390,8 +389,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = EXISTS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:228:8: ( 'Exists' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:228:10: 'Exists'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:226:8: ( 'Exists' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:226:10: 'Exists'
             {
             match("Exists"); 
 
@@ -413,8 +412,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = AND;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:229:5: ( 'And' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:229:7: 'And'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:227:5: ( 'And' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:227:7: 'And'
             {
             match("And"); 
 
@@ -436,8 +435,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = OR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:230:4: ( 'Or' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:230:6: 'Or'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:228:4: ( 'Or' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:228:6: 'Or'
             {
             match("Or"); 
 
@@ -459,8 +458,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = EXTERNAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:231:10: ( 'External' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:231:12: 'External'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:229:10: ( 'External' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:229:12: 'External'
             {
             match("External"); 
 
@@ -482,10 +481,10 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:7: ( ( DIGIT )+ ( '.' ( DIGIT )* )? )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:9: ( DIGIT )+ ( '.' ( DIGIT )* )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:7: ( ( DIGIT )+ ( '.' ( DIGIT )* )? )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:9: ( DIGIT )+ ( '.' ( DIGIT )* )?
             {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:9: ( DIGIT )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:9: ( DIGIT )+
             int cnt3=0;
             loop3:
             do {
@@ -535,7 +534,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
             } while (true);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:16: ( '.' ( DIGIT )* )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:16: ( '.' ( DIGIT )* )?
             int alt5=2;
             switch ( input.LA(1) ) {
                 case '.':
@@ -547,11 +546,11 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
 
             switch (alt5) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:17: '.' ( DIGIT )*
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:17: '.' ( DIGIT )*
                     {
                     match('.'); 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:234:21: ( DIGIT )*
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:232:21: ( DIGIT )*
                     loop4:
                     do {
                         int alt4=2;
@@ -618,10 +617,10 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = CURIE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:7: ( ( ID )? ':' ( ID )? )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:9: ( ID )? ':' ( ID )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:7: ( ( ID )? ':' ( ID )? )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:9: ( ID )? ':' ( ID )?
             {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:9: ( ID )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:9: ( ID )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -630,7 +629,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:9: ID
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:9: ID
                     {
                     mID(); 
 
@@ -643,7 +642,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
 
             match(':'); 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:17: ( ID )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:17: ( ID )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -652,7 +651,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:17: ID
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:233:17: ID
                     {
                     mID(); 
 
@@ -679,12 +678,12 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:237:7: ( '\"' (~ ( '\"' | '\\\\' | EOL ) | ECHAR )* '\"' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:237:9: '\"' (~ ( '\"' | '\\\\' | EOL ) | ECHAR )* '\"'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:7: ( '\"' (~ ( '\"' | '\\\\' | EOL ) | ECHAR )* '\"' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:9: '\"' (~ ( '\"' | '\\\\' | EOL ) | ECHAR )* '\"'
             {
             match('\"'); 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:237:13: (~ ( '\"' | '\\\\' | EOL ) | ECHAR )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:13: (~ ( '\"' | '\\\\' | EOL ) | ECHAR )*
             loop8:
             do {
                 int alt8=3;
@@ -700,7 +699,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:237:14: ~ ( '\"' | '\\\\' | EOL )
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:14: ~ ( '\"' | '\\\\' | EOL )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -715,7 +714,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:237:36: ECHAR
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:235:36: ECHAR
             	    {
             	    mECHAR(); 
 
@@ -747,15 +746,15 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = IRI_REF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:9: ( '<' IRI_START_CHAR ( IRI_CHAR )+ '>' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:11: '<' IRI_START_CHAR ( IRI_CHAR )+ '>'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:238:9: ( '<' IRI_START_CHAR ( IRI_CHAR )+ '>' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:238:11: '<' IRI_START_CHAR ( IRI_CHAR )+ '>'
             {
             match('<'); 
 
             mIRI_START_CHAR(); 
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:30: ( IRI_CHAR )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:238:30: ( IRI_CHAR )+
             int cnt9=0;
             loop9:
             do {
@@ -896,12 +895,12 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = VAR_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:241:8: ( '?' ( ID_CHAR )* )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:241:10: '?' ( ID_CHAR )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:239:8: ( '?' ( ID_CHAR )* )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:239:10: '?' ( ID_CHAR )*
             {
             match('?'); 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:241:14: ( ID_CHAR )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:239:14: ( ID_CHAR )*
             loop10:
             do {
                 int alt10=2;
@@ -951,13 +950,13 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:242:4: ( ID_START_CHAR ( ID_CHAR )* )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:242:6: ID_START_CHAR ( ID_CHAR )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:4: ( ID_START_CHAR ( ID_CHAR )* )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:6: ID_START_CHAR ( ID_CHAR )*
             {
             mID_START_CHAR(); 
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:242:20: ( ID_CHAR )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:240:20: ( ID_CHAR )*
             loop11:
             do {
                 int alt11=2;
@@ -1007,8 +1006,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = IMPLICATION;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:245:13: ( ':-' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:245:15: ':-'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:243:13: ( ':-' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:243:15: ':-'
             {
             match(":-"); 
 
@@ -1030,8 +1029,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = EQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:246:7: ( '=' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:246:9: '='
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:244:7: ( '=' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:244:9: '='
             {
             match('='); 
 
@@ -1051,8 +1050,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = SUBCLASS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:247:10: ( '##' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:247:12: '##'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:245:10: ( '##' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:245:12: '##'
             {
             match("##"); 
 
@@ -1074,8 +1073,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = INSTANCE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:248:10: ( '#' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:248:12: '#'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:246:10: ( '#' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:246:12: '#'
             {
             match('#'); 
 
@@ -1095,8 +1094,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = SLOT_ARROW;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:249:12: ( '->' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:249:14: '->'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:247:12: ( '->' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:247:14: '->'
             {
             match("->"); 
 
@@ -1118,8 +1117,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = SYMSPACE_OPER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:250:15: ( '^^' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:250:17: '^^'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:248:15: ( '^^' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:248:17: '^^'
             {
             match("^^"); 
 
@@ -1141,8 +1140,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = LPAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:253:6: ( '(' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:253:8: '('
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:251:6: ( '(' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:251:8: '('
             {
             match('('); 
 
@@ -1162,8 +1161,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = RPAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:254:6: ( ')' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:254:8: ')'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:252:6: ( ')' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:252:8: ')'
             {
             match(')'); 
 
@@ -1183,8 +1182,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = LESS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:255:6: ( '<' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:255:8: '<'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:253:6: ( '<' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:253:8: '<'
             {
             match('<'); 
 
@@ -1204,8 +1203,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = GREATER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:256:9: ( '>' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:256:11: '>'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:254:9: ( '>' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:254:11: '>'
             {
             match('>'); 
 
@@ -1225,8 +1224,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = LSQBR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:257:7: ( '[' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:257:9: '['
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:255:7: ( '[' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:255:9: '['
             {
             match('['); 
 
@@ -1246,8 +1245,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
         try {
             int _type = RSQBR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:258:7: ( ']' )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:258:9: ']'
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:256:7: ( ']' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:256:9: ']'
             {
             match(']'); 
 
@@ -1265,7 +1264,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "ALPHA"
     public final void mALPHA() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:261:16: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:259:16: ( 'a' .. 'z' | 'A' .. 'Z' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1291,7 +1290,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:262:16: ( '0' .. '9' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:260:16: ( '0' .. '9' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1317,7 +1316,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "IRI_CHAR"
     public final void mIRI_CHAR() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:263:19: ( ALPHA | DIGIT | '+' | '-' | '.' | '@' | ':' | '_' | '~' | '%' | '!' | '$' | '&' | '\\'' | '(' | ')' | '*' | ',' | ';' | '=' | '?' | '#' | '/' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:261:19: ( ALPHA | DIGIT | '+' | '-' | '.' | '@' | ':' | '_' | '~' | '%' | '!' | '$' | '&' | '\\'' | '(' | ')' | '*' | ',' | ';' | '=' | '?' | '#' | '/' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( input.LA(1)=='!'||(input.LA(1) >= '#' && input.LA(1) <= ';')||input.LA(1)=='='||(input.LA(1) >= '?' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='~' ) {
@@ -1343,7 +1342,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "IRI_START_CHAR"
     public final void mIRI_START_CHAR() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:267:25: ( ALPHA )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:265:25: ( ALPHA )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1369,7 +1368,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "ID_CHAR"
     public final void mID_CHAR() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:271:5: ( ID_START_CHAR | DIGIT | '\\u00B7' | '\\u203F' .. '\\u2040' | '.' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:269:5: ( ID_START_CHAR | DIGIT | '\\u00B7' | '\\u203F' .. '\\u2040' | '.' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( input.LA(1)=='.'||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00B7'||(input.LA(1) >= '\u00C0' && input.LA(1) <= '\u00D6')||(input.LA(1) >= '\u00D8' && input.LA(1) <= '\u00F6')||(input.LA(1) >= '\u00F8' && input.LA(1) <= '\u02FF')||(input.LA(1) >= '\u0370' && input.LA(1) <= '\u037D')||(input.LA(1) >= '\u037F' && input.LA(1) <= '\u1FFF')||(input.LA(1) >= '\u200C' && input.LA(1) <= '\u200D')||(input.LA(1) >= '\u203F' && input.LA(1) <= '\u2040')||(input.LA(1) >= '\u2070' && input.LA(1) <= '\u218F')||(input.LA(1) >= '\u2C00' && input.LA(1) <= '\u2FEF')||(input.LA(1) >= '\u3001' && input.LA(1) <= '\uD7FF')||(input.LA(1) >= '\uF900' && input.LA(1) <= '\uFDCF')||(input.LA(1) >= '\uFDF0' && input.LA(1) <= '\uFFFD') ) {
@@ -1395,7 +1394,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "ID_START_CHAR"
     public final void mID_START_CHAR() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:281:5: ( ALPHA | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u02FF' | '\\u0370' .. '\\u037D' | '\\u037F' .. '\\u1FFF' | '\\u200C' .. '\\u200D' | '\\u2070' .. '\\u218F' | '\\u2C00' .. '\\u2FEF' | '\\u3001' .. '\\uD7FF' | '\\uF900' .. '\\uFDCF' | '\\uFDF0' .. '\\uFFFD' | '_' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:279:5: ( ALPHA | '\\u00C0' .. '\\u00D6' | '\\u00D8' .. '\\u00F6' | '\\u00F8' .. '\\u02FF' | '\\u0370' .. '\\u037D' | '\\u037F' .. '\\u1FFF' | '\\u200C' .. '\\u200D' | '\\u2070' .. '\\u218F' | '\\u2C00' .. '\\u2FEF' | '\\u3001' .. '\\uD7FF' | '\\uF900' .. '\\uFDCF' | '\\uFDF0' .. '\\uFFFD' | '_' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||(input.LA(1) >= '\u00C0' && input.LA(1) <= '\u00D6')||(input.LA(1) >= '\u00D8' && input.LA(1) <= '\u00F6')||(input.LA(1) >= '\u00F8' && input.LA(1) <= '\u02FF')||(input.LA(1) >= '\u0370' && input.LA(1) <= '\u037D')||(input.LA(1) >= '\u037F' && input.LA(1) <= '\u1FFF')||(input.LA(1) >= '\u200C' && input.LA(1) <= '\u200D')||(input.LA(1) >= '\u2070' && input.LA(1) <= '\u218F')||(input.LA(1) >= '\u2C00' && input.LA(1) <= '\u2FEF')||(input.LA(1) >= '\u3001' && input.LA(1) <= '\uD7FF')||(input.LA(1) >= '\uF900' && input.LA(1) <= '\uFDCF')||(input.LA(1) >= '\uFDF0' && input.LA(1) <= '\uFFFD') ) {
@@ -1421,8 +1420,8 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "ECHAR"
     public final void mECHAR() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:296:16: ( '\\\\' ( 't' | 'b' | 'n' | 'r' | 'f' | '\\\\' | '\"' | '\\'' ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:296:18: '\\\\' ( 't' | 'b' | 'n' | 'r' | 'f' | '\\\\' | '\"' | '\\'' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:294:16: ( '\\\\' ( 't' | 'b' | 'n' | 'r' | 'f' | '\\\\' | '\"' | '\\'' ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:294:18: '\\\\' ( 't' | 'b' | 'n' | 'r' | 'f' | '\\\\' | '\"' | '\\'' )
             {
             match('\\'); 
 
@@ -1449,7 +1448,7 @@ public class RuleMLPresentationSyntaxLexer extends Lexer {
     // $ANTLR start "EOL"
     public final void mEOL() throws RecognitionException {
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:298:14: ( '\\n' | '\\r' )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:296:14: ( '\\n' | '\\r' )
             // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:
             {
             if ( input.LA(1)=='\n'||input.LA(1)=='\r' ) {

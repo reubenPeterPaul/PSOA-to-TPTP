@@ -1,4 +1,4 @@
-// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2012-02-21 17:29:58
+// $ANTLR 3.4 org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g 2012-02-22 15:04:12
 
 	package org.ruleml.api.presentation_syntax_parser;
     import org.ruleml.api.*;
@@ -95,7 +95,6 @@ public TreeAdaptor getTreeAdaptor() {
     public String getGrammarFileName() { return "org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g"; }
 
 
-        private DefaultAbstractSyntax factory = new DefaultAbstractSyntax();
         
         private CommonTree getTupleTree(List list_terms, int length)
         {
@@ -118,7 +117,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "top_level_item"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:1: top_level_item : ( document )? EOF ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:63:1: top_level_item : ( document )? EOF ;
     public final RuleMLPresentationSyntaxParser.top_level_item_return top_level_item() throws RecognitionException {
         RuleMLPresentationSyntaxParser.top_level_item_return retval = new RuleMLPresentationSyntaxParser.top_level_item_return();
         retval.start = input.LT(1);
@@ -133,13 +132,13 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree EOF2_tree=null;
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:16: ( ( document )? EOF )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:18: ( document )? EOF
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:63:16: ( ( document )? EOF )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:63:18: ( document )? EOF
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:18: ( document )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:63:18: ( document )?
             int alt1=2;
             switch ( input.LA(1) ) {
                 case DOCUMENT:
@@ -151,7 +150,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt1) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:18: document
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:63:18: document
                     {
                     pushFollow(FOLLOW_document_in_top_level_item166);
                     document1=document();
@@ -204,7 +203,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "queries"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:67:1: queries : ( rule )+ ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:65:1: queries : ( rule )+ ;
     public final RuleMLPresentationSyntaxParser.queries_return queries() throws RecognitionException {
         RuleMLPresentationSyntaxParser.queries_return retval = new RuleMLPresentationSyntaxParser.queries_return();
         retval.start = input.LT(1);
@@ -217,13 +216,13 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:68:5: ( ( rule )+ )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:68:9: ( rule )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:66:5: ( ( rule )+ )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:66:9: ( rule )+
             {
             root_0 = (CommonTree)adaptor.nil();
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:68:9: ( rule )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:66:9: ( rule )+
             int cnt2=0;
             loop2:
             do {
@@ -249,7 +248,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt2) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:68:9: rule
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:66:9: rule
             	    {
             	    pushFollow(FOLLOW_rule_in_queries183);
             	    rule3=rule();
@@ -302,7 +301,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "document"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:1: document : DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:68:1: document : DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? ) ;
     public final RuleMLPresentationSyntaxParser.document_return document() throws RecognitionException {
         RuleMLPresentationSyntaxParser.document_return retval = new RuleMLPresentationSyntaxParser.document_return();
         retval.start = input.LT(1);
@@ -333,8 +332,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_base=new RewriteRuleSubtreeStream(adaptor,"rule base");
         RewriteRuleSubtreeStream stream_group=new RewriteRuleSubtreeStream(adaptor,"rule group");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:5: ( DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:9: DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:5: ( DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:9: DOCUMENT LPAR ( base )? ( prefix )* ( importDecl )* ( group )? RPAR
             {
             DOCUMENT4=(Token)match(input,DOCUMENT,FOLLOW_DOCUMENT_in_document198);  
             stream_DOCUMENT.add(DOCUMENT4);
@@ -344,7 +343,7 @@ public TreeAdaptor getTreeAdaptor() {
             stream_LPAR.add(LPAR5);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:23: ( base )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:23: ( base )?
             int alt3=2;
             switch ( input.LA(1) ) {
                 case BASE:
@@ -356,7 +355,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt3) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:23: base
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:23: base
                     {
                     pushFollow(FOLLOW_base_in_document202);
                     base6=base();
@@ -371,7 +370,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:29: ( prefix )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:29: ( prefix )*
             loop4:
             do {
                 int alt4=2;
@@ -386,7 +385,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt4) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:29: prefix
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:29: prefix
             	    {
             	    pushFollow(FOLLOW_prefix_in_document205);
             	    prefix7=prefix();
@@ -404,7 +403,7 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:37: ( importDecl )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:37: ( importDecl )*
             loop5:
             do {
                 int alt5=2;
@@ -419,7 +418,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt5) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:37: importDecl
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:37: importDecl
             	    {
             	    pushFollow(FOLLOW_importDecl_in_document208);
             	    importDecl8=importDecl();
@@ -437,7 +436,7 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:49: ( group )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:49: ( group )?
             int alt6=2;
             switch ( input.LA(1) ) {
                 case GROUP:
@@ -449,7 +448,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt6) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:71:49: group
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:69:49: group
                     {
                     pushFollow(FOLLOW_group_in_document211);
                     group9=group();
@@ -469,7 +468,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: prefix, group, DOCUMENT, importDecl, base
+            // elements: prefix, importDecl, group, base, DOCUMENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -479,37 +478,37 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 72:9: -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? )
+            // 70:9: -> ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:72:12: ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:12: ^( DOCUMENT ( base )? ( prefix )* ( importDecl )* ( group )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
                 stream_DOCUMENT.nextNode()
                 , root_1);
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:72:23: ( base )?
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:23: ( base )?
                 if ( stream_base.hasNext() ) {
                     adaptor.addChild(root_1, stream_base.nextTree());
 
                 }
                 stream_base.reset();
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:72:29: ( prefix )*
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:29: ( prefix )*
                 while ( stream_prefix.hasNext() ) {
                     adaptor.addChild(root_1, stream_prefix.nextTree());
 
                 }
                 stream_prefix.reset();
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:72:37: ( importDecl )*
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:37: ( importDecl )*
                 while ( stream_importDecl.hasNext() ) {
                     adaptor.addChild(root_1, stream_importDecl.nextTree());
 
                 }
                 stream_importDecl.reset();
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:72:49: ( group )?
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:70:49: ( group )?
                 if ( stream_group.hasNext() ) {
                     adaptor.addChild(root_1, stream_group.nextTree());
 
@@ -555,7 +554,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "base"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:75:1: base : BASE LPAR IRI_REF RPAR -> ^( BASE IRI_REF ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:73:1: base : BASE LPAR IRI_REF RPAR -> ^( BASE IRI_REF ) ;
     public final RuleMLPresentationSyntaxParser.base_return base() throws RecognitionException {
         RuleMLPresentationSyntaxParser.base_return retval = new RuleMLPresentationSyntaxParser.base_return();
         retval.start = input.LT(1);
@@ -578,8 +577,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_LPAR=new RewriteRuleTokenStream(adaptor,"token LPAR");
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:76:5: ( BASE LPAR IRI_REF RPAR -> ^( BASE IRI_REF ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:76:9: BASE LPAR IRI_REF RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:74:5: ( BASE LPAR IRI_REF RPAR -> ^( BASE IRI_REF ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:74:9: BASE LPAR IRI_REF RPAR
             {
             BASE11=(Token)match(input,BASE,FOLLOW_BASE_in_base259);  
             stream_BASE.add(BASE11);
@@ -608,9 +607,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 76:32: -> ^( BASE IRI_REF )
+            // 74:32: -> ^( BASE IRI_REF )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:76:35: ^( BASE IRI_REF )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:74:35: ^( BASE IRI_REF )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -660,7 +659,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "prefix"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:79:1: prefix : PREFIX LPAR ID IRI_REF RPAR -> ^( PREFIX ID IRI_REF ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:77:1: prefix : PREFIX LPAR ID IRI_REF RPAR -> ^( PREFIX ID IRI_REF ) ;
     public final RuleMLPresentationSyntaxParser.prefix_return prefix() throws RecognitionException {
         RuleMLPresentationSyntaxParser.prefix_return retval = new RuleMLPresentationSyntaxParser.prefix_return();
         retval.start = input.LT(1);
@@ -686,8 +685,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:80:5: ( PREFIX LPAR ID IRI_REF RPAR -> ^( PREFIX ID IRI_REF ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:80:9: PREFIX LPAR ID IRI_REF RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:78:5: ( PREFIX LPAR ID IRI_REF RPAR -> ^( PREFIX ID IRI_REF ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:78:9: PREFIX LPAR ID IRI_REF RPAR
             {
             PREFIX15=(Token)match(input,PREFIX,FOLLOW_PREFIX_in_prefix292);  
             stream_PREFIX.add(PREFIX15);
@@ -710,7 +709,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: PREFIX, IRI_REF, ID
+            // elements: PREFIX, ID, IRI_REF
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -720,9 +719,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 80:37: -> ^( PREFIX ID IRI_REF )
+            // 78:37: -> ^( PREFIX ID IRI_REF )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:80:40: ^( PREFIX ID IRI_REF )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:78:40: ^( PREFIX ID IRI_REF )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -776,7 +775,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "importDecl"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:83:1: importDecl : IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR -> ^( IMPORT $kb ( $pf)? ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:81:1: importDecl : IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR -> ^( IMPORT $kb ( $pf)? ) ;
     public final RuleMLPresentationSyntaxParser.importDecl_return importDecl() throws RecognitionException {
         RuleMLPresentationSyntaxParser.importDecl_return retval = new RuleMLPresentationSyntaxParser.importDecl_return();
         retval.start = input.LT(1);
@@ -801,8 +800,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_LPAR=new RewriteRuleTokenStream(adaptor,"token LPAR");
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:5: ( IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR -> ^( IMPORT $kb ( $pf)? ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:9: IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:5: ( IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR -> ^( IMPORT $kb ( $pf)? ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:9: IMPORT LPAR kb= IRI_REF (pf= IRI_REF )? RPAR
             {
             IMPORT20=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDecl329);  
             stream_IMPORT.add(IMPORT20);
@@ -816,7 +815,7 @@ public TreeAdaptor getTreeAdaptor() {
             stream_IRI_REF.add(kb);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:32: (pf= IRI_REF )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:32: (pf= IRI_REF )?
             int alt7=2;
             switch ( input.LA(1) ) {
                 case IRI_REF:
@@ -828,7 +827,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt7) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:33: pf= IRI_REF
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:33: pf= IRI_REF
                     {
                     pf=(Token)match(input,IRI_REF,FOLLOW_IRI_REF_in_importDecl340);  
                     stream_IRI_REF.add(pf);
@@ -845,7 +844,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: kb, pf, IMPORT
+            // elements: pf, kb, IMPORT
             // token labels: pf, kb
             // rule labels: retval
             // token list labels: 
@@ -857,9 +856,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 84:51: -> ^( IMPORT $kb ( $pf)? )
+            // 82:51: -> ^( IMPORT $kb ( $pf)? )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:54: ^( IMPORT $kb ( $pf)? )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:54: ^( IMPORT $kb ( $pf)? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -868,7 +867,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 adaptor.addChild(root_1, stream_kb.nextNode());
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:84:68: ( $pf)?
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:82:68: ( $pf)?
                 if ( stream_pf.hasNext() ) {
                     adaptor.addChild(root_1, stream_pf.nextNode());
 
@@ -914,7 +913,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "group"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:87:1: group : GROUP LPAR ( group_element )* RPAR -> ^( GROUP ( group_element )* ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:85:1: group : GROUP LPAR ( group_element )* RPAR -> ^( GROUP ( group_element )* ) ;
     public final RuleMLPresentationSyntaxParser.group_return group() throws RecognitionException {
         RuleMLPresentationSyntaxParser.group_return retval = new RuleMLPresentationSyntaxParser.group_return();
         retval.start = input.LT(1);
@@ -936,8 +935,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_LPAR=new RewriteRuleTokenStream(adaptor,"token LPAR");
         RewriteRuleSubtreeStream stream_group_element=new RewriteRuleSubtreeStream(adaptor,"rule group_element");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:5: ( GROUP LPAR ( group_element )* RPAR -> ^( GROUP ( group_element )* ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:9: GROUP LPAR ( group_element )* RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:5: ( GROUP LPAR ( group_element )* RPAR -> ^( GROUP ( group_element )* ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:9: GROUP LPAR ( group_element )* RPAR
             {
             GROUP23=(Token)match(input,GROUP,FOLLOW_GROUP_in_group376);  
             stream_GROUP.add(GROUP23);
@@ -947,7 +946,7 @@ public TreeAdaptor getTreeAdaptor() {
             stream_LPAR.add(LPAR24);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:20: ( group_element )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:20: ( group_element )*
             loop8:
             do {
                 int alt8=2;
@@ -973,7 +972,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt8) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:20: group_element
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:20: group_element
             	    {
             	    pushFollow(FOLLOW_group_element_in_group380);
             	    group_element25=group_element();
@@ -1006,16 +1005,16 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 88:40: -> ^( GROUP ( group_element )* )
+            // 86:40: -> ^( GROUP ( group_element )* )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:43: ^( GROUP ( group_element )* )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:43: ^( GROUP ( group_element )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
                 stream_GROUP.nextNode()
                 , root_1);
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:88:51: ( group_element )*
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:86:51: ( group_element )*
                 while ( stream_group_element.hasNext() ) {
                     adaptor.addChild(root_1, stream_group_element.nextTree());
 
@@ -1061,7 +1060,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "group_element"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:91:1: group_element : ( rule | group );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:89:1: group_element : ( rule | group );
     public final RuleMLPresentationSyntaxParser.group_element_return group_element() throws RecognitionException {
         RuleMLPresentationSyntaxParser.group_element_return retval = new RuleMLPresentationSyntaxParser.group_element_return();
         retval.start = input.LT(1);
@@ -1076,7 +1075,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:92:5: ( rule | group )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:90:5: ( rule | group )
             int alt9=2;
             switch ( input.LA(1) ) {
             case AND:
@@ -1109,7 +1108,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt9) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:92:9: rule
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:90:9: rule
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1124,7 +1123,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:93:9: group
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:91:9: group
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1169,7 +1168,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "rule"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:96:1: rule : ( FORALL ( VAR_ID )+ LPAR clause RPAR -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause ) | clause );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:94:1: rule : ( FORALL ( VAR_ID )+ LPAR clause RPAR -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause ) | clause );
     public final RuleMLPresentationSyntaxParser.rule_return rule() throws RecognitionException {
         RuleMLPresentationSyntaxParser.rule_return retval = new RuleMLPresentationSyntaxParser.rule_return();
         retval.start = input.LT(1);
@@ -1196,7 +1195,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_LPAR=new RewriteRuleTokenStream(adaptor,"token LPAR");
         RewriteRuleSubtreeStream stream_clause=new RewriteRuleSubtreeStream(adaptor,"rule clause");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:97:5: ( FORALL ( VAR_ID )+ LPAR clause RPAR -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause ) | clause )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:95:5: ( FORALL ( VAR_ID )+ LPAR clause RPAR -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause ) | clause )
             int alt11=2;
             switch ( input.LA(1) ) {
             case FORALL:
@@ -1228,13 +1227,13 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt11) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:97:9: FORALL ( VAR_ID )+ LPAR clause RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:95:9: FORALL ( VAR_ID )+ LPAR clause RPAR
                     {
                     FORALL29=(Token)match(input,FORALL,FOLLOW_FORALL_in_rule440);  
                     stream_FORALL.add(FORALL29);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:97:16: ( VAR_ID )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:95:16: ( VAR_ID )+
                     int cnt10=0;
                     loop10:
                     do {
@@ -1250,7 +1249,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:97:16: VAR_ID
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:95:16: VAR_ID
                     	    {
                     	    VAR_ID30=(Token)match(input,VAR_ID,FOLLOW_VAR_ID_in_rule442);  
                     	    stream_VAR_ID.add(VAR_ID30);
@@ -1285,7 +1284,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: clause, FORALL, VAR_ID
+                    // elements: FORALL, VAR_ID, clause
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1295,16 +1294,16 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 98:9: -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause )
+                    // 96:9: -> ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:98:12: ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:96:12: ^( FORALL ^( VAR_LIST ( VAR_ID )+ ) clause )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
                         stream_FORALL.nextNode()
                         , root_1);
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:98:21: ^( VAR_LIST ( VAR_ID )+ )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:96:21: ^( VAR_LIST ( VAR_ID )+ )
                         {
                         CommonTree root_2 = (CommonTree)adaptor.nil();
                         root_2 = (CommonTree)adaptor.becomeRoot(
@@ -1338,7 +1337,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:99:9: clause
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:97:9: clause
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -1383,7 +1382,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "clause"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:102:1: clause : f1= formula ( IMPLICATION f2= formula )? -> {isRule}? ^( IMPLICATION $f1 $f2) -> $f1;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:100:1: clause : f1= formula ( IMPLICATION f2= formula )? -> {isRule}? ^( IMPLICATION $f1 $f2) -> $f1;
     public final RuleMLPresentationSyntaxParser.clause_return clause() throws RecognitionException {
         RuleMLPresentationSyntaxParser.clause_return retval = new RuleMLPresentationSyntaxParser.clause_return();
         retval.start = input.LT(1);
@@ -1402,8 +1401,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_formula=new RewriteRuleSubtreeStream(adaptor,"rule formula");
          boolean isRule = false; 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:116:5: (f1= formula ( IMPLICATION f2= formula )? -> {isRule}? ^( IMPLICATION $f1 $f2) -> $f1)
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:116:9: f1= formula ( IMPLICATION f2= formula )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:114:5: (f1= formula ( IMPLICATION f2= formula )? -> {isRule}? ^( IMPLICATION $f1 $f2) -> $f1)
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:114:9: f1= formula ( IMPLICATION f2= formula )?
             {
             pushFollow(FOLLOW_formula_in_clause517);
             f1=formula();
@@ -1412,7 +1411,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             stream_formula.add(f1.getTree());
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:116:20: ( IMPLICATION f2= formula )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:114:20: ( IMPLICATION f2= formula )?
             int alt12=2;
             switch ( input.LA(1) ) {
                 case IMPLICATION:
@@ -1424,7 +1423,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt12) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:116:22: IMPLICATION f2= formula
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:114:22: IMPLICATION f2= formula
                     {
                     IMPLICATION35=(Token)match(input,IMPLICATION,FOLLOW_IMPLICATION_in_clause521);  
                     stream_IMPLICATION.add(IMPLICATION35);
@@ -1446,7 +1445,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: f1, IMPLICATION, f2, f1
+            // elements: f1, f1, f2, IMPLICATION
             // token labels: 
             // rule labels: retval, f1, f2
             // token list labels: 
@@ -1458,9 +1457,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_f2=new RewriteRuleSubtreeStream(adaptor,"rule f2",f2!=null?f2.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 117:5: -> {isRule}? ^( IMPLICATION $f1 $f2)
+            // 115:5: -> {isRule}? ^( IMPLICATION $f1 $f2)
             if (isRule) {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:117:18: ^( IMPLICATION $f1 $f2)
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:115:18: ^( IMPLICATION $f1 $f2)
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -1476,7 +1475,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             }
 
-            else // 118:5: -> $f1
+            else // 116:5: -> $f1
             {
                 adaptor.addChild(root_0, stream_f1.nextTree());
 
@@ -1529,7 +1528,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "formula"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:1: formula returns [boolean isValidHead, boolean isAtomic] : ( AND LPAR (f= formula )+ RPAR -> ^( AND ( formula )* ) | OR LPAR ( formula )+ RPAR -> ^( OR ( formula )* ) | EXISTS ( VAR_ID )+ LPAR f= formula RPAR -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f) | atomic -> atomic | ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )? );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:119:1: formula returns [boolean isValidHead, boolean isAtomic] : ( AND LPAR (f= formula )+ RPAR -> ^( AND ( formula )* ) | OR LPAR ( formula )+ RPAR -> ^( OR ( formula )* ) | EXISTS ( VAR_ID )+ LPAR f= formula RPAR -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f) | atomic -> atomic | ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )? );
     public final RuleMLPresentationSyntaxParser.formula_return formula() throws RecognitionException {
         RuleMLPresentationSyntaxParser.formula_return retval = new RuleMLPresentationSyntaxParser.formula_return();
         retval.start = input.LT(1);
@@ -1580,7 +1579,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_formula=new RewriteRuleSubtreeStream(adaptor,"rule formula");
          retval.isValidHead = true; retval.isAtomic = false; 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:5: ( AND LPAR (f= formula )+ RPAR -> ^( AND ( formula )* ) | OR LPAR ( formula )+ RPAR -> ^( OR ( formula )* ) | EXISTS ( VAR_ID )+ LPAR f= formula RPAR -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f) | atomic -> atomic | ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )? )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:5: ( AND LPAR (f= formula )+ RPAR -> ^( AND ( formula )* ) | OR LPAR ( formula )+ RPAR -> ^( OR ( formula )* ) | EXISTS ( VAR_ID )+ LPAR f= formula RPAR -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f) | atomic -> atomic | ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )? )
             int alt17=5;
             switch ( input.LA(1) ) {
             case AND:
@@ -1623,7 +1622,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt17) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:9: AND LPAR (f= formula )+ RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:9: AND LPAR (f= formula )+ RPAR
                     {
                     AND36=(Token)match(input,AND,FOLLOW_AND_in_formula595);  
                     stream_AND.add(AND36);
@@ -1633,7 +1632,7 @@ public TreeAdaptor getTreeAdaptor() {
                     stream_LPAR.add(LPAR37);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:18: (f= formula )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:18: (f= formula )+
                     int cnt13=0;
                     loop13:
                     do {
@@ -1658,7 +1657,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:19: f= formula
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:19: f= formula
                     	    {
                     	    pushFollow(FOLLOW_formula_in_formula602);
                     	    f=formula();
@@ -1697,16 +1696,16 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 123:83: -> ^( AND ( formula )* )
+                    // 121:83: -> ^( AND ( formula )* )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:86: ^( AND ( formula )* )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:86: ^( AND ( formula )* )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
                         stream_AND.nextNode()
                         , root_1);
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:92: ( formula )*
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:121:92: ( formula )*
                         while ( stream_formula.hasNext() ) {
                             adaptor.addChild(root_1, stream_formula.nextTree());
 
@@ -1724,7 +1723,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:9: OR LPAR ( formula )+ RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:122:9: OR LPAR ( formula )+ RPAR
                     {
                     OR39=(Token)match(input,OR,FOLLOW_OR_in_formula628);  
                     stream_OR.add(OR39);
@@ -1734,7 +1733,7 @@ public TreeAdaptor getTreeAdaptor() {
                     stream_LPAR.add(LPAR40);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:17: ( formula )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:122:17: ( formula )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -1759,7 +1758,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:17: formula
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:122:17: formula
                     	    {
                     	    pushFollow(FOLLOW_formula_in_formula632);
                     	    formula41=formula();
@@ -1798,16 +1797,16 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 124:57: -> ^( OR ( formula )* )
+                    // 122:57: -> ^( OR ( formula )* )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:60: ^( OR ( formula )* )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:122:60: ^( OR ( formula )* )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
                         stream_OR.nextNode()
                         , root_1);
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:65: ( formula )*
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:122:65: ( formula )*
                         while ( stream_formula.hasNext() ) {
                             adaptor.addChild(root_1, stream_formula.nextTree());
 
@@ -1825,13 +1824,13 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:125:9: EXISTS ( VAR_ID )+ LPAR f= formula RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:9: EXISTS ( VAR_ID )+ LPAR f= formula RPAR
                     {
                     EXISTS43=(Token)match(input,EXISTS,FOLLOW_EXISTS_in_formula656);  
                     stream_EXISTS.add(EXISTS43);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:125:16: ( VAR_ID )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:16: ( VAR_ID )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -1847,7 +1846,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:125:16: VAR_ID
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:123:16: VAR_ID
                     	    {
                     	    VAR_ID44=(Token)match(input,VAR_ID,FOLLOW_VAR_ID_in_formula658);  
                     	    stream_VAR_ID.add(VAR_ID44);
@@ -1884,7 +1883,7 @@ public TreeAdaptor getTreeAdaptor() {
                      retval.isValidHead = (f!=null?f.isAtomic:false); 
 
                     // AST REWRITE
-                    // elements: f, EXISTS, VAR_ID
+                    // elements: EXISTS, f, VAR_ID
                     // token labels: 
                     // rule labels: f, retval
                     // token list labels: 
@@ -1895,16 +1894,16 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 126:9: -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f)
+                    // 124:9: -> ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f)
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:126:12: ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f)
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:12: ^( EXISTS ^( VAR_LIST ( VAR_ID )+ ) $f)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
                         stream_EXISTS.nextNode()
                         , root_1);
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:126:21: ^( VAR_LIST ( VAR_ID )+ )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:124:21: ^( VAR_LIST ( VAR_ID )+ )
                         {
                         CommonTree root_2 = (CommonTree)adaptor.nil();
                         root_2 = (CommonTree)adaptor.becomeRoot(
@@ -1938,7 +1937,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:127:9: atomic
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:125:9: atomic
                     {
                     pushFollow(FOLLOW_atomic_in_formula703);
                     atomic47=atomic();
@@ -1960,7 +1959,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 127:38: -> atomic
+                    // 125:38: -> atomic
                     {
                         adaptor.addChild(root_0, stream_atomic.nextTree());
 
@@ -1972,10 +1971,10 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:128:9: ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:126:9: ( external_term -> external_term ) ( psoa_rest -> ^( PSOA $formula psoa_rest ) )?
                     {
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:128:9: ( external_term -> external_term )
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:128:10: external_term
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:126:9: ( external_term -> external_term )
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:126:10: external_term
                     {
                     pushFollow(FOLLOW_external_term_in_formula720);
                     external_term48=external_term();
@@ -1997,7 +1996,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 128:50: -> external_term
+                    // 126:50: -> external_term
                     {
                         adaptor.addChild(root_0, stream_external_term.nextTree());
 
@@ -2009,7 +2008,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:129:9: ( psoa_rest -> ^( PSOA $formula psoa_rest ) )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:127:9: ( psoa_rest -> ^( PSOA $formula psoa_rest ) )?
                     int alt16=2;
                     switch ( input.LA(1) ) {
                         case INSTANCE:
@@ -2021,7 +2020,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt16) {
                         case 1 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:129:10: psoa_rest
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:127:10: psoa_rest
                             {
                             pushFollow(FOLLOW_psoa_rest_in_formula738);
                             psoa_rest49=psoa_rest();
@@ -2033,7 +2032,7 @@ public TreeAdaptor getTreeAdaptor() {
                              retval.isAtomic = true; 
 
                             // AST REWRITE
-                            // elements: formula, psoa_rest
+                            // elements: psoa_rest, formula
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -2043,9 +2042,9 @@ public TreeAdaptor getTreeAdaptor() {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 129:42: -> ^( PSOA $formula psoa_rest )
+                            // 127:42: -> ^( PSOA $formula psoa_rest )
                             {
-                                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:129:45: ^( PSOA $formula psoa_rest )
+                                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:127:45: ^( PSOA $formula psoa_rest )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -2103,7 +2102,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "atomic"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:132:1: atomic : non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )? ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:130:1: atomic : non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )? ;
     public final RuleMLPresentationSyntaxParser.atomic_return atomic() throws RecognitionException {
         RuleMLPresentationSyntaxParser.atomic_return retval = new RuleMLPresentationSyntaxParser.atomic_return();
         retval.start = input.LT(1);
@@ -2120,8 +2119,8 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree set50_tree=null;
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:138:5: (non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )? )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:138:9: non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:136:5: (non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )? )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:136:9: non_ex_term= internal_term ( ( EQUAL | SUBCLASS ) ^ term )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
@@ -2133,7 +2132,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             adaptor.addChild(root_0, non_ex_term.getTree());
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:138:35: ( ( EQUAL | SUBCLASS ) ^ term )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:136:35: ( ( EQUAL | SUBCLASS ) ^ term )?
             int alt18=2;
             switch ( input.LA(1) ) {
                 case EQUAL:
@@ -2146,7 +2145,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt18) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:138:36: ( EQUAL | SUBCLASS ) ^ term
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:136:36: ( EQUAL | SUBCLASS ) ^ term
                     {
                     set50=(Token)input.LT(1);
 
@@ -2213,7 +2212,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "term"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:141:1: term : ( internal_term -> internal_term | external_term -> external_term );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:139:1: term : ( internal_term -> internal_term | external_term -> external_term );
     public final RuleMLPresentationSyntaxParser.term_return term() throws RecognitionException {
         RuleMLPresentationSyntaxParser.term_return retval = new RuleMLPresentationSyntaxParser.term_return();
         retval.start = input.LT(1);
@@ -2229,7 +2228,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_internal_term=new RewriteRuleSubtreeStream(adaptor,"rule internal_term");
         RewriteRuleSubtreeStream stream_external_term=new RewriteRuleSubtreeStream(adaptor,"rule external_term");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:142:5: ( internal_term -> internal_term | external_term -> external_term )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:140:5: ( internal_term -> internal_term | external_term -> external_term )
             int alt19=2;
             switch ( input.LA(1) ) {
             case CURIE:
@@ -2257,7 +2256,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt19) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:142:9: internal_term
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:140:9: internal_term
                     {
                     pushFollow(FOLLOW_internal_term_in_term816);
                     internal_term52=internal_term();
@@ -2277,7 +2276,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 142:23: -> internal_term
+                    // 140:23: -> internal_term
                     {
                         adaptor.addChild(root_0, stream_internal_term.nextTree());
 
@@ -2289,7 +2288,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:143:9: external_term
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:141:9: external_term
                     {
                     pushFollow(FOLLOW_external_term_in_term830);
                     external_term53=external_term();
@@ -2309,7 +2308,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 143:23: -> external_term
+                    // 141:23: -> external_term
                     {
                         adaptor.addChild(root_0, stream_external_term.nextTree());
 
@@ -2351,7 +2350,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "simple_term"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:146:1: simple_term : ( constant | VAR_ID );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:144:1: simple_term : ( constant | VAR_ID );
     public final RuleMLPresentationSyntaxParser.simple_term_return simple_term() throws RecognitionException {
         RuleMLPresentationSyntaxParser.simple_term_return retval = new RuleMLPresentationSyntaxParser.simple_term_return();
         retval.start = input.LT(1);
@@ -2366,7 +2365,7 @@ public TreeAdaptor getTreeAdaptor() {
         CommonTree VAR_ID55_tree=null;
 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:147:5: ( constant | VAR_ID )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:145:5: ( constant | VAR_ID )
             int alt20=2;
             switch ( input.LA(1) ) {
             case CURIE:
@@ -2393,7 +2392,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt20) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:147:9: constant
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:145:9: constant
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2408,7 +2407,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:148:9: VAR_ID
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:146:9: VAR_ID
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
@@ -2453,7 +2452,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "external_term"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:1: external_term : EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:149:1: external_term : EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) ) ;
     public final RuleMLPresentationSyntaxParser.external_term_return external_term() throws RecognitionException {
         RuleMLPresentationSyntaxParser.external_term_return retval = new RuleMLPresentationSyntaxParser.external_term_return();
         retval.start = input.LT(1);
@@ -2482,8 +2481,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         RewriteRuleSubtreeStream stream_simple_term=new RewriteRuleSubtreeStream(adaptor,"rule simple_term");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:152:5: ( EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:152:9: EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:150:5: ( EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:150:9: EXTERNAL LPAR simple_term LPAR ( term )* RPAR RPAR
             {
             EXTERNAL56=(Token)match(input,EXTERNAL,FOLLOW_EXTERNAL_in_external_term882);  
             stream_EXTERNAL.add(EXTERNAL56);
@@ -2504,7 +2503,7 @@ public TreeAdaptor getTreeAdaptor() {
             stream_LPAR.add(LPAR59);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:152:40: ( term )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:150:40: ( term )*
             loop21:
             do {
                 int alt21=2;
@@ -2525,7 +2524,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt21) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:152:40: term
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:150:40: term
             	    {
             	    pushFollow(FOLLOW_term_in_external_term890);
             	    term60=term();
@@ -2552,7 +2551,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: term, simple_term, EXTERNAL
+            // elements: EXTERNAL, term, simple_term
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2562,23 +2561,23 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 153:5: -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) )
+            // 151:5: -> ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:153:8: ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:8: ^( EXTERNAL ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) ) )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
                 stream_EXTERNAL.nextNode()
                 , root_1);
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:153:19: ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:19: ^( PSOA ^( INSTANCE simple_term ) ^( TUPLE ( term )* ) )
                 {
                 CommonTree root_2 = (CommonTree)adaptor.nil();
                 root_2 = (CommonTree)adaptor.becomeRoot(
                 (CommonTree)adaptor.create(PSOA, "PSOA")
                 , root_2);
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:153:26: ^( INSTANCE simple_term )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:26: ^( INSTANCE simple_term )
                 {
                 CommonTree root_3 = (CommonTree)adaptor.nil();
                 root_3 = (CommonTree)adaptor.becomeRoot(
@@ -2590,14 +2589,14 @@ public TreeAdaptor getTreeAdaptor() {
                 adaptor.addChild(root_2, root_3);
                 }
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:153:50: ^( TUPLE ( term )* )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:50: ^( TUPLE ( term )* )
                 {
                 CommonTree root_3 = (CommonTree)adaptor.nil();
                 root_3 = (CommonTree)adaptor.becomeRoot(
                 (CommonTree)adaptor.create(TUPLE, "TUPLE")
                 , root_3);
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:153:58: ( term )*
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:151:58: ( term )*
                 while ( stream_term.hasNext() ) {
                     adaptor.addChild(root_3, stream_term.nextTree());
 
@@ -2650,7 +2649,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "internal_term"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:156:1: internal_term returns [boolean isSimple] : ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )* ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:154:1: internal_term returns [boolean isSimple] : ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )* ;
     public final RuleMLPresentationSyntaxParser.internal_term_return internal_term() throws RecognitionException {
         RuleMLPresentationSyntaxParser.internal_term_return retval = new RuleMLPresentationSyntaxParser.internal_term_return();
         retval.start = input.LT(1);
@@ -2676,11 +2675,11 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_psoa_rest=new RewriteRuleSubtreeStream(adaptor,"rule psoa_rest");
          retval.isSimple = true; 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:5: ( ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )* )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:9: ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:156:5: ( ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )* )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:156:9: ( simple_term -> simple_term ) ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )? ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )*
             {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:9: ( simple_term -> simple_term )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:10: simple_term
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:156:9: ( simple_term -> simple_term )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:156:10: simple_term
             {
             pushFollow(FOLLOW_simple_term_in_internal_term951);
             simple_term63=simple_term();
@@ -2700,7 +2699,7 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 158:22: -> simple_term
+            // 156:22: -> simple_term
             {
                 adaptor.addChild(root_0, stream_simple_term.nextTree());
 
@@ -2712,7 +2711,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:9: ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:157:9: ( LPAR ( tuples_and_slots )? RPAR -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? ) )?
             int alt23=2;
             switch ( input.LA(1) ) {
                 case LPAR:
@@ -2724,13 +2723,13 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt23) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:10: LPAR ( tuples_and_slots )? RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:157:10: LPAR ( tuples_and_slots )? RPAR
                     {
                     LPAR64=(Token)match(input,LPAR,FOLLOW_LPAR_in_internal_term967);  
                     stream_LPAR.add(LPAR64);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:15: ( tuples_and_slots )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:157:15: ( tuples_and_slots )?
                     int alt22=2;
                     switch ( input.LA(1) ) {
                         case CURIE:
@@ -2749,7 +2748,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt22) {
                         case 1 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:15: tuples_and_slots
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:157:15: tuples_and_slots
                             {
                             pushFollow(FOLLOW_tuples_and_slots_in_internal_term969);
                             tuples_and_slots65=tuples_and_slots();
@@ -2781,16 +2780,16 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 160:10: -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? )
+                    // 158:10: -> ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:160:13: ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:13: ^( PSOA ^( INSTANCE $internal_term) ( tuples_and_slots )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
                         (CommonTree)adaptor.create(PSOA, "PSOA")
                         , root_1);
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:160:20: ^( INSTANCE $internal_term)
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:20: ^( INSTANCE $internal_term)
                         {
                         CommonTree root_2 = (CommonTree)adaptor.nil();
                         root_2 = (CommonTree)adaptor.becomeRoot(
@@ -2802,7 +2801,7 @@ public TreeAdaptor getTreeAdaptor() {
                         adaptor.addChild(root_1, root_2);
                         }
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:160:47: ( tuples_and_slots )?
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:158:47: ( tuples_and_slots )?
                         if ( stream_tuples_and_slots.hasNext() ) {
                             adaptor.addChild(root_1, stream_tuples_and_slots.nextTree());
 
@@ -2823,7 +2822,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:161:9: ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )*
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:9: ( psoa_rest -> ^( PSOA $internal_term psoa_rest ) )*
             loop24:
             do {
                 int alt24=2;
@@ -2838,7 +2837,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt24) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:161:10: psoa_rest
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:10: psoa_rest
             	    {
             	    pushFollow(FOLLOW_psoa_rest_in_internal_term1012);
             	    psoa_rest67=psoa_rest();
@@ -2850,7 +2849,7 @@ public TreeAdaptor getTreeAdaptor() {
             	     retval.isSimple = false; 
 
             	    // AST REWRITE
-            	    // elements: psoa_rest, internal_term
+            	    // elements: internal_term, psoa_rest
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -2860,9 +2859,9 @@ public TreeAdaptor getTreeAdaptor() {
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 161:43: -> ^( PSOA $internal_term psoa_rest )
+            	    // 159:43: -> ^( PSOA $internal_term psoa_rest )
             	    {
-            	        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:161:46: ^( PSOA $internal_term psoa_rest )
+            	        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:159:46: ^( PSOA $internal_term psoa_rest )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot(
@@ -2921,7 +2920,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "psoa_rest"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:164:1: psoa_rest : INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )? -> ^( INSTANCE simple_term ) ( tuples_and_slots )? ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:162:1: psoa_rest : INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )? -> ^( INSTANCE simple_term ) ( tuples_and_slots )? ;
     public final RuleMLPresentationSyntaxParser.psoa_rest_return psoa_rest() throws RecognitionException {
         RuleMLPresentationSyntaxParser.psoa_rest_return retval = new RuleMLPresentationSyntaxParser.psoa_rest_return();
         retval.start = input.LT(1);
@@ -2946,8 +2945,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_tuples_and_slots=new RewriteRuleSubtreeStream(adaptor,"rule tuples_and_slots");
         RewriteRuleSubtreeStream stream_simple_term=new RewriteRuleSubtreeStream(adaptor,"rule simple_term");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:5: ( INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )? -> ^( INSTANCE simple_term ) ( tuples_and_slots )? )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:9: INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:5: ( INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )? -> ^( INSTANCE simple_term ) ( tuples_and_slots )? )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:9: INSTANCE simple_term ( LPAR ( tuples_and_slots )? RPAR )?
             {
             INSTANCE68=(Token)match(input,INSTANCE,FOLLOW_INSTANCE_in_psoa_rest1046);  
             stream_INSTANCE.add(INSTANCE68);
@@ -2960,7 +2959,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             stream_simple_term.add(simple_term69.getTree());
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:30: ( LPAR ( tuples_and_slots )? RPAR )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:30: ( LPAR ( tuples_and_slots )? RPAR )?
             int alt26=2;
             switch ( input.LA(1) ) {
                 case LPAR:
@@ -2972,13 +2971,13 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt26) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:31: LPAR ( tuples_and_slots )? RPAR
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:31: LPAR ( tuples_and_slots )? RPAR
                     {
                     LPAR70=(Token)match(input,LPAR,FOLLOW_LPAR_in_psoa_rest1051);  
                     stream_LPAR.add(LPAR70);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:36: ( tuples_and_slots )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:36: ( tuples_and_slots )?
                     int alt25=2;
                     switch ( input.LA(1) ) {
                         case CURIE:
@@ -2997,7 +2996,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt25) {
                         case 1 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:165:36: tuples_and_slots
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:163:36: tuples_and_slots
                             {
                             pushFollow(FOLLOW_tuples_and_slots_in_psoa_rest1053);
                             tuples_and_slots71=tuples_and_slots();
@@ -3023,7 +3022,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: tuples_and_slots, INSTANCE, simple_term
+            // elements: INSTANCE, simple_term, tuples_and_slots
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3033,9 +3032,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 166:5: -> ^( INSTANCE simple_term ) ( tuples_and_slots )?
+            // 164:5: -> ^( INSTANCE simple_term ) ( tuples_and_slots )?
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:166:8: ^( INSTANCE simple_term )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:164:8: ^( INSTANCE simple_term )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3047,7 +3046,7 @@ public TreeAdaptor getTreeAdaptor() {
                 adaptor.addChild(root_0, root_1);
                 }
 
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:166:32: ( tuples_and_slots )?
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:164:32: ( tuples_and_slots )?
                 if ( stream_tuples_and_slots.hasNext() ) {
                     adaptor.addChild(root_0, stream_tuples_and_slots.nextTree());
 
@@ -3090,7 +3089,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "tuples_and_slots"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:169:1: tuples_and_slots : ( ( tuple )+ ( slot )* -> ( tuple )+ ( slot )* | (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )? -> {!hasSlot}? ^( TUPLE ) -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )* -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )* );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:167:1: tuples_and_slots : ( ( tuple )+ ( slot )* -> ( tuple )+ ( slot )* | (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )? -> {!hasSlot}? ^( TUPLE ) -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )* -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )* );
     public final RuleMLPresentationSyntaxParser.tuples_and_slots_return tuples_and_slots() throws RecognitionException {
         RuleMLPresentationSyntaxParser.tuples_and_slots_return retval = new RuleMLPresentationSyntaxParser.tuples_and_slots_return();
         retval.start = input.LT(1);
@@ -3115,7 +3114,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_tuple=new RewriteRuleSubtreeStream(adaptor,"rule tuple");
         RewriteRuleSubtreeStream stream_slot=new RewriteRuleSubtreeStream(adaptor,"rule slot");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:5: ( ( tuple )+ ( slot )* -> ( tuple )+ ( slot )* | (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )? -> {!hasSlot}? ^( TUPLE ) -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )* -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )* )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:5: ( ( tuple )+ ( slot )* -> ( tuple )+ ( slot )* | (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )? -> {!hasSlot}? ^( TUPLE ) -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )* -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )* )
             int alt32=2;
             switch ( input.LA(1) ) {
             case LSQBR:
@@ -3144,9 +3143,9 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt32) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:9: ( tuple )+ ( slot )*
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:9: ( tuple )+ ( slot )*
                     {
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:9: ( tuple )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:9: ( tuple )+
                     int cnt27=0;
                     loop27:
                     do {
@@ -3162,7 +3161,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt27) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:9: tuple
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:9: tuple
                     	    {
                     	    pushFollow(FOLLOW_tuple_in_tuples_and_slots1092);
                     	    tuple73=tuple();
@@ -3184,7 +3183,7 @@ public TreeAdaptor getTreeAdaptor() {
                     } while (true);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:16: ( slot )*
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:16: ( slot )*
                     loop28:
                     do {
                         int alt28=2;
@@ -3205,7 +3204,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt28) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:16: slot
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:16: slot
                     	    {
                     	    pushFollow(FOLLOW_slot_in_tuples_and_slots1095);
                     	    slot74=slot();
@@ -3224,7 +3223,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: slot, tuple
+                    // elements: tuple, slot
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -3234,7 +3233,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 170:22: -> ( tuple )+ ( slot )*
+                    // 168:22: -> ( tuple )+ ( slot )*
                     {
                         if ( !(stream_tuple.hasNext()) ) {
                             throw new RewriteEarlyExitException();
@@ -3245,7 +3244,7 @@ public TreeAdaptor getTreeAdaptor() {
                         }
                         stream_tuple.reset();
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:32: ( slot )*
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:168:32: ( slot )*
                         while ( stream_slot.hasNext() ) {
                             adaptor.addChild(root_0, stream_slot.nextTree());
 
@@ -3260,9 +3259,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:171:9: (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:169:9: (terms+= term )+ ( SLOT_ARROW first_slot_value= term ( slot )* )?
                     {
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:171:14: (terms+= term )+
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:169:14: (terms+= term )+
                     int cnt29=0;
                     loop29:
                     do {
@@ -3284,7 +3283,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt29) {
                     	case 1 :
-                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:171:14: terms+= term
+                    	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:169:14: terms+= term
                     	    {
                     	    pushFollow(FOLLOW_term_in_tuples_and_slots1116);
                     	    terms=term();
@@ -3311,7 +3310,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                      boolean hasSlot = false; 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:172:9: ( SLOT_ARROW first_slot_value= term ( slot )* )?
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:9: ( SLOT_ARROW first_slot_value= term ( slot )* )?
                     int alt31=2;
                     switch ( input.LA(1) ) {
                         case SLOT_ARROW:
@@ -3323,7 +3322,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt31) {
                         case 1 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:172:10: SLOT_ARROW first_slot_value= term ( slot )*
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:10: SLOT_ARROW first_slot_value= term ( slot )*
                             {
                             SLOT_ARROW75=(Token)match(input,SLOT_ARROW,FOLLOW_SLOT_ARROW_in_tuples_and_slots1130);  
                             stream_SLOT_ARROW.add(SLOT_ARROW75);
@@ -3338,7 +3337,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                              hasSlot = true; 
 
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:172:63: ( slot )*
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:63: ( slot )*
                             loop30:
                             do {
                                 int alt30=2;
@@ -3359,7 +3358,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                                 switch (alt30) {
                             	case 1 :
-                            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:172:63: slot
+                            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:170:63: slot
                             	    {
                             	    pushFollow(FOLLOW_slot_in_tuples_and_slots1138);
                             	    slot76=slot();
@@ -3384,7 +3383,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: first_slot_value, slot, slot, first_slot_value
+                    // elements: slot, slot, first_slot_value, first_slot_value
                     // token labels: 
                     // rule labels: retval, first_slot_value
                     // token list labels: 
@@ -3395,9 +3394,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_first_slot_value=new RewriteRuleSubtreeStream(adaptor,"rule first_slot_value",first_slot_value!=null?first_slot_value.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 173:5: -> {!hasSlot}? ^( TUPLE )
+                    // 171:5: -> {!hasSlot}? ^( TUPLE )
                     if (!hasSlot) {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:173:20: ^( TUPLE )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:171:20: ^( TUPLE )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3411,9 +3410,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                     }
 
-                    else // 174:5: -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )*
+                    else // 172:5: -> {$terms.size() == 1}? ^( SLOT $first_slot_value) ( slot )*
                     if (list_terms.size() == 1) {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:175:9: ^( SLOT $first_slot_value)
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:173:9: ^( SLOT $first_slot_value)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3427,7 +3426,7 @@ public TreeAdaptor getTreeAdaptor() {
                         adaptor.addChild(root_0, root_1);
                         }
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:175:51: ( slot )*
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:173:51: ( slot )*
                         while ( stream_slot.hasNext() ) {
                             adaptor.addChild(root_0, stream_slot.nextTree());
 
@@ -3436,9 +3435,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                     }
 
-                    else // 176:5: -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )*
+                    else // 174:5: -> ^( TUPLE ) ^( SLOT $first_slot_value) ( slot )*
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:176:9: ^( TUPLE )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:174:9: ^( TUPLE )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3450,7 +3449,7 @@ public TreeAdaptor getTreeAdaptor() {
                         adaptor.addChild(root_0, root_1);
                         }
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:176:60: ^( SLOT $first_slot_value)
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:174:60: ^( SLOT $first_slot_value)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3464,7 +3463,7 @@ public TreeAdaptor getTreeAdaptor() {
                         adaptor.addChild(root_0, root_1);
                         }
 
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:176:118: ( slot )*
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:174:118: ( slot )*
                         while ( stream_slot.hasNext() ) {
                             adaptor.addChild(root_0, stream_slot.nextTree());
 
@@ -3509,7 +3508,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "tuple"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:179:1: tuple : LSQBR ( term )+ RSQBR -> ^( TUPLE ( term )+ ) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:177:1: tuple : LSQBR ( term )+ RSQBR -> ^( TUPLE ( term )+ ) ;
     public final RuleMLPresentationSyntaxParser.tuple_return tuple() throws RecognitionException {
         RuleMLPresentationSyntaxParser.tuple_return retval = new RuleMLPresentationSyntaxParser.tuple_return();
         retval.start = input.LT(1);
@@ -3528,14 +3527,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_RSQBR=new RewriteRuleTokenStream(adaptor,"token RSQBR");
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:180:5: ( LSQBR ( term )+ RSQBR -> ^( TUPLE ( term )+ ) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:180:9: LSQBR ( term )+ RSQBR
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:178:5: ( LSQBR ( term )+ RSQBR -> ^( TUPLE ( term )+ ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:178:9: LSQBR ( term )+ RSQBR
             {
             LSQBR77=(Token)match(input,LSQBR,FOLLOW_LSQBR_in_tuple1233);  
             stream_LSQBR.add(LSQBR77);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:180:15: ( term )+
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:178:15: ( term )+
             int cnt33=0;
             loop33:
             do {
@@ -3557,7 +3556,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt33) {
             	case 1 :
-            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:180:15: term
+            	    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:178:15: term
             	    {
             	    pushFollow(FOLLOW_term_in_tuple1235);
             	    term78=term();
@@ -3594,9 +3593,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 180:27: -> ^( TUPLE ( term )+ )
+            // 178:27: -> ^( TUPLE ( term )+ )
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:180:30: ^( TUPLE ( term )+ )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:178:30: ^( TUPLE ( term )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3651,7 +3650,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "slot"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:183:1: slot : name= term SLOT_ARROW value= term -> ^( SLOT $name $value) ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:181:1: slot : name= term SLOT_ARROW value= term -> ^( SLOT $name $value) ;
     public final RuleMLPresentationSyntaxParser.slot_return slot() throws RecognitionException {
         RuleMLPresentationSyntaxParser.slot_return retval = new RuleMLPresentationSyntaxParser.slot_return();
         retval.start = input.LT(1);
@@ -3669,8 +3668,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_SLOT_ARROW=new RewriteRuleTokenStream(adaptor,"token SLOT_ARROW");
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:184:5: (name= term SLOT_ARROW value= term -> ^( SLOT $name $value) )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:185:9: name= term SLOT_ARROW value= term
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:182:5: (name= term SLOT_ARROW value= term -> ^( SLOT $name $value) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:183:9: name= term SLOT_ARROW value= term
             {
             pushFollow(FOLLOW_term_in_slot1274);
             name=term();
@@ -3703,9 +3702,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value",value!=null?value.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 185:41: -> ^( SLOT $name $value)
+            // 183:41: -> ^( SLOT $name $value)
             {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:185:44: ^( SLOT $name $value)
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:183:44: ^( SLOT $name $value)
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3755,7 +3754,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "constant"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:194:1: constant : ( const_string -> const_string | CURIE -> ^( SHORTCONST IRI[$CURIE.text] ) | NUMBER -> ^( SHORTCONST NUMBER[$NUMBER.text] ) | ID -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] ) | IRI_REF -> ^( SHORTCONST IRI[$IRI_REF.text] ) );
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:192:1: constant : ( const_string -> const_string | CURIE -> ^( SHORTCONST IRI[$CURIE.text] ) | NUMBER -> ^( SHORTCONST NUMBER[$NUMBER.text] ) | ID -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] ) | IRI_REF -> ^( SHORTCONST IRI[$IRI_REF.text] ) );
     public final RuleMLPresentationSyntaxParser.constant_return constant() throws RecognitionException {
         RuleMLPresentationSyntaxParser.constant_return retval = new RuleMLPresentationSyntaxParser.constant_return();
         retval.start = input.LT(1);
@@ -3780,7 +3779,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_NUMBER=new RewriteRuleTokenStream(adaptor,"token NUMBER");
         RewriteRuleSubtreeStream stream_const_string=new RewriteRuleSubtreeStream(adaptor,"rule const_string");
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:195:5: ( const_string -> const_string | CURIE -> ^( SHORTCONST IRI[$CURIE.text] ) | NUMBER -> ^( SHORTCONST NUMBER[$NUMBER.text] ) | ID -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] ) | IRI_REF -> ^( SHORTCONST IRI[$IRI_REF.text] ) )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:193:5: ( const_string -> const_string | CURIE -> ^( SHORTCONST IRI[$CURIE.text] ) | NUMBER -> ^( SHORTCONST NUMBER[$NUMBER.text] ) | ID -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] ) | IRI_REF -> ^( SHORTCONST IRI[$IRI_REF.text] ) )
             int alt34=5;
             switch ( input.LA(1) ) {
             case STRING:
@@ -3818,7 +3817,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt34) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:195:9: const_string
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:193:9: const_string
                     {
                     pushFollow(FOLLOW_const_string_in_constant1314);
                     const_string81=const_string();
@@ -3838,7 +3837,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 195:22: -> const_string
+                    // 193:22: -> const_string
                     {
                         adaptor.addChild(root_0, stream_const_string.nextTree());
 
@@ -3850,7 +3849,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:196:9: CURIE
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:194:9: CURIE
                     {
                     CURIE82=(Token)match(input,CURIE,FOLLOW_CURIE_in_constant1328);  
                     stream_CURIE.add(CURIE82);
@@ -3867,9 +3866,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 196:17: -> ^( SHORTCONST IRI[$CURIE.text] )
+                    // 194:17: -> ^( SHORTCONST IRI[$CURIE.text] )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:196:20: ^( SHORTCONST IRI[$CURIE.text] )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:194:20: ^( SHORTCONST IRI[$CURIE.text] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3891,7 +3890,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:197:9: NUMBER
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:195:9: NUMBER
                     {
                     NUMBER83=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_constant1350);  
                     stream_NUMBER.add(NUMBER83);
@@ -3908,9 +3907,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 197:17: -> ^( SHORTCONST NUMBER[$NUMBER.text] )
+                    // 195:17: -> ^( SHORTCONST NUMBER[$NUMBER.text] )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:197:20: ^( SHORTCONST NUMBER[$NUMBER.text] )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:195:20: ^( SHORTCONST NUMBER[$NUMBER.text] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3932,7 +3931,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:198:9: ID
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:196:9: ID
                     {
                     ID84=(Token)match(input,ID,FOLLOW_ID_in_constant1370);  
                     stream_ID.add(ID84);
@@ -3954,9 +3953,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 202:9: -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] )
+                    // 200:9: -> ^( SHORTCONST LOCAL[$ID.text.substring(1)] )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:202:12: ^( SHORTCONST LOCAL[$ID.text.substring(1)] )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:200:12: ^( SHORTCONST LOCAL[$ID.text.substring(1)] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -3978,7 +3977,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:203:9: IRI_REF
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:201:9: IRI_REF
                     {
                     IRI_REF85=(Token)match(input,IRI_REF,FOLLOW_IRI_REF_in_constant1401);  
                     stream_IRI_REF.add(IRI_REF85);
@@ -3995,9 +3994,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 203:17: -> ^( SHORTCONST IRI[$IRI_REF.text] )
+                    // 201:17: -> ^( SHORTCONST IRI[$IRI_REF.text] )
                     {
-                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:203:20: ^( SHORTCONST IRI[$IRI_REF.text] )
+                        // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:201:20: ^( SHORTCONST IRI[$IRI_REF.text] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(
@@ -4049,7 +4048,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "const_string"
-    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:1: const_string : STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )? -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] ) -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text] ;
+    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:206:1: const_string : STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )? -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] ) -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text] ;
     public final RuleMLPresentationSyntaxParser.const_string_return const_string() throws RecognitionException {
         RuleMLPresentationSyntaxParser.const_string_return retval = new RuleMLPresentationSyntaxParser.const_string_return();
         retval.start = input.LT(1);
@@ -4078,14 +4077,14 @@ public TreeAdaptor getTreeAdaptor() {
 
          boolean isAbbrivated = true; 
         try {
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:5: ( STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )? -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] ) -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text] )
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:7: STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:5: ( STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )? -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] ) -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text] )
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:7: STRING ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )?
             {
             STRING86=(Token)match(input,STRING,FOLLOW_STRING_in_const_string1435);  
             stream_STRING.add(STRING86);
 
 
-            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:14: ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )?
+            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:14: ( ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) ) | '@' )?
             int alt36=3;
             switch ( input.LA(1) ) {
                 case SYMSPACE_OPER:
@@ -4102,16 +4101,16 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt36) {
                 case 1 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:15: ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) )
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:15: ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) )
                     {
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:15: ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) )
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:16: SYMSPACE_OPER symspace= ( IRI_REF | CURIE )
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:15: ( SYMSPACE_OPER symspace= ( IRI_REF | CURIE ) )
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:16: SYMSPACE_OPER symspace= ( IRI_REF | CURIE )
                     {
                     SYMSPACE_OPER87=(Token)match(input,SYMSPACE_OPER,FOLLOW_SYMSPACE_OPER_in_const_string1439);  
                     stream_SYMSPACE_OPER.add(SYMSPACE_OPER87);
 
 
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:39: ( IRI_REF | CURIE )
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:39: ( IRI_REF | CURIE )
                     int alt35=2;
                     switch ( input.LA(1) ) {
                     case IRI_REF:
@@ -4134,7 +4133,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                     switch (alt35) {
                         case 1 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:40: IRI_REF
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:40: IRI_REF
                             {
                             IRI_REF88=(Token)match(input,IRI_REF,FOLLOW_IRI_REF_in_const_string1444);  
                             stream_IRI_REF.add(IRI_REF88);
@@ -4143,7 +4142,7 @@ public TreeAdaptor getTreeAdaptor() {
                             }
                             break;
                         case 2 :
-                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:50: CURIE
+                            // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:50: CURIE
                             {
                             CURIE89=(Token)match(input,CURIE,FOLLOW_CURIE_in_const_string1448);  
                             stream_CURIE.add(CURIE89);
@@ -4163,7 +4162,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:210:87: '@'
+                    // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:208:87: '@'
                     {
                     char_literal90=(Token)match(input,50,FOLLOW_50_in_const_string1457);  
                     stream_50.add(char_literal90);
@@ -4186,9 +4185,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 211:5: -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] )
+            // 209:5: -> {isAbbrivated}? ^( SHORTCONST LITERAL[getStrValue($STRING.text)] )
             if (isAbbrivated) {
-                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:211:24: ^( SHORTCONST LITERAL[getStrValue($STRING.text)] )
+                // org/ruleml/api/presentation_syntax_parser/RuleMLPresentationSyntax.g:209:24: ^( SHORTCONST LITERAL[getStrValue($STRING.text)] )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(
@@ -4204,7 +4203,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             }
 
-            else // 212:5: -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text]
+            else // 210:5: -> LITERAL[getStrValue($STRING.text)] IRI[$symspace.text]
             {
                 adaptor.addChild(root_0, 
                 (CommonTree)adaptor.create(LITERAL, getStrValue((STRING86!=null?STRING86.getText():null)))
